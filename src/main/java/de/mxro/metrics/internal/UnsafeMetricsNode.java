@@ -16,7 +16,7 @@ public class UnsafeMetricsNode implements MetricsNode {
 
     @Override
     public void record(final MetricOperation op) {
-
+        op.perform(data);
     }
 
     public UnsafeMetricsNode() {
