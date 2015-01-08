@@ -4,7 +4,7 @@ import de.mxro.metrics.internal.MetricsNodeUnsafe;
 
 public class Metrics {
 
-    public static MetricsNode create() {
+    public static MetricsNode createUnsafe() {
         return new MetricsNodeUnsafe();
     }
 

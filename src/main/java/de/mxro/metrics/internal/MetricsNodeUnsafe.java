@@ -33,7 +33,6 @@ public class MetricsNodeUnsafe implements MetricsNode {
         final Meter meter = assertType(id, Meter.class);
 
         meter.mark();
-
     }
 
     public MetricsNodeUnsafe() {
