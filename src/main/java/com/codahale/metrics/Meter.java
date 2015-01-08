@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  * @see EWMA
  */
 public class Meter implements Metered {
-    private static final long TICK_INTERVAL = TimeUnit.SECONDS.toMillis(5);
+    private static final long TICK_INTERVAL = TimeUnit.SECONDS.toNanos(5);
 
     private final EWMA m1Rate = EWMA.oneMinuteEWMA();
     private final EWMA m5Rate = EWMA.fiveMinuteEWMA();
@@ -64,7 +64,7 @@ public class Meter implements Metered {
         final long oldTick = lastTick;
         final long newTick = clock.getTick();
         final long age = newTick - oldTick;
-        System.out.println("age " + newTick + " " + TICK_INTERVAL + " " + (age - TICK_INTERVAL));
+        System.out.println("age " + TICK_INTERVAL + " " + age);
         if (age > TICK_INTERVAL) {
             final long newIntervalStartTick = newTick - age % TICK_INTERVAL;
             // if (lastTick == oldTick) {
