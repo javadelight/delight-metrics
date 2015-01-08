@@ -116,10 +116,10 @@ public class Meter implements Metered {
     @Override
     public String toString() {
         final JSON o = new JSON();
-        o.add("count", count);
-        o.add("1MinuteRate", getOneMinuteRate());
-        o.add("5MinuteRate", getFiveMinuteRate());
-        o.add("15MinuteRate", getFifteenMinuteRate());
+        o.add("Total Events", count);
+        o.add("Events per Second (last Minute)", getOneMinuteRate());
+        o.add("Events per Second (last 5 Minutes)", getFiveMinuteRate());
+        o.add("Events per Second (last 15 Minutes)", getFifteenMinuteRate());
         return o.render();
     }
 
