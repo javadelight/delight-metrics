@@ -1,5 +1,6 @@
 package de.mxro.metrics.internal;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import de.mxro.metrics.helpers.MetricsData;
@@ -29,7 +30,7 @@ public class MetricsDataImpl implements MetricsData {
 
     public MetricsDataImpl() {
         super();
-
+        this.metrics = new HashMap<String, Object>();
     }
 
     @Override
