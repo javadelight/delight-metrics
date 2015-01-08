@@ -7,6 +7,7 @@ import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.Matcher;
@@ -48,7 +49,9 @@ public class TestMeter {
       m.record(_meter_2);
       Thread.sleep(100);
       String _string = m.toString("de.mxro.test.meter1");
-      boolean _contains = _string.contains("3");
+      InputOutput.<String>println(_string);
+      String _string_1 = m.toString("de.mxro.test.meter1");
+      boolean _contains = _string_1.contains("3");
       TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);

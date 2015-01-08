@@ -36,6 +36,8 @@ class TestMeter {
 
 		Thread.sleep(100)
 
+		println(m.toString("de.mxro.test.meter1"))
+
 		m.toString("de.mxro.test.meter1").contains("3") => true
 	}
 	
