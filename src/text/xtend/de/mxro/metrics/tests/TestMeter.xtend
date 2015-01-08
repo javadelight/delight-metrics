@@ -14,6 +14,8 @@ class TestMeter {
 		val m = Metrics.createUnsafe
 		
 		m.record(Metrics.meter("de.mxro.test.meter1"))
+		m.record(Metrics.meter("de.mxro.test.meter1"))
+		m.record(Metrics.meter("de.mxro.test.meter1"))
 
 		println(m.toString("de.mxro.test.meter1"))
 	}

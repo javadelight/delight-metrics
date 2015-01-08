@@ -25,6 +25,10 @@ public class TestMeter {
     final MetricsNode m = Metrics.createUnsafe();
     MetricOperation _meter = Metrics.meter("de.mxro.test.meter1");
     m.record(_meter);
+    MetricOperation _meter_1 = Metrics.meter("de.mxro.test.meter1");
+    m.record(_meter_1);
+    MetricOperation _meter_2 = Metrics.meter("de.mxro.test.meter1");
+    m.record(_meter_2);
     String _string = m.toString("de.mxro.test.meter1");
     InputOutput.<String>println(_string);
   }

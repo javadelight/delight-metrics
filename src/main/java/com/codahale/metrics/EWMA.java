@@ -109,4 +109,10 @@ public class EWMA {
     public double getRate(final TimeUnit rateUnit) {
         return rate * rateUnit.toNanos(1);
     }
+
+    @Override
+    public String toString() {
+        return rate + "";
+    }
+
 }
