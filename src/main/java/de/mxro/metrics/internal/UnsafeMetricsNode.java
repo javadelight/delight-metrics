@@ -33,4 +33,10 @@ public class UnsafeMetricsNode implements MetricsNode {
         return object.toString();
     }
 
+    @Override
+    public MetricsData data() {
+
+        return data;
+    }
+
 }
