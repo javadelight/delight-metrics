@@ -1,0 +1,10 @@
+/target
+/bin
+MANIFEST.MF
+.classpath
+.project
+.settings
+/META-INF
+**/*.java._trace
+**/*_trace
+*._trace
