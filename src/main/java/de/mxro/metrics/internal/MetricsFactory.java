@@ -1,18 +1,23 @@
 package de.mxro.metrics.internal;
 
+import com.codahale.metrics.Counter;
 import com.codahale.metrics.Meter;
 
 public class MetricsFactory {
 
+    @SuppressWarnings("unchecked")
     public <T> T create(final Class<T> type) {
-        Object newEntry;
+
         if (type.equals(Meter.class)) {
-            newEntry = new Meter();
-        } else {
-            throw new RuntimeException("Cannot create metric of type [" + type.getClass() + "]");
+            return (T) new Meter();
         }
 
-        return (T) newEntry;
+        if (type.equals(Counter.class)) {
+            return (T) new Counter();
+        }
+
+        throw new RuntimeException("Cannot create metric of type [" + type.getClass() + "]");
+
     }
 
 }
