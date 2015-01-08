@@ -9,7 +9,7 @@ public class Metrics {
         return null;
     }
 
-    public MetricOperation meter(final String id) {
+    public static MetricOperation meter(final String id) {
         return new MarkMeter().setId(id);
     }
 
