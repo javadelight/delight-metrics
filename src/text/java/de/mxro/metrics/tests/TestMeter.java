@@ -54,6 +54,7 @@ public class TestMeter {
           Thread.sleep(100);
           String _string = m.toString("de.mxro.test.meter1");
           InputOutput.<String>println(_string);
+          Thread.sleep(100);
         }
       }
       String _string = m.toString("de.mxro.test.meter1");

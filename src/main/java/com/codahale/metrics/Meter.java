@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  * @see EWMA
  */
 public class Meter implements Metered {
-    private static final long TICK_INTERVAL = TimeUnit.MILLISECONDS.toNanos(5);// TimeUnit.SECONDS.toNanos(5);
+    private static final long TICK_INTERVAL = TimeUnit.SECONDS.toNanos(5);
 
     private final EWMA m1Rate = EWMA.oneMinuteEWMA();
     private final EWMA m5Rate = EWMA.fiveMinuteEWMA();
