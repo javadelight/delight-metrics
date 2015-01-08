@@ -4,7 +4,7 @@ import com.codahale.metrics.Meter;
 
 import de.mxro.metrics.helpers.MetricsData;
 
-public class MarkMeter extends OperationWithId {
+public class MarkEvent extends OperationWithId {
 
     @Override
     public void perform(final MetricsData data) {

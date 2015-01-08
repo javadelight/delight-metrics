@@ -25,12 +25,12 @@ public class TestMeter {
   @Test
   public void test_count() {
     final MetricsNode m = Metrics.createUnsafe();
-    MetricOperation _meter = Metrics.meter("de.mxro.test.meter1");
-    m.record(_meter);
-    MetricOperation _meter_1 = Metrics.meter("de.mxro.test.meter1");
-    m.record(_meter_1);
-    MetricOperation _meter_2 = Metrics.meter("de.mxro.test.meter1");
-    m.record(_meter_2);
+    MetricOperation _event = Metrics.event("de.mxro.test.meter1");
+    m.record(_event);
+    MetricOperation _event_1 = Metrics.event("de.mxro.test.meter1");
+    m.record(_event_1);
+    MetricOperation _event_2 = Metrics.event("de.mxro.test.meter1");
+    m.record(_event_2);
     String _string = m.toString("de.mxro.test.meter1");
     boolean _contains = _string.contains("3");
     TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
@@ -43,14 +43,14 @@ public class TestMeter {
       ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, 1000, true);
       for (final Integer i : _doubleDotLessThan) {
         {
-          MetricOperation _meter = Metrics.meter("de.mxro.test.meter1");
-          m.record(_meter);
+          MetricOperation _event = Metrics.event("de.mxro.test.meter1");
+          m.record(_event);
           Thread.sleep(100);
-          MetricOperation _meter_1 = Metrics.meter("de.mxro.test.meter1");
-          m.record(_meter_1);
+          MetricOperation _event_1 = Metrics.event("de.mxro.test.meter1");
+          m.record(_event_1);
           Thread.sleep(100);
-          MetricOperation _meter_2 = Metrics.meter("de.mxro.test.meter1");
-          m.record(_meter_2);
+          MetricOperation _event_2 = Metrics.event("de.mxro.test.meter1");
+          m.record(_event_2);
           Thread.sleep(100);
           String _string = m.toString("de.mxro.test.meter1");
           InputOutput.<String>println(_string);

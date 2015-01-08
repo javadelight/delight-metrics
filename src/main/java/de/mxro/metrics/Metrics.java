@@ -2,7 +2,7 @@ package de.mxro.metrics;
 
 import de.mxro.metrics.helpers.MetricOperation;
 import de.mxro.metrics.internal.UnsafeMetricsNode;
-import de.mxro.metrics.internal.operations.MarkMeter;
+import de.mxro.metrics.internal.operations.MarkEvent;
 
 public class Metrics {
 
@@ -10,8 +10,8 @@ public class Metrics {
         return new UnsafeMetricsNode();
     }
 
-    public static MetricOperation meter(final String id) {
-        return new MarkMeter().setId(id);
+    public static MetricOperation event(final String id) {
+        return new MarkEvent().setId(id);
     }
 
 }
