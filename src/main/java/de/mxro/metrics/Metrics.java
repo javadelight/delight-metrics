@@ -8,4 +8,8 @@ public class Metrics {
         return new MetricsNodeUnsafe();
     }
 
+    public MetricOperation meter(final String id) {
+
+    }
+
 }
