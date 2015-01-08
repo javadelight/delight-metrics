@@ -10,7 +10,7 @@ public class Metrics {
         return new UnsafeMetricsNode();
     }
 
-    public static MetricOperation event(final String id) {
+    public static MetricOperation happened(final String id) {
         return new MarkEvent().setId(id);
     }
 

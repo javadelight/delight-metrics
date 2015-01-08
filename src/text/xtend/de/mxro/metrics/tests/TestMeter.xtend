@@ -13,9 +13,9 @@ class TestMeter {
 	def void test_count() {
 		val m = Metrics.createUnsafe
 
-		m.record(Metrics.event("de.mxro.test.meter1"))
-		m.record(Metrics.event("de.mxro.test.meter1"))
-		m.record(Metrics.event("de.mxro.test.meter1"))
+		m.record(Metrics.happened("de.mxro.test.meter1"))
+		m.record(Metrics.happened("de.mxro.test.meter1"))
+		m.record(Metrics.happened("de.mxro.test.meter1"))
 
 		m.toString("de.mxro.test.meter1").contains("3") => true
 	}
@@ -26,14 +26,14 @@ class TestMeter {
 
 		for (i : 0 ..< 10) {
 
-			m.record(Metrics.event("de.mxro.test.meter1"))
+			m.record(Metrics.happened("de.mxro.test.meter1"))
 
 			Thread.sleep(110)
 
-			m.record(Metrics.event("de.mxro.test.meter1"))
+			m.record(Metrics.happened("de.mxro.test.meter1"))
 
 			Thread.sleep(110)
-			m.record(Metrics.event("de.mxro.test.meter1"))
+			m.record(Metrics.happened("de.mxro.test.meter1"))
 
 			Thread.sleep(110)
 
