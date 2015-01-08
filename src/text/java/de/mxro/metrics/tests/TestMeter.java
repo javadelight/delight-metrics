@@ -1,14 +1,7 @@
 package de.mxro.metrics.tests;
 
-import com.codahale.metrics.Meter;
-import de.mxro.metrics.Metrics;
-import de.mxro.metrics.MetricsNode;
-import de.mxro.metrics.helpers.MetricOperation;
-import de.mxro.metrics.helpers.MetricsData;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
-import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.hamcrest.CoreMatchers;
@@ -25,50 +18,26 @@ import org.junit.rules.ErrorCollector;
 public class TestMeter {
   @Test
   public void test_count() {
-    final MetricsNode m = Metrics.createUnsafe();
-    MetricOperation _happened = Metrics.happened("de.mxro.test.meter1");
-    m.record(_happened);
-    MetricOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
-    m.record(_happened_1);
-    MetricOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
-    m.record(_happened_2);
-    MetricsData _data = m.data();
-    String _string = _data.toString("de.mxro.test.meter1");
-    boolean _contains = _string.contains("3");
-    TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method data is undefined for the type TestMeter"
+      + "\ntoString cannot be resolved"
+      + "\ncontains cannot be resolved"
+      + "\n=> cannot be resolved");
   }
   
   @Test
   public void test_rates() {
-    try {
-      final MetricsNode m = Metrics.createUnsafe();
-      ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, 20, true);
-      for (final Integer i : _doubleDotLessThan) {
-        {
-          MetricOperation _happened = Metrics.happened("de.mxro.test.meter1");
-          m.record(_happened);
-          Thread.sleep(110);
-          MetricOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
-          m.record(_happened_1);
-          Thread.sleep(110);
-          MetricOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
-          m.record(_happened_2);
-          Thread.sleep(110);
-        }
-      }
-      MetricsData _data = m.data();
-      Meter _get = _data.<Meter>get("de.mxro.test.meter1", Meter.class);
-      double _fiveMinuteRate = _get.getFiveMinuteRate();
-      boolean _greaterThan = (_fiveMinuteRate > 5.0);
-      TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_greaterThan), Boolean.valueOf(true));
-      MetricsData _data_1 = m.data();
-      Meter _get_1 = _data_1.<Meter>get("de.mxro.test.meter1", Meter.class);
-      double _fiveMinuteRate_1 = _get_1.getFiveMinuteRate();
-      boolean _lessThan = (_fiveMinuteRate_1 < 20.0);
-      TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_lessThan), Boolean.valueOf(true));
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method data is undefined for the type TestMeter"
+      + "\nThe method data is undefined for the type TestMeter"
+      + "\nget cannot be resolved"
+      + "\nfiveMinuteRate cannot be resolved"
+      + "\n> cannot be resolved"
+      + "\n=> cannot be resolved"
+      + "\nget cannot be resolved"
+      + "\nfiveMinuteRate cannot be resolved"
+      + "\n< cannot be resolved"
+      + "\n=> cannot be resolved");
   }
   
   private static void assertArrayEquals(final Object[] expecteds, final Object[] actuals) {

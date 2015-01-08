@@ -1,9 +1,5 @@
 package de.mxro.metrics.tests;
 
-import de.mxro.metrics.Metrics;
-import de.mxro.metrics.MetricsNode;
-import de.mxro.metrics.helpers.MetricOperation;
-import de.mxro.metrics.helpers.MetricsData;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
 import org.eclipse.xtext.xbase.lib.Extension;
@@ -22,18 +18,11 @@ import org.junit.rules.ErrorCollector;
 public class TestCounter {
   @Test
   public void test() {
-    MetricsNode m = Metrics.createUnsafe();
-    MetricOperation _increment = Metrics.increment("de.mxro.counter");
-    m.record(_increment);
-    MetricOperation _increment_1 = Metrics.increment("de.mxro.counter");
-    m.record(_increment_1);
-    MetricOperation _decrement = Metrics.decrement("de.mxro.counter");
-    m.record(_decrement);
-    MetricsData _data = m.data();
-    Object _get = _data.get("de.mxro.counter");
-    String _string = _get.toString();
-    boolean _contains = _string.contains("1");
-    TestCounter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method data is undefined for the type TestCounter"
+      + "\ntoString cannot be resolved"
+      + "\ncontains cannot be resolved"
+      + "\n=> cannot be resolved");
   }
   
   private static void assertArrayEquals(final Object[] expecteds, final Object[] actuals) {

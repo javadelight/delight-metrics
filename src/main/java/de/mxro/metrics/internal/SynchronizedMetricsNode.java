@@ -3,7 +3,7 @@ package de.mxro.metrics.internal;
 import de.mxro.concurrency.schedule.AccessThread;
 import de.mxro.concurrency.schedule.Step;
 import de.mxro.metrics.MetricsNode;
-import de.mxro.metrics.helpers.MetricOperation;
+import de.mxro.metrics.helpers.RecordOperation;
 
 public class SynchronizedMetricsNode implements MetricsNode {
 
@@ -12,7 +12,7 @@ public class SynchronizedMetricsNode implements MetricsNode {
     private final AccessThread accessThread;
 
     @Override
-    public void record(final MetricOperation op) {
+    public void record(final RecordOperation op) {
         accessThread.offer(new Step() {
 
             @Override

@@ -1,7 +1,7 @@
 package de.mxro.metrics.internal;
 
 import de.mxro.metrics.MetricsNode;
-import de.mxro.metrics.helpers.MetricOperation;
+import de.mxro.metrics.helpers.RecordOperation;
 import de.mxro.metrics.helpers.MetricsData;
 
 /**
@@ -15,7 +15,7 @@ public class UnsafeMetricsNode implements MetricsNode {
     private final MetricsData data;
 
     @Override
-    public void record(final MetricOperation op) {
+    public void record(final RecordOperation op) {
         op.perform(data);
     }
 

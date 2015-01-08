@@ -1,9 +1,9 @@
 package de.mxro.metrics.internal.operations;
 
-import de.mxro.metrics.helpers.MetricOperation;
+import de.mxro.metrics.helpers.RecordOperation;
 import de.mxro.metrics.helpers.MetricsData;
 
-public abstract class OperationWithId implements MetricOperation {
+public abstract class OperationWithId implements RecordOperation {
 
     protected String id;
 

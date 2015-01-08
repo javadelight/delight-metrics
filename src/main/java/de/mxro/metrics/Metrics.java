@@ -1,6 +1,6 @@
 package de.mxro.metrics;
 
-import de.mxro.metrics.helpers.MetricOperation;
+import de.mxro.metrics.helpers.RecordOperation;
 import de.mxro.metrics.internal.UnsafeMetricsNode;
 import de.mxro.metrics.internal.operations.CounterEvent;
 import de.mxro.metrics.internal.operations.HistrogramEvent;
@@ -12,19 +12,19 @@ public class Metrics {
         return new UnsafeMetricsNode();
     }
 
-    public static MetricOperation happened(final String id) {
+    public static RecordOperation happened(final String id) {
         return new MarkEvent().setId(id);
     }
 
-    public static MetricOperation increment(final String id) {
+    public static RecordOperation increment(final String id) {
         return new CounterEvent(1).setId(id);
     }
 
-    public static MetricOperation decrement(final String id) {
+    public static RecordOperation decrement(final String id) {
         return new CounterEvent(-1).setId(id);
     }
 
-    public static MetricOperation value(final String id, final long value) {
+    public static RecordOperation value(final String id, final long value) {
         return new HistrogramEvent(value).setId(id);
     }
 
