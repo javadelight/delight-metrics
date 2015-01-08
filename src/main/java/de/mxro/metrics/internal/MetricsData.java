@@ -2,8 +2,6 @@ package de.mxro.metrics.internal;
 
 import java.util.Map;
 
-import com.codahale.metrics.Meter;
-
 import de.mxro.metrics.MetricsNode;
 
 /**
@@ -12,12 +10,12 @@ import de.mxro.metrics.MetricsNode;
  * @author <a href="http://www.mxro.de">Max Rohde</a>
  *
  */
-public class MetricsNodeUnsafe implements MetricsNode {
+public class MetricsData {
 
     Map<String, Object> metrics;
 
     @SuppressWarnings("unchecked")
-    private <T> T assertType(final String id, final Class<T> type) {
+    public <T> T assertType(final String id, final Class<T> type) {
         final Object object = metrics.get(id);
 
         if (!(object.getClass().equals(type))) {
@@ -28,14 +26,7 @@ public class MetricsNodeUnsafe implements MetricsNode {
         return (T) object;
     }
 
-    @Override
-    public void meter(final String id) {
-        final Meter meter = assertType(id, Meter.class);
-
-        meter.mark();
-    }
-
-    public MetricsNodeUnsafe() {
+    public MetricsData() {
         super();
 
     }
