@@ -8,44 +8,38 @@ import org.junit.Test
 @JUnit
 @Hamcrest
 class TestMeter {
-	
+
 	@Test
 	def void test_count() {
 		val m = Metrics.createUnsafe
-		
+
 		m.record(Metrics.event("de.mxro.test.meter1"))
 		m.record(Metrics.event("de.mxro.test.meter1"))
 		m.record(Metrics.event("de.mxro.test.meter1"))
 
 		m.toString("de.mxro.test.meter1").contains("3") => true
 	}
-	
-	
+
 	@Test
 	def void test_rates() {
 		val m = Metrics.createUnsafe
-		
-		for (i : 0 ..< 1000) {
-		
-		m.record(Metrics.event("de.mxro.test.meter1"))
-		
-		Thread.sleep(100)
-		
-		m.record(Metrics.event("de.mxro.test.meter1"))
-		
-		Thread.sleep(100)
-		m.record(Metrics.event("de.mxro.test.meter1"))
 
-		Thread.sleep(100)
-		
-		println(m.toString("de.mxro.test.meter1"))
-		
-		Thread.sleep(100)
+		for (i : 0 ..< 10) {
+
+			m.record(Metrics.event("de.mxro.test.meter1"))
+
+			Thread.sleep(110)
+
+			m.record(Metrics.event("de.mxro.test.meter1"))
+
+			Thread.sleep(110)
+			m.record(Metrics.event("de.mxro.test.meter1"))
+
+			Thread.sleep(110)
+
 		}
-
-		
 
 		m.toString("de.mxro.test.meter1").contains("3") => true
 	}
-	
+
 }

@@ -8,7 +8,6 @@ import de.oehme.xtend.junit.JUnit;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Extension;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.Matcher;
@@ -40,21 +39,18 @@ public class TestMeter {
   public void test_rates() {
     try {
       final MetricsNode m = Metrics.createUnsafe();
-      ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, 1000, true);
+      ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, 10, true);
       for (final Integer i : _doubleDotLessThan) {
         {
           MetricOperation _event = Metrics.event("de.mxro.test.meter1");
           m.record(_event);
-          Thread.sleep(100);
+          Thread.sleep(110);
           MetricOperation _event_1 = Metrics.event("de.mxro.test.meter1");
           m.record(_event_1);
-          Thread.sleep(100);
+          Thread.sleep(110);
           MetricOperation _event_2 = Metrics.event("de.mxro.test.meter1");
           m.record(_event_2);
-          Thread.sleep(100);
-          String _string = m.toString("de.mxro.test.meter1");
-          InputOutput.<String>println(_string);
-          Thread.sleep(100);
+          Thread.sleep(110);
         }
       }
       String _string = m.toString("de.mxro.test.meter1");
