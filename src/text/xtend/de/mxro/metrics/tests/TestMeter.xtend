@@ -15,6 +15,8 @@ class TestMeter {
 		
 		m.record(Metrics.meter("de.mxro.test.meter1"));
 		
+		
+		println(m.get("de.mxro.test.meter1"))
 	}
 	
 }

@@ -32,4 +32,9 @@ public class MetricsDataImpl implements MetricsData {
 
     }
 
+    @Override
+    public Object get(final String id) {
+        return metrics.get(metrics);
+    }
+
 }

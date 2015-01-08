@@ -1,8 +1,5 @@
 package de.mxro.metrics.tests;
 
-import de.mxro.metrics.Metrics;
-import de.mxro.metrics.MetricsNode;
-import de.mxro.metrics.helpers.MetricOperation;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
 import org.eclipse.xtext.xbase.lib.Extension;
@@ -21,9 +18,8 @@ import org.junit.rules.ErrorCollector;
 public class TestMeter {
   @Test
   public void test() {
-    MetricsNode m = Metrics.createUnsafe();
-    MetricOperation _meter = Metrics.meter("de.mxro.test.meter1");
-    m.record(_meter);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method get is undefined for the type TestMeter");
   }
   
   private static void assertArrayEquals(final Object[] expecteds, final Object[] actuals) {

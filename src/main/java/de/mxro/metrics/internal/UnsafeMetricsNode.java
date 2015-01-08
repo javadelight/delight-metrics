@@ -24,4 +24,13 @@ public class UnsafeMetricsNode implements MetricsNode {
         this.data = new MetricsDataImpl();
     }
 
+    @Override
+    public String toString(final String id) {
+        final Object object = data.get(id);
+        if (object == null) {
+            throw new RuntimeException("No entry defined for id [" + id + "]");
+        }
+        return object.toString();
+    }
+
 }
