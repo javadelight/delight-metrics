@@ -6,7 +6,7 @@ import de.mxro.metrics.helpers.MetricsData;
 
 public class HistrogramEvent extends OperationWithId {
 
-    private final int value;
+    private final long value;
 
     @Override
     public void perform(final MetricsData data) {
@@ -17,7 +17,7 @@ public class HistrogramEvent extends OperationWithId {
 
     }
 
-    public HistrogramEvent(final int value) {
+    public HistrogramEvent(final long value) {
         super();
         this.value = value;
     }
