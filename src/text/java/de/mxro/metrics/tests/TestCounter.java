@@ -7,6 +7,7 @@ import de.mxro.metrics.helpers.MetricsData;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.Matcher;
@@ -23,17 +24,15 @@ public class TestCounter {
   @Test
   public void test() {
     MetricsNode m = Metrics.createUnsafe();
-    MetricOperation _increment = Metrics.increment("de.mxro.counter");
-    m.record(_increment);
-    MetricOperation _increment_1 = Metrics.increment("de.mxro.counter");
-    m.record(_increment_1);
-    MetricOperation _decrement = Metrics.decrement("de.mxro.counter");
-    m.record(_decrement);
+    MetricOperation _value = Metrics.value("de.mxro.hist", 1);
+    m.record(_value);
+    MetricOperation _value_1 = Metrics.value("de.mxro.hist", 2);
+    m.record(_value_1);
+    MetricOperation _value_2 = Metrics.value("de.mxro.hist", 3);
+    m.record(_value_2);
     MetricsData _data = m.data();
-    Object _get = _data.get("de.mxro.counter");
-    String _string = _get.toString();
-    boolean _contains = _string.contains("1");
-    TestCounter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
+    String _string = _data.toString("de.mxro.hist");
+    InputOutput.<String>println(_string);
   }
   
   private static void assertArrayEquals(final Object[] expecteds, final Object[] actuals) {

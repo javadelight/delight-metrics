@@ -56,4 +56,12 @@ public class Histogram implements Metric, Sampling, Counting {
     public Snapshot getSnapshot() {
         return reservoir.getSnapshot();
     }
+
+    @Override
+    public String toString() {
+        final JSON o = new JSON();
+        o.add(key, value);
+        return o.render();
+    }
+
 }
