@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- Template: Source + GWT + in workspace dependencies 27.11.2010 --><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- Template: Source 
+	+ GWT + in workspace dependencies 27.11.2010 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<groupId>de.mxro.metrics</groupId>
 	<artifactId>metrics</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
-	
+
 	<description>Lightweight Java matrics.</description>
 	<url>https://github.com/mxro/lightweight-java-metrics</url>
 	<properties>
@@ -21,6 +24,12 @@
 	<dependencies>
 
 		<dependency>
+			<artifactId>concurrency-api</artifactId>
+			<groupId>de.mxro.concurrency</groupId>
+			<version>0.0.5</version>
+		</dependency>
+
+		<dependency>
 			<groupId>de.mxro.fn</groupId>
 			<artifactId>fn-api</artifactId>
 			<version>0.0.6</version>
@@ -32,14 +41,14 @@
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.eclipse.xtend</groupId>
 			<artifactId>org.eclipse.xtend.lib</artifactId>
 			<version>2.7.1</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.github.oehme.xtend</groupId>
 			<artifactId>xtend-junit</artifactId>
@@ -149,8 +158,8 @@
 						</goals>
 						<configuration>
 							<tasks>
-								<delete file="${basedir}/META-INF/MANIFEST.MF"/>
-								<copy file="target/classes/META-INF/MANIFEST.MF" tofile="${basedir}/META-INF/MANIFEST.MF"/>
+								<delete file="${basedir}/META-INF/MANIFEST.MF" />
+								<copy file="target/classes/META-INF/MANIFEST.MF" tofile="${basedir}/META-INF/MANIFEST.MF" />
 							</tasks>
 						</configuration>
 					</execution>
@@ -301,10 +310,10 @@
 
 		</resources>
 
-		
+
 	</build>
 
-	
+
 	<repositories>
 		<repository>
 			<id>Appjangle Releases</id>
