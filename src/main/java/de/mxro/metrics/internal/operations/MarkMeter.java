@@ -13,8 +13,4 @@ public class MarkMeter extends OperationWithId {
         meter.mark();
     }
 
-    public MarkMeter(final String id) {
-        super(id);
-    }
-
 }

@@ -1,15 +1,15 @@
 package de.mxro.metrics;
 
-import de.mxro.metrics.internal.MetricsDataImpl;
+import de.mxro.metrics.internal.operations.MarkMeter;
 
 public class Metrics {
 
     public static MetricsNode createUnsafe() {
-        return new MetricsDataImpl();
+        return null;
     }
 
     public MetricOperation meter(final String id) {
-
+        return new MarkMeter().setId(id);
     }
 
 }
