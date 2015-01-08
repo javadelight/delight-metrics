@@ -28,4 +28,15 @@ public class SynchronizedMetricsNode implements MetricsNode {
         this.accessThread = accessThread;
     }
 
+    @Override
+    public <T> T get(final String id, final Class<T> type) {
+
+        return decorated.get(id, type);
+    }
+
+    @Override
+    public Object get(final String id) {
+        return decorated.get(id);
+    }
+
 }
