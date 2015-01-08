@@ -1,8 +1,8 @@
 package de.mxro.metrics.internal;
 
-import de.mxro.metrics.MetricOperation;
-import de.mxro.metrics.MetricsData;
 import de.mxro.metrics.MetricsNode;
+import de.mxro.metrics.helpers.MetricOperation;
+import de.mxro.metrics.helpers.MetricsData;
 
 /**
  * A non-thread safe implementation of {@link MetricsNode}.

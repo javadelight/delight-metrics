@@ -1,7 +1,7 @@
 package de.mxro.metrics.internal.operations;
 
-import de.mxro.metrics.MetricOperation;
-import de.mxro.metrics.MetricsData;
+import de.mxro.metrics.helpers.MetricOperation;
+import de.mxro.metrics.helpers.MetricsData;
 
 public abstract class OperationWithId implements MetricOperation {
 

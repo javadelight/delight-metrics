@@ -2,7 +2,7 @@ package de.mxro.metrics.internal.operations;
 
 import com.codahale.metrics.Meter;
 
-import de.mxro.metrics.MetricsData;
+import de.mxro.metrics.helpers.MetricsData;
 
 public class MarkMeter extends OperationWithId {
 

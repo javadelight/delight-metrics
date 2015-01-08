@@ -1,4 +1,4 @@
-package de.mxro.metrics;
+package de.mxro.metrics.helpers;
 
 public interface MetricOperation {
 

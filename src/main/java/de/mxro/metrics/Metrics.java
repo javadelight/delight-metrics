@@ -1,5 +1,6 @@
 package de.mxro.metrics;
 
+import de.mxro.metrics.helpers.MetricOperation;
 import de.mxro.metrics.internal.operations.MarkMeter;
 
 public class Metrics {
