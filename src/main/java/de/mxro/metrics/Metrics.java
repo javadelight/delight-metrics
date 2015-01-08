@@ -1,11 +1,11 @@
 package de.mxro.metrics;
 
-import de.mxro.metrics.internal.MetricsCollectionImpl;
+import de.mxro.metrics.internal.MetricsNodeImpl;
 
 public class Metrics {
 
-    public static MetricsCollection create() {
-        return new MetricsCollectionImpl();
+    public static MetricsNode create() {
+        return new MetricsNodeImpl();
     }
 
 }
