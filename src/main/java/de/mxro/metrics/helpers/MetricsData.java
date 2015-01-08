@@ -6,6 +6,4 @@ public interface MetricsData {
 
     public Object get(String id);
 
-    public String toString(final String id);
-
 }

@@ -1,12 +1,13 @@
 package de.mxro.metrics;
 
 import de.mxro.metrics.helpers.MetricOperation;
-import de.mxro.metrics.helpers.MetricsData;
 
 public interface MetricsNode {
 
     public void record(MetricOperation op);
 
-    public MetricsData data();
+    public <T> T get(String id, Class<T> type);
+
+    public Object get(String id);
 
 }
