@@ -66,7 +66,9 @@ public class Histogram implements Metric, Sampling, Counting {
         o.add("Max", snap.getMax());
         o.add("Min", snap.getMin());
         o.add("75% of Values Within", snap.get75thPercentile());
-        o.add("Sum", getCount());
+        o.add("95% of Values Within", snap.get95thPercentile());
+        o.add("98 % of Values Within", snap.get98thPercentile());
+        // o.add("Sum", getCount());
 
         return o.render();
     }
