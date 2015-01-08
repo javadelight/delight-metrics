@@ -8,7 +8,7 @@ public class MarkEvent extends OperationWithId {
 
     @Override
     public void perform(final MetricsData data) {
-        final Meter meter = data.assertEntry(id, Meter.class);
+        final Meter meter = data.get(id, Meter.class);
 
         meter.mark();
     }

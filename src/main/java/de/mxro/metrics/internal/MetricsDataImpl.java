@@ -19,7 +19,7 @@ public class MetricsDataImpl implements MetricsData {
 
     @Override
     @SuppressWarnings("unchecked")
-    public <T> T assertEntry(final String id, final Class<T> type) {
+    public <T> T get(final String id, final Class<T> type) {
         final Object object = metrics.get(id);
 
         if (object == null) {

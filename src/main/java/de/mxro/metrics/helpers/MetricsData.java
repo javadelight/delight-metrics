@@ -2,7 +2,7 @@ package de.mxro.metrics.helpers;
 
 public interface MetricsData {
 
-    public <T> T assertEntry(String id, Class<T> type);
+    public <T> T get(String id, Class<T> type);
 
     public Object get(String id);
 
