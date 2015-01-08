@@ -52,4 +52,13 @@ public class MetricsDataImpl implements MetricsData {
         return metrics.get(id);
     }
 
+    @Override
+    public String toString(final String id) {
+        final Object object = this.get(id);
+        if (object == null) {
+            throw new RuntimeException("No entry defined for id [" + id + "]");
+        }
+        return object.toString();
+    }
+
 }

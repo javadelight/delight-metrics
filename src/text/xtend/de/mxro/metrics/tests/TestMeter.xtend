@@ -17,7 +17,7 @@ class TestMeter {
 		m.record(Metrics.happened("de.mxro.test.meter1"))
 		m.record(Metrics.happened("de.mxro.test.meter1"))
 
-		m.toString("de.mxro.test.meter1").contains("3") => true
+		m.data.toString("de.mxro.test.meter1").contains("3") => true
 	}
 
 	@Test
@@ -39,7 +39,7 @@ class TestMeter {
 
 		}
 
-		m.toString("de.mxro.test.meter1").contains("3") => true
+		m.data.toString("de.mxro.test.meter1").contains("3") => true
 	}
 
 }

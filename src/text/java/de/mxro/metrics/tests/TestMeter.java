@@ -3,6 +3,7 @@ package de.mxro.metrics.tests;
 import de.mxro.metrics.Metrics;
 import de.mxro.metrics.MetricsNode;
 import de.mxro.metrics.helpers.MetricOperation;
+import de.mxro.metrics.helpers.MetricsData;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
 import org.eclipse.xtext.xbase.lib.Exceptions;
@@ -30,7 +31,8 @@ public class TestMeter {
     m.record(_happened_1);
     MetricOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
     m.record(_happened_2);
-    String _string = m.toString("de.mxro.test.meter1");
+    MetricsData _data = m.data();
+    String _string = _data.toString("de.mxro.test.meter1");
     boolean _contains = _string.contains("3");
     TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
   }
@@ -53,7 +55,8 @@ public class TestMeter {
           Thread.sleep(110);
         }
       }
-      String _string = m.toString("de.mxro.test.meter1");
+      MetricsData _data = m.data();
+      String _string = _data.toString("de.mxro.test.meter1");
       boolean _contains = _string.contains("3");
       TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
     } catch (Throwable _e) {

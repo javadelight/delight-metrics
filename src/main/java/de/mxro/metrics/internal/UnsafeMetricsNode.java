@@ -25,15 +25,6 @@ public class UnsafeMetricsNode implements MetricsNode {
     }
 
     @Override
-    public String toString(final String id) {
-        final Object object = data.get(id);
-        if (object == null) {
-            throw new RuntimeException("No entry defined for id [" + id + "]");
-        }
-        return object.toString();
-    }
-
-    @Override
     public MetricsData data() {
 
         return data;
