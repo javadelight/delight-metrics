@@ -111,4 +111,13 @@ public class Meter implements Metered {
         tickIfNecessary();
         return m1Rate.getRate(TimeUnit.SECONDS);
     }
+
+    @Override
+    public String toString() {
+        final JSON o = new JSON();
+        o.add("m1rate", m1rate);
+        o.add("m5rate", m5rate);
+
+    }
+
 }
