@@ -1,5 +1,6 @@
 package de.mxro.metrics.tests;
 
+import com.codahale.metrics.Meter;
 import de.mxro.metrics.Metrics;
 import de.mxro.metrics.MetricsNode;
 import de.mxro.metrics.helpers.MetricOperation;
@@ -56,9 +57,10 @@ public class TestMeter {
         }
       }
       MetricsData _data = m.data();
-      String _string = _data.toString("de.mxro.test.meter1");
-      boolean _contains = _string.contains("3");
-      TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
+      Meter _get = _data.<Meter>get("de.mxro.test.meter1", Meter.class);
+      double _fiveMinuteRate = _get.getFiveMinuteRate();
+      boolean _greaterThan = (_fiveMinuteRate > 5.0);
+      TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_greaterThan), Boolean.valueOf(true));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
