@@ -20,4 +20,23 @@ class TestMeter {
 		m.toString("de.mxro.test.meter1").contains("3") => true
 	}
 	
+	
+	@Test
+	def void test_rates() {
+		val m = Metrics.createUnsafe
+		
+		m.record(Metrics.meter("de.mxro.test.meter1"))
+		
+		Thread.sleep(100)
+		
+		m.record(Metrics.meter("de.mxro.test.meter1"))
+		
+		Thread.sleep(100)
+		m.record(Metrics.meter("de.mxro.test.meter1"))
+
+		Thread.sleep(100)
+
+		m.toString("de.mxro.test.meter1").contains("3") => true
+	}
+	
 }
