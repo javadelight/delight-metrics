@@ -1,6 +1,5 @@
 package com.codahale.metrics;
 
-import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
@@ -23,8 +22,6 @@ public class WeightedSnapshot extends Snapshot {
             this.weight = weight;
         }
     }
-
-    private static final Charset UTF_8 = Charset.forName("UTF-8");
 
     private final long[] values;
     private final double[] normWeights;
