@@ -3,6 +3,8 @@ package de.mxro.metrics.internal;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.codahale.metrics.Meter;
+
 import de.mxro.metrics.helpers.MetricsData;
 
 /**
@@ -19,6 +21,18 @@ public class MetricsDataImpl implements MetricsData {
     @SuppressWarnings("unchecked")
     public <T> T assertEntry(final String id, final Class<T> type) {
         final Object object = metrics.get(id);
+
+        if (object == null) {
+            Object newEntry;
+            if (type.equals(Meter.class)) {
+                newEntry = new Meter();
+            } else {
+                throw new RuntimeException("Cannot create metric of type [" + type.getClass() + "]");
+            }
+
+            metrics.put(id, newEntry);
+            return (T) newEntry;
+        }
 
         if (!(object.getClass().equals(type))) {
             throw new RuntimeException("Id " + id + " is assigned the incompatible metrics type [" + object.getClass()
