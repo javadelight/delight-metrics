@@ -199,16 +199,5 @@ class LongAdder extends Striped64 implements Serializable {
         return sum();
     }
 
-    private void writeObject(final java.io.ObjectOutputStream s) throws java.io.IOException {
-        s.defaultWriteObject();
-        s.writeLong(sum());
-    }
-
-    private void readObject(final java.io.ObjectInputStream s) throws java.io.IOException, ClassNotFoundException {
-        s.defaultReadObject();
-        busy = 0;
-        cells = null;
-        base = s.readLong();
-    }
 }
 // CHECKSTYLE:ON
