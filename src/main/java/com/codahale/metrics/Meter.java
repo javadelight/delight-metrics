@@ -64,11 +64,10 @@ public class Meter implements Metered {
         final long oldTick = lastTick;
         final long newTick = clock.getTick();
         final long age = newTick - oldTick;
-        System.out.println("age " + TICK_INTERVAL + " " + age);
+
         if (age > TICK_INTERVAL) {
             final long newIntervalStartTick = newTick - age % TICK_INTERVAL;
             if (lastTick == oldTick) {
-                System.out.println("tick it " + newTick);
                 lastTick = newIntervalStartTick;
                 final long requiredTicks = age / TICK_INTERVAL;
                 for (long i = 0; i < requiredTicks; i++) {
@@ -118,9 +117,9 @@ public class Meter implements Metered {
     public String toString() {
         final JSON o = new JSON();
         o.add("count", count);
-        o.add("m1Rate", m1Rate);
-        o.add("m5Rate", m5Rate);
-        o.add("m15Rate", m15Rate);
+        o.add("m1Rate", getOneMinuteRate());
+        o.add("m5Rate", getFiveMinuteRate());
+        o.add("m15Rate", getFifteenMinuteRate());
         return o.render();
     }
 
