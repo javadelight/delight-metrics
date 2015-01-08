@@ -17,7 +17,7 @@ class TestCounter {
 		m.record(Metrics.increment("de.mxro.counter"))
 		m.record(Metrics.increment("de.mxro.counter"))
 		
-		m.record(Metrics.decrement("de.mxro.increment"))
+		m.record(Metrics.decrement("de.mxro.counter"))
 		
 		m.data.get("de.mxro.counter").toString().contains("1") => true
 		

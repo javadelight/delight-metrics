@@ -27,7 +27,7 @@ public class TestCounter {
     m.record(_increment);
     MetricOperation _increment_1 = Metrics.increment("de.mxro.counter");
     m.record(_increment_1);
-    MetricOperation _decrement = Metrics.decrement("de.mxro.increment");
+    MetricOperation _decrement = Metrics.decrement("de.mxro.counter");
     m.record(_decrement);
     MetricsData _data = m.data();
     Object _get = _data.get("de.mxro.counter");

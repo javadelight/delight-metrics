@@ -23,7 +23,7 @@ public class MetricsDataImpl implements MetricsData {
         if (object == null) {
             final Object newEntry = new MetricsFactory().create(type);
             metrics.put(id, newEntry);
-            return;
+            return (T) newEntry;
         }
 
         if (!(object.getClass().equals(type))) {
