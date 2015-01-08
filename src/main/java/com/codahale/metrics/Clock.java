@@ -41,7 +41,7 @@ public abstract class Clock {
     public static class UserTimeClock extends Clock {
         @Override
         public long getTick() {
-            return System.currentTimeMillis();
+            return System.currentTimeMillis() * 1000000;
         }
     }
 
