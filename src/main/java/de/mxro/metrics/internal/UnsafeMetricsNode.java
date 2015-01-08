@@ -25,9 +25,15 @@ public class UnsafeMetricsNode implements MetricsNode {
     }
 
     @Override
-    public MetricsData data() {
+    public <T> T get(final String id, final Class<T> type) {
 
-        return data;
+        return data.get(id, type);
+    }
+
+    @Override
+    public Object get(final String id) {
+
+        return data.get(id);
     }
 
 }

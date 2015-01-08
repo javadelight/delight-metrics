@@ -4,7 +4,6 @@ import de.mxro.concurrency.schedule.AccessThread;
 import de.mxro.concurrency.schedule.Step;
 import de.mxro.metrics.MetricsNode;
 import de.mxro.metrics.helpers.MetricOperation;
-import de.mxro.metrics.helpers.MetricsData;
 
 public class SynchronizedMetricsNode implements MetricsNode {
 
@@ -18,15 +17,9 @@ public class SynchronizedMetricsNode implements MetricsNode {
 
             @Override
             public void process() {
-                op.perform(decorated.data());
+                decorated.record(op);
             }
         });
-    }
-
-    @Override
-    public MetricsData data() {
-        // TODO Auto-generated method stub
-        return null;
     }
 
     public SynchronizedMetricsNode(final UnsafeMetricsNode decorated, final AccessThread accessThread) {
