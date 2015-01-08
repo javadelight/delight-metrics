@@ -12,6 +12,10 @@ Counters allow to keep track of a specific value )for instance the currently log
 
 This project follows a very lightweight approach to reporting. All it does for you is turn metrics into easily human-readable strings. What you do with these is up to.
 
-## Compatability
+## Compatibility
 
+This project is compatible with the following environments:
 
+- Java 1.6+
+- GWT 2.5.0+
+- Android
