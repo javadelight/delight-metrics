@@ -25,6 +25,8 @@ class TestMeter {
 	def void test_rates() {
 		val m = Metrics.createUnsafe
 		
+		for (i : 0 ..< 1000) {
+		
 		m.record(Metrics.meter("de.mxro.test.meter1"))
 		
 		Thread.sleep(100)
@@ -35,8 +37,11 @@ class TestMeter {
 		m.record(Metrics.meter("de.mxro.test.meter1"))
 
 		Thread.sleep(100)
-
+		
 		println(m.toString("de.mxro.test.meter1"))
+		}
+
+		
 
 		m.toString("de.mxro.test.meter1").contains("3") => true
 	}

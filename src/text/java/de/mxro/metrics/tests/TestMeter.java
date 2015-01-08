@@ -6,6 +6,7 @@ import de.mxro.metrics.helpers.MetricOperation;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
@@ -39,19 +40,24 @@ public class TestMeter {
   public void test_rates() {
     try {
       final MetricsNode m = Metrics.createUnsafe();
-      MetricOperation _meter = Metrics.meter("de.mxro.test.meter1");
-      m.record(_meter);
-      Thread.sleep(100);
-      MetricOperation _meter_1 = Metrics.meter("de.mxro.test.meter1");
-      m.record(_meter_1);
-      Thread.sleep(100);
-      MetricOperation _meter_2 = Metrics.meter("de.mxro.test.meter1");
-      m.record(_meter_2);
-      Thread.sleep(100);
+      ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, 1000, true);
+      for (final Integer i : _doubleDotLessThan) {
+        {
+          MetricOperation _meter = Metrics.meter("de.mxro.test.meter1");
+          m.record(_meter);
+          Thread.sleep(100);
+          MetricOperation _meter_1 = Metrics.meter("de.mxro.test.meter1");
+          m.record(_meter_1);
+          Thread.sleep(100);
+          MetricOperation _meter_2 = Metrics.meter("de.mxro.test.meter1");
+          m.record(_meter_2);
+          Thread.sleep(100);
+          String _string = m.toString("de.mxro.test.meter1");
+          InputOutput.<String>println(_string);
+        }
+      }
       String _string = m.toString("de.mxro.test.meter1");
-      InputOutput.<String>println(_string);
-      String _string_1 = m.toString("de.mxro.test.meter1");
-      boolean _contains = _string_1.contains("3");
+      boolean _contains = _string.contains("3");
       TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
