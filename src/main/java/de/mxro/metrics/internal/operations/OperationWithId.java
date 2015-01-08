@@ -10,8 +10,7 @@ public abstract class OperationWithId implements MetricOperation {
     @Override
     public abstract void perform(MetricsData data);
 
-    public OperationWithId(final String id) {
-        super();
+    public setId(final String id) {
         this.id = id;
     }
 
