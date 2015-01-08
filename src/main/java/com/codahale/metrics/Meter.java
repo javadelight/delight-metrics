@@ -117,9 +117,9 @@ public class Meter implements Metered {
     public String toString() {
         final JSON o = new JSON();
         o.add("count", count);
-        o.add("m1Rate", getOneMinuteRate());
-        o.add("m5Rate", getFiveMinuteRate());
-        o.add("m15Rate", getFifteenMinuteRate());
+        o.add("1MinuteRate", getOneMinuteRate());
+        o.add("5MinuteRate", getFiveMinuteRate());
+        o.add("15MinuteRate", getFifteenMinuteRate());
         return o.render();
     }
 
