@@ -4,4 +4,6 @@ public interface MetricsData {
 
     public <T> T assertEntry(String id, Class<T> type);
 
+    public Object get(String id);
+
 }
