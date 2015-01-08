@@ -8,4 +8,6 @@ public interface MetricsNode {
 
     public String toString(String id);
 
+    public <T> T get(String id, Class<T> type);
+
 }
