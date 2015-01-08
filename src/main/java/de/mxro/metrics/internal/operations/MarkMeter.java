@@ -1,5 +1,7 @@
 package de.mxro.metrics.internal.operations;
 
-public class MarkMeter {
+import de.mxro.metrics.MetricOperation;
+
+public class MarkMeter implements MetricOperation {
 
 }

@@ -2,6 +2,7 @@ package de.mxro.metrics.internal;
 
 import java.util.Map;
 
+import de.mxro.metrics.MetricsData;
 import de.mxro.metrics.MetricsNode;
 
 /**
@@ -16,7 +17,7 @@ public class MetricsDataImpl implements MetricsData {
 
     @Override
     @SuppressWarnings("unchecked")
-    public <T> T assertType(final String id, final Class<T> type) {
+    public <T> T assertEntry(final String id, final Class<T> type) {
         final Object object = metrics.get(id);
 
         if (!(object.getClass().equals(type))) {
