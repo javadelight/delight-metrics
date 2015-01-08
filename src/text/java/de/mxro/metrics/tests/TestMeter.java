@@ -6,7 +6,6 @@ import de.mxro.metrics.helpers.MetricOperation;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
 import org.eclipse.xtext.xbase.lib.Extension;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.Matcher;
@@ -21,7 +20,7 @@ import org.junit.rules.ErrorCollector;
 @SuppressWarnings("all")
 public class TestMeter {
   @Test
-  public void test() {
+  public void test_count() {
     final MetricsNode m = Metrics.createUnsafe();
     MetricOperation _meter = Metrics.meter("de.mxro.test.meter1");
     m.record(_meter);
@@ -30,7 +29,8 @@ public class TestMeter {
     MetricOperation _meter_2 = Metrics.meter("de.mxro.test.meter1");
     m.record(_meter_2);
     String _string = m.toString("de.mxro.test.meter1");
-    InputOutput.<String>println(_string);
+    boolean _contains = _string.contains("3");
+    TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
   }
   
   private static void assertArrayEquals(final Object[] expecteds, final Object[] actuals) {

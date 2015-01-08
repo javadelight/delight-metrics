@@ -10,14 +10,14 @@ import org.junit.Test
 class TestMeter {
 	
 	@Test
-	def void test() {
+	def void test_count() {
 		val m = Metrics.createUnsafe
 		
 		m.record(Metrics.meter("de.mxro.test.meter1"))
 		m.record(Metrics.meter("de.mxro.test.meter1"))
 		m.record(Metrics.meter("de.mxro.test.meter1"))
 
-		println(m.toString("de.mxro.test.meter1"))
+		m.toString("de.mxro.test.meter1").contains("3") => true
 	}
 	
 }
