@@ -64,6 +64,7 @@ public class Meter implements Metered {
         final long oldTick = lastTick;
         final long newTick = clock.getTick();
         final long age = newTick - oldTick;
+        System.out.println("age " + newTick);
         if (age > TICK_INTERVAL) {
             final long newIntervalStartTick = newTick - age % TICK_INTERVAL;
             // if (lastTick == oldTick) {
