@@ -42,7 +42,7 @@ public class TestMeter {
   public void test_rates() {
     try {
       final MetricsNode m = Metrics.createUnsafe();
-      ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, 10, true);
+      ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, 20, true);
       for (final Integer i : _doubleDotLessThan) {
         {
           MetricOperation _happened = Metrics.happened("de.mxro.test.meter1");
@@ -61,6 +61,11 @@ public class TestMeter {
       double _fiveMinuteRate = _get.getFiveMinuteRate();
       boolean _greaterThan = (_fiveMinuteRate > 5.0);
       TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_greaterThan), Boolean.valueOf(true));
+      MetricsData _data_1 = m.data();
+      Meter _get_1 = _data_1.<Meter>get("de.mxro.test.meter1", Meter.class);
+      double _fiveMinuteRate_1 = _get_1.getFiveMinuteRate();
+      boolean _lessThan = (_fiveMinuteRate_1 < 20.0);
+      TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_lessThan), Boolean.valueOf(true));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

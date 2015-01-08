@@ -25,7 +25,7 @@ class TestMeter {
 	def void test_rates() {
 		val m = Metrics.createUnsafe
 
-		for (i : 0 ..< 10) {
+		for (i : 0 ..< 20) {
 
 			m.record(Metrics.happened("de.mxro.test.meter1"))
 
@@ -41,6 +41,7 @@ class TestMeter {
 		}
 
 		(m.data.get("de.mxro.test.meter1", Meter).fiveMinuteRate > 5.0) => true
+		(m.data.get("de.mxro.test.meter1", Meter).fiveMinuteRate < 20.0) => true
 	}
 
 }
