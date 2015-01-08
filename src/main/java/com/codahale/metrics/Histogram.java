@@ -60,7 +60,14 @@ public class Histogram implements Metric, Sampling, Counting {
     @Override
     public String toString() {
         final JSON o = new JSON();
-        o.add(key, value);
+        final Snapshot snap = getSnapshot();
+        o.add("Mean", snap.getMean());
+        o.add("Standard Deviation", snap.getStdDev());
+        o.add("Max", snap.getMax());
+        o.add("Min", snap.getMin());
+        o.add("75% of Values Within", snap.get75thPercentile());
+        o.add("Sum", getCount());
+
         return o.render();
     }
 
