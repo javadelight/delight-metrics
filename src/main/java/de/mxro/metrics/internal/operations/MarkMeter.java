@@ -1,7 +1,16 @@
 package de.mxro.metrics.internal.operations;
 
-import de.mxro.metrics.MetricOperation;
+import com.codahale.metrics.Meter;
 
-public class MarkMeter implements MetricOperation {
+import de.mxro.metrics.MetricsData;
+
+public class MarkMeter extends OperationWithId {
+
+    @Override
+    public void perform(final MetricsData data) {
+        final Meter meter = data.assertEntry(id, Meter.class);
+
+        meter.mark();
+    }
 
 }
