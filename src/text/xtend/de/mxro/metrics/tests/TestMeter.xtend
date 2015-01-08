@@ -11,12 +11,11 @@ class TestMeter {
 	
 	@Test
 	def void test() {
-		var m = Metrics.createUnsafe
+		val m = Metrics.createUnsafe
 		
-		m.record(Metrics.meter("de.mxro.test.meter1"));
-		
-		
-		println(m.get("de.mxro.test.meter1"))
+		m.record(Metrics.meter("de.mxro.test.meter1"))
+
+		println(m.toString("de.mxro.test.meter1"))
 	}
 	
 }

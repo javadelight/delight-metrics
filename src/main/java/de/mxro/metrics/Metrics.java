@@ -1,12 +1,13 @@
 package de.mxro.metrics;
 
 import de.mxro.metrics.helpers.MetricOperation;
+import de.mxro.metrics.internal.UnsafeMetricsNode;
 import de.mxro.metrics.internal.operations.MarkMeter;
 
 public class Metrics {
 
     public static MetricsNode createUnsafe() {
-        return null;
+        return new UnsafeMetricsNode();
     }
 
     public static MetricOperation meter(final String id) {
