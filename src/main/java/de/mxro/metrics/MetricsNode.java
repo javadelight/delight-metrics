@@ -1,10 +1,10 @@
 package de.mxro.metrics;
 
-import de.mxro.metrics.helpers.MetricOperation;
+import de.mxro.metrics.helpers.RecordOperation;
 
 public interface MetricsNode {
 
-    public void record(MetricOperation op);
+    public void record(RecordOperation op);
 
     public <T> T get(String id, Class<T> type);
 
