@@ -39,6 +39,20 @@
 			<version>2.7.1</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.github.oehme.xtend</groupId>
+			<artifactId>xtend-junit</artifactId>
+			<version>0.0.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.eclipse.xtend</groupId>
+					<artifactId>org.eclipse.xtend.lib</artifactId>
+				</exclusion>
+
+			</exclusions>
+			<scope>test</scope>
+		</dependency>
 
 		<!-- only for gwt maven plugin!!! -->
 		<dependency>
