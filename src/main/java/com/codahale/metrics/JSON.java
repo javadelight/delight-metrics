@@ -1,12 +1,11 @@
 package com.codahale.metrics;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 import java.util.Map.Entry;
 
 public class JSON {
 
-    private final Map<String, String> entries;
+    private final List<Entry<String, String>> entries;
 
     public void add(final String key, final Object value) {
         entries.put(key, value.toString());
@@ -28,7 +27,7 @@ public class JSON {
 
     public JSON() {
         super();
-        this.entries = new HashMap<String, String>();
+        this.entries = new ArrayList<Entry<String, String>>();
     }
 
 }
