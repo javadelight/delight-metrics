@@ -36,7 +36,7 @@ public class JSON {
         String res = "{\n";
 
         for (final Entry<String, String> e : entries) {
-            res += "    " + e.getKey() + ": '" + e.getValue() + "',\n";
+            res += "    '" + e.getKey() + "': '" + e.getValue() + "',\n";
         }
 
         res += "}";
