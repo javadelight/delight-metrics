@@ -16,12 +16,13 @@ public class MetricsNodeUnsafe implements MetricsNode {
 
     Map<String, Object> metrics;
 
+    @SuppressWarnings("unchecked")
     private <T> T assertType(final String id, final Class<T> type) {
         final Object object = metrics.get(id);
 
-        if (!(object instanceof Meter)) {
+        if (!(object.getClass().equals(type))) {
             throw new RuntimeException("Id " + id + " is assigned the incompatible metrics type [" + object.getClass()
-                    + "]");
+                    + "]. Expected: " + type);
         }
 
         return (T) object;
@@ -29,6 +30,9 @@ public class MetricsNodeUnsafe implements MetricsNode {
 
     @Override
     public void meter(final String id) {
+        final Meter meter = assertType(id, Meter.class);
+
+        meter.mark();
 
     }
 
