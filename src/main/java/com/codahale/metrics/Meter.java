@@ -1,7 +1,6 @@
 package com.codahale.metrics;
 
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * A meter metric which measures mean throughput and one-, five-, and
@@ -18,7 +17,7 @@ public class Meter implements Metered {
 
     private final LongAdder count = new LongAdder();
     private final long startTime;
-    private final long lastTick;
+    private long lastTick;
     private final Clock clock;
 
     /**
@@ -37,7 +36,7 @@ public class Meter implements Metered {
     public Meter(final Clock clock) {
         this.clock = clock;
         this.startTime = this.clock.getTick();
-        this.lastTick = new AtomicLong(startTime);
+        this.lastTick = startTime;
     }
 
     /**
@@ -62,12 +61,13 @@ public class Meter implements Metered {
     }
 
     private void tickIfNecessary() {
-        final long oldTick = lastTick.get();
+        final long oldTick = lastTick;
         final long newTick = clock.getTick();
         final long age = newTick - oldTick;
         if (age > TICK_INTERVAL) {
             final long newIntervalStartTick = newTick - age % TICK_INTERVAL;
-            if (lastTick.compareAndSet(oldTick, newIntervalStartTick)) {
+            if (lastTick == oldTick) {
+                lastTick = newIntervalStartTick;
                 final long requiredTicks = age / TICK_INTERVAL;
                 for (long i = 0; i < requiredTicks; i++) {
                     m1Rate.tick();
@@ -75,6 +75,7 @@ public class Meter implements Metered {
                     m15Rate.tick();
                 }
             }
+
         }
     }
 
