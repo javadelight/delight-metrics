@@ -18,10 +18,8 @@ class TestCounter {
 		m.record(Metrics.value("de.mxro.hist", 2))
 		
 		m.record(Metrics.value("de.mxro.hist", 3))
-		
-		println(m.data.toString("de.mxro.hist"))
-		
-		//.toString().contains("1") => true
+
+		m.data.toString("de.mxro.hist").contains("2.0") => true
 		
 	}
 	

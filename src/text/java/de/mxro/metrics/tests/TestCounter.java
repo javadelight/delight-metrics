@@ -7,7 +7,6 @@ import de.mxro.metrics.helpers.MetricsData;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
 import org.eclipse.xtext.xbase.lib.Extension;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.Matcher;
@@ -32,7 +31,8 @@ public class TestCounter {
     m.record(_value_2);
     MetricsData _data = m.data();
     String _string = _data.toString("de.mxro.hist");
-    InputOutput.<String>println(_string);
+    boolean _contains = _string.contains("2.0");
+    TestCounter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
   }
   
   private static void assertArrayEquals(final Object[] expecteds, final Object[] actuals) {
