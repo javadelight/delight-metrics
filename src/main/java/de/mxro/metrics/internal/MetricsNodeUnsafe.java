@@ -16,14 +16,19 @@ public class MetricsNodeUnsafe implements MetricsNode {
 
     Map<String, Object> metrics;
 
-    @Override
-    public void meter(final String id) {
+    private <T> T assertType(final String id, final Class<T> type) {
         final Object object = metrics.get(id);
 
         if (!(object instanceof Meter)) {
             throw new RuntimeException("Id " + id + " is assigned the incompatible metrics type [" + object.getClass()
                     + "]");
         }
+
+        return (T) object;
+    }
+
+    @Override
+    public void meter(final String id) {
 
     }
 
