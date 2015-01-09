@@ -4,6 +4,7 @@ import de.mxro.async.Async;
 import de.mxro.async.callbacks.ValueCallback;
 import de.mxro.async.promise.Deferred;
 import de.mxro.async.promise.Promise;
+import de.mxro.async.promise.PromiseFactory;
 import de.mxro.concurrency.schedule.AccessThread;
 import de.mxro.concurrency.schedule.Step;
 import de.mxro.fn.Success;
@@ -16,6 +17,8 @@ public class SynchronizedMetricsNode implements MetricsNode {
 
     private final AccessThread accessThread;
 
+    private final PromiseFactory promiseFactory;
+
     @Override
     public void record(final RecordOperation op) {
         accessThread.offer(new Step() {
@@ -27,16 +30,18 @@ public class SynchronizedMetricsNode implements MetricsNode {
         });
     }
 
-    public SynchronizedMetricsNode(final MetricsNode decorated, final AccessThread accessThread) {
+    public SynchronizedMetricsNode(final MetricsNode decorated, final AccessThread accessThread,
+            final PromiseFactory promiseFactory) {
         super();
         this.decorated = decorated;
         this.accessThread = accessThread;
+        this.promiseFactory = promiseFactory;
     }
 
     @Override
     public <T> Promise<T> retrieve(final String id, final Class<T> type) {
 
-        return Async.promise(new Deferred<T>() {
+        return promiseFactory.promise(new Deferred<T>() {
 
             @Override
             public void get(final ValueCallback<T> cb) {
@@ -75,7 +80,7 @@ public class SynchronizedMetricsNode implements MetricsNode {
     @Override
     public Promise<Success> stop() {
 
-        return Async.promise(new Deferred<Success>() {
+        return promiseFactory.promise(new Deferred<Success>() {
 
             @Override
             public void get(final ValueCallback<Success> callback) {

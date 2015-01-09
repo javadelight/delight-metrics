@@ -1,5 +1,6 @@
 package de.mxro.metrics.jre;
 
+import de.mxro.async.jre.AsyncJre;
 import de.mxro.concurrency.jre.ConcurrencyJre;
 import de.mxro.concurrency.schedule.AccessThread;
 import de.mxro.concurrency.schedule.BetterAccessThreadImplementation;
@@ -12,7 +13,7 @@ public class Metrics extends MetricsCommon {
     public static MetricsNode create() {
         final AccessThread accessThread = new BetterAccessThreadImplementation(ConcurrencyJre.create());
 
-        return new SynchronizedMetricsNode(createUnsafe(), accessThread);
+        return new SynchronizedMetricsNode(createUnsafe(), accessThread, AsyncJre.promiseFactory());
 
     }
 
