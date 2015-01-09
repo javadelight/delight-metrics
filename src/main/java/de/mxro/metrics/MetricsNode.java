@@ -44,4 +44,8 @@ public interface MetricsNode {
      */
     public Promise<String> render();
 
+    /**
+     * Returns a {@link String} representation of all metrics.
+     */
+    public void render(ValueCallback<String> cb);
 }
