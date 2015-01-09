@@ -31,14 +31,32 @@ public class JSON {
 
     }
 
-    public String render() {
+    private final String indent(final int size) {
+        String indent = "";
+        for (int i = 1; i <= size; i++) {
+            indent += " ";
+        }
+        return indent;
+    }
+
+    public String render(final int indent) {
 
         String res = "{\n";
 
         for (final Entry<String, Object> e : entries) {
             if (e.getValue() instanceof String) {
                 res += "    '" + e.getKey() + "': '" + e.getValue() + "',\n";
+                continue;
             }
+
+            if (e.getValue() instanceof JSON) {
+
+                final JSON json = (JSON) e.getValue();
+
+                res += "    '" + e.getKey() + "': \n";
+
+            }
+
         }
 
         res += "}";
