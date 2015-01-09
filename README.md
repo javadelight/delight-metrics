@@ -18,6 +18,18 @@ m.print();
 m.stop().get();
 ```
 
+Should result in the output:
+
+```
+{
+    'counter': '1'
+}
+```
+
+### Throughput Measurement
+
+
+
 ## Reporting
 
 This project follows a very lightweight approach to reporting. All it does for you is turn metrics into easily human-readable strings. What you do with these is up to.
