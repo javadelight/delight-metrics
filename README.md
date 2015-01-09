@@ -9,11 +9,11 @@ Counters allow to keep track of a specific value) for instance the currently log
 ```java
 MetricsNode m = Metrics.create();
 
-m.increment("counter")
-m.increment("counter")
-m.decrement("counter")
+m.increment("counter");
+m.increment("counter");
+m.decrement("counter");
 
-m.retrieve("counter")
+m.print();
 
 ```
 
