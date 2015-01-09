@@ -88,9 +88,9 @@ Should result in.
         'Standard Deviation': '100.0',
         'Max': '300',
         'Min': '100',
-        '75% of Values Within': '300.0',
-        '95% of Values Within': '300.0',
-        '98% of Values Within': '300.0'
+        '75% of Values Smaller Than': '300.0',
+        '95% of Values Smaller Than': '300.0',
+        '98% of Values Smaller Than': '300.0'
     }
 }
 ```
