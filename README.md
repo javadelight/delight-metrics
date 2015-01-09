@@ -4,7 +4,7 @@ A very lightweight way to report metrics for Java applications based on the [Dro
 
 ## Counters
 
-Counters allow to keep track of a specific value) for instance the currently logged in users) which is frequently incremented or decremented.
+Counters allow to keep track of a specific value (for instance the currently logged in users) which is frequently incremented or decremented.
 
 ```java
 MetricsNode m = Metrics.create();
@@ -26,7 +26,7 @@ Should result in the output:
 }
 ```
 
-### Throughput Measurement
+## Throughput Measurement
 
 Throughput measurement allows monitoring how many times per second an event occurs.
 
@@ -56,6 +56,8 @@ Should result in the output:
     }
 }
 ```
+
+##
 
 ## Reporting
 
