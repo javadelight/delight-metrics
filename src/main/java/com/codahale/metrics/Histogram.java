@@ -1,7 +1,7 @@
 package com.codahale.metrics;
 
-import de.mxro.json.JSON;
 import de.mxro.json.HasJSON;
+import de.mxro.json.JSON;
 import de.mxro.json.internal.JSONImpl;
 
 /**
@@ -78,6 +78,7 @@ public class Histogram implements Metric, Sampling, Counting, HasJSON {
         o.add("75% of Values Smaller Than", snap.get75thPercentile());
         o.add("95% of Values Smaller Than", snap.get95thPercentile());
         o.add("98% of Values Smaller Than", snap.get98thPercentile());
+        o.add("Measurements", getCount());
         return o;
     }
 
