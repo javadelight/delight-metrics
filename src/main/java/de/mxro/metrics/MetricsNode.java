@@ -22,6 +22,12 @@ public interface MetricsNode {
      */
     public Promise<Object> retrieve(String id);
 
+    /**
+     * Retrieves a metric with the specified id.
+     * 
+     * @param id
+     * @param cb
+     */
     public void retrieve(String id, ValueCallback<Object> cb);
 
     public Promise<Success> stop();
