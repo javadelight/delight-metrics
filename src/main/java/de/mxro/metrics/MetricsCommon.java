@@ -15,6 +15,13 @@ import de.mxro.metrics.internal.operations.MarkEvent;
  */
 public class MetricsCommon {
 
+    /**
+     * <p>
+     * Creates a metric node, which is not thread safe. Only use in
+     * single-threaded applications or environments (such as GWT/JavaScript).
+     * 
+     * @return
+     */
     public static MetricsNode createUnsafe() {
         return new UnsafeMetricsNode();
     }
