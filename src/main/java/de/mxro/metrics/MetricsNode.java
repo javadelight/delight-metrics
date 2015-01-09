@@ -9,8 +9,22 @@ public interface MetricsNode {
 
     public void record(RecordOperation op);
 
+    /**
+     * Retrieves a metric with a specified type and id.
+     * 
+     * @param id
+     * @param type
+     * @return
+     */
     public <T> Promise<T> retrieve(String id, Class<T> type);
 
+    /**
+     * Retrieves a metric with a specified type and id.
+     * 
+     * @param id
+     * @param type
+     * @param cb
+     */
     public <T> void retrieve(String id, Class<T> type, ValueCallback<T> cb);
 
     /**
