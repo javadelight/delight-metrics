@@ -9,7 +9,6 @@ This framework composed of a small set of core classes; thus, it is easy to unde
 
 ## Usage
 
-
 ### Counters
 
 Keeping a count of a metric. 
