@@ -1,7 +1,6 @@
 package de.mxro.metrics.tests
 
 import com.codahale.metrics.Meter
-import de.mxro.metrics.MetricsCommon
 import de.mxro.metrics.jre.Metrics
 import de.oehme.xtend.junit.Hamcrest
 import de.oehme.xtend.junit.JUnit
