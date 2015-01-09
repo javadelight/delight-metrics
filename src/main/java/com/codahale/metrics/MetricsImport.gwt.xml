@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2011 Max Erik Rohde http://www.mxro.de All rights reserved. -->
 <module rename-to='metrics-import'>
-	<!-- Inherit the core Web Toolkit stuff. 
-	<inherits name='com.google.gwt.user.User' /> -->
+	
+	<inherits name='de.mxro.json.JSON' /> 
 
 
 	<!-- Other module inherits -->
