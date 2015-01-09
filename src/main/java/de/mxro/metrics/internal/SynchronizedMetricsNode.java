@@ -102,4 +102,27 @@ public class SynchronizedMetricsNode implements MetricsNode {
         });
     }
 
+    @Override
+    public Promise<String> render() {
+
+        return promiseFactory.promise(new Deferred<String>() {
+
+            @Override
+            public void get(final ValueCallback<String> callback) {
+                render(callback);
+            }
+        });
+    }
+
+    @Override
+    public void render(final ValueCallback<String> cb) {
+        this.accessThread.offer(new Step() {
+
+            @Override
+            public void process() {
+                decorated.render(cb);
+            }
+        });
+    }
+
 }
