@@ -11,7 +11,7 @@ import de.mxro.metrics.helpers.RecordOperation;
 
 public class SynchronizedMetricsNode implements MetricsNode {
 
-    private final UnsafeMetricsNode decorated;
+    private final MetricsNode decorated;
 
     private final AccessThread accessThread;
 
@@ -26,7 +26,7 @@ public class SynchronizedMetricsNode implements MetricsNode {
         });
     }
 
-    public SynchronizedMetricsNode(final UnsafeMetricsNode decorated, final AccessThread accessThread) {
+    public SynchronizedMetricsNode(final MetricsNode decorated, final AccessThread accessThread) {
         super();
         this.decorated = decorated;
         this.accessThread = accessThread;

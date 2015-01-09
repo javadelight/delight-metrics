@@ -1,6 +1,10 @@
 package de.mxro.metrics;
 
+import de.mxro.concurrency.jre.ConcurrencyJre;
+import de.mxro.concurrency.schedule.AccessThread;
+import de.mxro.concurrency.schedule.BetterAccessThreadImplementation;
 import de.mxro.metrics.helpers.RecordOperation;
+import de.mxro.metrics.internal.SynchronizedMetricsNode;
 import de.mxro.metrics.internal.UnsafeMetricsNode;
 import de.mxro.metrics.internal.operations.CounterEvent;
 import de.mxro.metrics.internal.operations.HistrogramEvent;
@@ -9,7 +13,8 @@ import de.mxro.metrics.internal.operations.MarkEvent;
 public class Metrics {
 
     public static MetricsNode create() {
-        return new UnsafeMetricsNode();
+        final AccessThread accessThread = new BetterAccessThreadImplementation(ConcurrencyJre.create());
+        return new SynchronizedMetricsNode(createUnsafe(), accessThread);
     }
 
     public static MetricsNode createUnsafe() {
