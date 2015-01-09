@@ -62,19 +62,19 @@ public class UnsafeMetricsNode implements MetricsNode {
     }
 
     @Override
-    public Promise<Success> shutdown() {
+    public Promise<Success> stop() {
 
         return Async.promise(new Deferred<Success>() {
 
             @Override
             public void get(final ValueCallback<Success> callback) {
-                shutdown(callback);
+                stop(callback);
             }
         });
     }
 
     @Override
-    public void shutdown(final ValueCallback<Success> cb) {
+    public void stop(final ValueCallback<Success> cb) {
         cb.onSuccess(Success.INSTANCE);
     }
 

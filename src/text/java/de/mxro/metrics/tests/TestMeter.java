@@ -2,9 +2,11 @@ package de.mxro.metrics.tests;
 
 import com.codahale.metrics.Meter;
 import de.mxro.async.Promise;
+import de.mxro.fn.Success;
 import de.mxro.metrics.MetricsCommon;
 import de.mxro.metrics.MetricsNode;
 import de.mxro.metrics.helpers.RecordOperation;
+import de.mxro.metrics.jre.Metrics;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
 import org.eclipse.xtext.xbase.lib.Exceptions;
@@ -42,7 +44,7 @@ public class TestMeter {
   @Test
   public void test_rates() {
     try {
-      final MetricsNode m = MetricsCommon.createUnsafe();
+      final MetricsNode m = Metrics.create();
       ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, 20, true);
       for (final Integer i : _doubleDotLessThan) {
         {
@@ -67,6 +69,8 @@ public class TestMeter {
       double _fiveMinuteRate_1 = _get_1.getFiveMinuteRate();
       boolean _lessThan = (_fiveMinuteRate_1 < 20.0);
       TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_lessThan), Boolean.valueOf(true));
+      Promise<Success> _stop = m.stop();
+      _stop.get();
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

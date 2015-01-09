@@ -17,8 +17,8 @@ public interface MetricsNode {
 
     public void retrieve(String id, ValueCallback<Object> cb);
 
-    public Promise<Success> shutdown();
+    public Promise<Success> stop();
 
-    public void shutdown(ValueCallback<Success> cb);
+    public void stop(ValueCallback<Success> cb);
 
 }
