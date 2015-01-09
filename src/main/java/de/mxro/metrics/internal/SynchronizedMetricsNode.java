@@ -6,6 +6,7 @@ import de.mxro.async.Promise;
 import de.mxro.async.callbacks.ValueCallback;
 import de.mxro.concurrency.schedule.AccessThread;
 import de.mxro.concurrency.schedule.Step;
+import de.mxro.fn.Success;
 import de.mxro.metrics.MetricsNode;
 import de.mxro.metrics.helpers.RecordOperation;
 
@@ -69,6 +70,17 @@ public class SynchronizedMetricsNode implements MetricsNode {
                 decorated.retrieve(id, cb);
             }
         });
+    }
+
+    @Override
+    public Promise<Success> shutdown() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void shutdown(final ValueCallback<Success> cb) {
+        this.accessThread.shutdown(Async.wrap(cb));
     }
 
 }
