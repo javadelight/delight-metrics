@@ -5,8 +5,20 @@ import de.mxro.async.promise.Promise;
 import de.mxro.fn.Success;
 import de.mxro.metrics.helpers.RecordOperation;
 
+/**
+ * <p>
+ * Stores a set of metrics by id.
+ * 
+ * @author <a href="http://www.mxro.de">Max Rohde</a>
+ *
+ */
 public interface MetricsNode {
 
+    /**
+     * Records the specified operation for the affected metrics.
+     * 
+     * @param op
+     */
     public void record(RecordOperation op);
 
     /**
