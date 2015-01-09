@@ -11,7 +11,7 @@ This framework is composed of a small set of core classes; thus, it is easy to u
 
 ### Counters
 
-Keeping a count of a metric. 
+Keeping a count. 
 
 For instance: How many users are logged into the system concurrently?
 
