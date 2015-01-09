@@ -27,7 +27,7 @@ import org.junit.rules.ErrorCollector;
 public class TestMeter {
   @Test
   public void test_count() {
-    final MetricsNode m = MetricsCommon.createUnsafe();
+    final MetricsNode m = Metrics.create();
     RecordOperation _happened = MetricsCommon.happened("de.mxro.test.meter1");
     m.record(_happened);
     RecordOperation _happened_1 = MetricsCommon.happened("de.mxro.test.meter1");
@@ -39,6 +39,8 @@ public class TestMeter {
     String _string = _get.toString();
     boolean _contains = _string.contains("3");
     TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
+    Promise<Success> _stop = m.stop();
+    _stop.get();
   }
   
   @Test

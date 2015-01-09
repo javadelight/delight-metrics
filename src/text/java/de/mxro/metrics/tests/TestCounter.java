@@ -1,9 +1,10 @@
 package de.mxro.metrics.tests;
 
 import de.mxro.async.Promise;
-import de.mxro.metrics.MetricsCommon;
+import de.mxro.fn.Success;
 import de.mxro.metrics.MetricsNode;
 import de.mxro.metrics.helpers.RecordOperation;
+import de.mxro.metrics.jre.Metrics;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
 import org.eclipse.xtext.xbase.lib.Extension;
@@ -22,18 +23,20 @@ import org.junit.rules.ErrorCollector;
 public class TestCounter {
   @Test
   public void test() {
-    MetricsNode m = MetricsCommon.createUnsafe();
-    RecordOperation _increment = MetricsCommon.increment("de.mxro.counter");
+    MetricsNode m = Metrics.create();
+    RecordOperation _increment = Metrics.increment("de.mxro.counter");
     m.record(_increment);
-    RecordOperation _increment_1 = MetricsCommon.increment("de.mxro.counter");
+    RecordOperation _increment_1 = Metrics.increment("de.mxro.counter");
     m.record(_increment_1);
-    RecordOperation _decrement = MetricsCommon.decrement("de.mxro.counter");
+    RecordOperation _decrement = Metrics.decrement("de.mxro.counter");
     m.record(_decrement);
     Promise<Object> _retrieve = m.retrieve("de.mxro.counter");
     Object _get = _retrieve.get();
     String _string = _get.toString();
     boolean _contains = _string.contains("1");
     TestCounter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
+    Promise<Success> _stop = m.stop();
+    _stop.get();
   }
   
   private static void assertArrayEquals(final Object[] expecteds, final Object[] actuals) {

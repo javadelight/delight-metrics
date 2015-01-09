@@ -13,13 +13,15 @@ class TestMeter {
 
 	@Test
 	def void test_count() {
-		val m = MetricsCommon.createUnsafe
+		val m = Metrics.create
 
 		m.record(MetricsCommon.happened("de.mxro.test.meter1"))
 		m.record(MetricsCommon.happened("de.mxro.test.meter1"))
 		m.record(MetricsCommon.happened("de.mxro.test.meter1"))
 
 		m.retrieve("de.mxro.test.meter1").get.toString.contains("3") => true
+		
+		m.stop.get
 	}
 
 	@Test
