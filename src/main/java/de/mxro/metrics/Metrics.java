@@ -8,6 +8,10 @@ import de.mxro.metrics.internal.operations.MarkEvent;
 
 public class Metrics {
 
+    public static MetricsNode create() {
+        return new UnsafeMetricsNode();
+    }
+
     public static MetricsNode createUnsafe() {
         return new UnsafeMetricsNode();
     }
