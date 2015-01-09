@@ -114,8 +114,14 @@ m.retrieve("metricId").get().toString()
 ### Maven Dependency
 
 ```xml
-
+<dependency>
+    <groupId>de.mxro.metrics</groupId>
+	<artifactId>metrics</artifactId>
+	<version>[latest version]</version>
+</dependency>
 ```
+
+Find latest version [here](http://modules.appjangle.com/lightweight-java-metrics/latest/project-summary.html)
 
 Repository
 
