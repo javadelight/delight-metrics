@@ -47,23 +47,30 @@ public class JSON {
         final String indent = indent(indentSize);
         String res = indent + "{\n";
 
+        int count = 0;
         for (final Entry<String, Object> e : entries) {
+            count += 1;
             if (e.getValue() instanceof String) {
-                res += indent + "    '" + e.getKey() + "': '" + e.getValue() + "',\n";
-                continue;
-            }
+                res += indent + "    '" + e.getKey() + "': '" + e.getValue();
 
-            if (e.getValue() instanceof JSON) {
+            } else if (e.getValue() instanceof JSON) {
 
                 final JSON json = (JSON) e.getValue();
 
                 res += "    '" + e.getKey() + "': \n";
 
-                res += json.render(indentSize + 4) + "\n";
+                res += json.render(indentSize + 4);
                 continue;
+            } else {
+
+                res += indent + "    '" + e.getKey() + "': '" + e.getValue().toString();
             }
 
-            res += indent + "    '" + e.getKey() + "': '" + e.getValue().toString() + "',\n";
+            if (count != entries.size()) {
+                res += ",\n";
+            } else {
+                res += "\n";
+            }
 
         }
 
