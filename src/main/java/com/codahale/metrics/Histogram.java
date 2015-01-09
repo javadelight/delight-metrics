@@ -1,5 +1,8 @@
 package com.codahale.metrics;
 
+import de.mxro.json.JSON;
+import de.mxro.json.JSONSerialization;
+
 /**
  * A metric which calculates the distribution of a value.
  *

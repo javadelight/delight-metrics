@@ -2,6 +2,9 @@ package com.codahale.metrics;
 
 import java.util.concurrent.TimeUnit;
 
+import de.mxro.json.JSON;
+import de.mxro.json.JSONSerialization;
+
 /**
  * A meter metric which measures mean throughput and one-, five-, and
  * fifteen-minute exponentially-weighted moving average throughputs.

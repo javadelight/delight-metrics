@@ -4,9 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.codahale.metrics.JSON;
-import com.codahale.metrics.JSONSerialization;
-
+import de.mxro.json.JSON;
+import de.mxro.json.JSONSerialization;
 import de.mxro.metrics.helpers.MetricsData;
 
 /**
