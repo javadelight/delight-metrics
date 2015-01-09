@@ -39,4 +39,9 @@ public interface MetricsNode {
      */
     public void print();
 
+    /**
+     * Returns a {@link String} representation of all metrics.
+     */
+    public Promise<String> render();
+
 }
