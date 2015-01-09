@@ -78,4 +78,9 @@ public class UnsafeMetricsNode implements MetricsNode {
         cb.onSuccess(Success.INSTANCE);
     }
 
+    @Override
+    public void print() {
+
+    }
+
 }

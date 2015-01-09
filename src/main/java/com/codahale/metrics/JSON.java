@@ -39,13 +39,13 @@ public class JSON {
         return indent;
     }
 
-    public String render(final int indent) {
-
-        String res = "{\n";
+    public String render(final int indentSize) {
+        final String indent = indent(indentSize);
+        String res = indent + "{\n";
 
         for (final Entry<String, Object> e : entries) {
             if (e.getValue() instanceof String) {
-                res += "    '" + e.getKey() + "': '" + e.getValue() + "',\n";
+                res += indent + "    '" + e.getKey() + "': '" + e.getValue() + "',\n";
                 continue;
             }
 
@@ -55,7 +55,11 @@ public class JSON {
 
                 res += "    '" + e.getKey() + "': \n";
 
+                res += json.render(indentSize + 4) + "\n";
+                continue;
             }
+
+            res += indent + "    '" + e.getKey() + "': '" + e.getValue().toString() + "',\n";
 
         }
 

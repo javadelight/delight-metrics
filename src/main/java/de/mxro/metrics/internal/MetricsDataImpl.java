@@ -2,6 +2,9 @@ package de.mxro.metrics.internal;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+
+import com.codahale.metrics.JSON;
 
 import de.mxro.metrics.helpers.MetricsData;
 
@@ -42,6 +45,15 @@ public class MetricsDataImpl implements MetricsData {
     @Override
     public Object get(final String id) {
         return metrics.get(id);
+    }
+
+    @Override
+    public String toString() {
+        final JSON o = new JSON();
+
+        for (final Entry<String, Object> e : metrics) {
+
+        }
     }
 
 }
