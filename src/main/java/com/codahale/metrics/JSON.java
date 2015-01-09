@@ -45,7 +45,7 @@ public class JSON {
 
     public String render(final int indentSize) {
         final String indent = indent(indentSize);
-        String res = indent + "{\n";
+        String res = "{\n";
 
         int count = 0;
         for (final Entry<String, Object> e : entries) {
@@ -74,7 +74,7 @@ public class JSON {
 
         }
 
-        res += "}";
+        res += indent + "}\n";
 
         return res;
 
