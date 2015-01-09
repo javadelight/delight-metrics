@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
  *
  * @see EWMA
  */
-public class Meter implements Metered {
+public class Meter implements Metered, JSONSerialization {
     private static final long TICK_INTERVAL = TimeUnit.SECONDS.toNanos(5);
 
     private final EWMA m1Rate = EWMA.oneMinuteEWMA();
@@ -115,12 +115,18 @@ public class Meter implements Metered {
 
     @Override
     public String toString() {
+
+        return getJSON().render();
+    }
+
+    @Override
+    public JSON getJSON() {
         final JSON o = new JSON();
         o.add("Total Events", count);
         o.add("Events per Second (last Minute)", getOneMinuteRate());
         o.add("Events per Second (last 5 Minutes)", getFiveMinuteRate());
         o.add("Events per Second (last 15 Minutes)", getFifteenMinuteRate());
-        return o.render();
+        return o;
     }
 
 }
