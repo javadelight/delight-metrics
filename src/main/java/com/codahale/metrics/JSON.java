@@ -57,7 +57,7 @@ public class JSON {
 
                 final JSON json = (JSON) e.getValue();
 
-                res += "    '" + e.getKey() + "': \n";
+                res += "    '" + e.getKey() + "': ";
 
                 res += json.render(indentSize + 4);
                 continue;
