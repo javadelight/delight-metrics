@@ -38,6 +38,14 @@ public class MetricsCommon {
         return new CounterEvent(-1).setId(id);
     }
 
+    /**
+     * Record a value and alter retrieve various statistics for the value, such
+     * as the mean etc.
+     * 
+     * @param id
+     * @param value
+     * @return
+     */
     public static RecordOperation value(final String id, final long value) {
         return new HistrogramEvent(value).setId(id);
     }
