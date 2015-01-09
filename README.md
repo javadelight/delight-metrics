@@ -2,7 +2,11 @@
 
 A very lightweight way to report metrics for Java applications based on the [Dropwizard Metrics Project](https://dropwizard.github.io/metrics/3.1.0/).
 
-## Counters
+## Usage
+
+
+
+### Counters
 
 Keeping a count of a metric. 
 
@@ -28,7 +32,7 @@ Should result in the output:
 }
 ```
 
-## Throughput Measurement
+### Throughput Measurement
 
 Monitor how many times per second an event occurs. 
 
@@ -61,7 +65,7 @@ Should result in the output:
 }
 ```
 
-## Statistics
+### Statistics
 
 Doing simple sampling for a numerical value. 
 
