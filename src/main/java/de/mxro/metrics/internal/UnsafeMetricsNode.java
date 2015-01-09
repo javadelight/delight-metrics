@@ -83,4 +83,22 @@ public class UnsafeMetricsNode implements MetricsNode {
         System.out.println(data.toString());
     }
 
+    @Override
+    public Promise<String> render() {
+
+        return Async.promise(new Deferred<String>() {
+
+            @Override
+            public void get(final ValueCallback<String> callback) {
+                render(callback);
+            }
+        });
+    }
+
+    @Override
+    public void render(final ValueCallback<String> cb) {
+
+        cb.onSuccess(data.toString());
+    }
+
 }
