@@ -1,9 +1,9 @@
 package de.mxro.metrics.tests
 
-import de.mxro.metrics.Metrics
 import de.oehme.xtend.junit.Hamcrest
 import de.oehme.xtend.junit.JUnit
 import org.junit.Test
+import de.mxro.metrics.MetricsCommon
 
 @JUnit
 @Hamcrest
@@ -12,12 +12,12 @@ class TestCounter {
 	@Test
 	def test() {
 		
-		var m = Metrics.createUnsafe
+		var m = MetricsCommon.createUnsafe
 		
-		m.record(Metrics.value("de.mxro.hist", 1))
-		m.record(Metrics.value("de.mxro.hist", 2))
+		m.record(MetricsCommon.value("de.mxro.hist", 1))
+		m.record(MetricsCommon.value("de.mxro.hist", 2))
 		
-		m.record(Metrics.value("de.mxro.hist", 3))
+		m.record(MetricsCommon.value("de.mxro.hist", 3))
 
 		m.retrieve("de.mxro.hist").get.toString.contains("2.0") => true
 		

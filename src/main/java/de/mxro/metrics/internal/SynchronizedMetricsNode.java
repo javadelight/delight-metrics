@@ -74,8 +74,14 @@ public class SynchronizedMetricsNode implements MetricsNode {
 
     @Override
     public Promise<Success> shutdown() {
-        // TODO Auto-generated method stub
-        return null;
+
+        return Async.promise(new Deferred<Success>() {
+
+            @Override
+            public void get(final ValueCallback<Success> callback) {
+                shutdown(callback);
+            }
+        });
     }
 
     @Override
