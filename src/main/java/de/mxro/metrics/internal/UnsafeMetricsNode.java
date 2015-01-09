@@ -4,6 +4,7 @@ import de.mxro.async.Async;
 import de.mxro.async.Deferred;
 import de.mxro.async.Promise;
 import de.mxro.async.callbacks.ValueCallback;
+import de.mxro.fn.Success;
 import de.mxro.metrics.MetricsNode;
 import de.mxro.metrics.helpers.MetricsData;
 import de.mxro.metrics.helpers.RecordOperation;
@@ -58,6 +59,23 @@ public class UnsafeMetricsNode implements MetricsNode {
         }
 
         cb.onSuccess(data.get(id, type));
+    }
+
+    @Override
+    public Promise<Success> shutdown() {
+
+        return Async.promise(new Deferred<Success>() {
+
+            @Override
+            public void get(final ValueCallback<Success> callback) {
+                shutdown(callback);
+            }
+        });
+    }
+
+    @Override
+    public void shutdown(final ValueCallback<Success> cb) {
+        cb.onSuccess(Success.INSTANCE);
     }
 
 }
