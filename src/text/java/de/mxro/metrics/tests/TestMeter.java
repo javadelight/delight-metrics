@@ -1,7 +1,7 @@
 package de.mxro.metrics.tests;
 
 import com.codahale.metrics.Meter;
-import de.mxro.async.Promise;
+import de.mxro.async.promise.Promise;
 import de.mxro.fn.Success;
 import de.mxro.metrics.MetricsNode;
 import de.mxro.metrics.helpers.RecordOperation;

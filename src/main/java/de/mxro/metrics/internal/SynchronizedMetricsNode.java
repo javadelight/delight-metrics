@@ -1,9 +1,9 @@
 package de.mxro.metrics.internal;
 
 import de.mxro.async.Async;
-import de.mxro.async.Deferred;
-import de.mxro.async.Promise;
 import de.mxro.async.callbacks.ValueCallback;
+import de.mxro.async.promise.Deferred;
+import de.mxro.async.promise.Promise;
 import de.mxro.concurrency.schedule.AccessThread;
 import de.mxro.concurrency.schedule.Step;
 import de.mxro.fn.Success;
