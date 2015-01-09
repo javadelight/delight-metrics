@@ -15,6 +15,8 @@ public class ExampleReporting {
 
         m.print();
 
+        m.stop().get();
+
     }
 
 }

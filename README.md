@@ -15,6 +15,7 @@ m.record(Metrics.decrement("counter"));
 
 m.print();
 
+m.stop().get();
 ```
 
 ## Reporting

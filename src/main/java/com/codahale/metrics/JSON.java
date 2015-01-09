@@ -51,7 +51,7 @@ public class JSON {
         for (final Entry<String, Object> e : entries) {
             count += 1;
             if (e.getValue() instanceof String) {
-                res += indent + "    '" + e.getKey() + "': '" + e.getValue();
+                res += indent + "    '" + e.getKey() + "': '" + e.getValue() + "'";
 
             } else if (e.getValue() instanceof JSON) {
 
@@ -63,7 +63,7 @@ public class JSON {
                 continue;
             } else {
 
-                res += indent + "    '" + e.getKey() + "': '" + e.getValue().toString();
+                res += indent + "    '" + e.getKey() + "': '" + e.getValue().toString() + "'";
             }
 
             if (count != entries.size()) {
