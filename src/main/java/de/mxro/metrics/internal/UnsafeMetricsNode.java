@@ -80,7 +80,7 @@ public class UnsafeMetricsNode implements MetricsNode {
 
     @Override
     public void print() {
-
+        System.out.println(data.toString());
     }
 
 }

@@ -64,8 +64,9 @@ public class MetricsDataImpl implements MetricsData, JSONSerialization {
             } else {
                 value = e.getValue();
             }
-
+            o.add(e.getKey(), value);
         }
+        return o;
     }
 
 }
