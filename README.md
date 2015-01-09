@@ -95,10 +95,11 @@ Should result in.
 }
 ```
 
-
 ## Reporting
 
-This project follows a very lightweight approach to reporting. All it does for you is turn metrics into easily human-readable strings. What you do with these is up to.
+Metrics are turned into easily human-readable strings. What you do with these is up to.
+
+
 
 
 ## Compatibility
