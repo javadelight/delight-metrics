@@ -4,7 +4,9 @@ A very lightweight way to report metrics for Java applications based on the [Dro
 
 ## Counters
 
-Keeping a count of a metric. For instance: How many users are logged into the system concurrently?
+Keeping a count of a metric. 
+
+For instance: How many users are logged into the system concurrently?
 
 ```java
 MetricsNode m = Metrics.create();
@@ -28,7 +30,9 @@ Should result in the output:
 
 ## Throughput Measurement
 
-Monitor how many times per second an event occurs. For instance: How many times per second is a service called?
+Monitor how many times per second an event occurs. 
+
+For instance: How many times per second is a service called?
 
 ```java
 final MetricsNode m = Metrics.create();
@@ -59,8 +63,37 @@ Should result in the output:
 
 ## Statistics
 
-Doing simple sampling for a numerical value. For instance: How large are received requests in average?
+Doing simple sampling for a numerical value. 
 
+For instance: How large are received requests in average?
+
+```Java
+final MetricsNode m = Metrics.create();
+
+m.record(Metrics.value("requestSize", 300));
+m.record(Metrics.value("requestSize", 100));
+m.record(Metrics.value("requestSize", 200));
+
+m.print();
+
+m.stop().get();
+```
+
+Should result in.
+
+```
+{
+    'requestSize': {
+        'Mean': '200.0',
+        'Standard Deviation': '100.0',
+        'Max': '300',
+        'Min': '100',
+        '75% of Values Within': '300.0',
+        '95% of Values Within': '300.0',
+        '98% of Values Within': '300.0'
+    }
+}
+```
 
 
 ## Reporting
