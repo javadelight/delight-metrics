@@ -28,7 +28,34 @@ Should result in the output:
 
 ### Throughput Measurement
 
+Throughput measurement allows monitoring how many times per second an event occurs.
 
+```java
+final MetricsNode m = Metrics.create();
+
+m.record(Metrics.happened("process"));
+m.record(Metrics.happened("process"));
+m.record(Metrics.happened("process"));
+
+Thread.sleep(10000);
+
+m.print();
+
+m.stop().get();
+```
+
+Should result in the output:
+
+```
+{
+    'process': {
+        'Total Events': '3',
+        'Events per Second (last Minute)': '0.552026648777594',
+        'Events per Second (last 5 Minutes)': '0.5900828722929705',
+        'Events per Second (last 15 Minutes)': '0.5966759088029381'
+    }
+}
+```
 
 ## Reporting
 
