@@ -8,6 +8,14 @@ import de.mxro.metrics.MetricsCommon;
 import de.mxro.metrics.MetricsNode;
 import de.mxro.metrics.internal.SynchronizedMetricsNode;
 
+/**
+ * <p>
+ * Convenient class to create new {@link MetricsNode}s and various metric
+ * operations.
+ * 
+ * @author <a href="http://www.mxro.de">Max Rohde</a>
+ *
+ */
 public class Metrics extends MetricsCommon {
 
     public static MetricsNode create() {

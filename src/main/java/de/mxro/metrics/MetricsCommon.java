@@ -6,6 +6,13 @@ import de.mxro.metrics.internal.operations.CounterEvent;
 import de.mxro.metrics.internal.operations.HistrogramEvent;
 import de.mxro.metrics.internal.operations.MarkEvent;
 
+/**
+ * <p>
+ * List of operations which are compatible with Java JRE and GWT environments.
+ * 
+ * @author <a href="http://www.mxro.de">Max Rohde</a>
+ *
+ */
 public class MetricsCommon {
 
     public static MetricsNode createUnsafe() {
