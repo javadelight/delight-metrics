@@ -30,12 +30,12 @@ public class UnsafeMetricsNode implements MetricsNode {
 
     @Override
     public Promise<Object> retrieve(final String id) {
-
+        return retrieve(id, Object.class);
     }
 
     @Override
     public void retrieve(final String id, final ValueCallback<Object> cb) {
-
+        retrieve(id, Object.class);
     }
 
     @Override
@@ -49,10 +49,15 @@ public class UnsafeMetricsNode implements MetricsNode {
         });
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public <T> void retrieve(final String id, final Class<T> type, final ValueCallback<T> cb) {
-        cb.onSuccess((T) data.get(id));
+        if (type.equals(Object.class)) {
+            cb.onSuccess((T) data.get(id));
+            return;
+        }
 
+        cb.onSuccess(data.get(id, type));
     }
 
 }
