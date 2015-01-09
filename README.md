@@ -121,12 +121,17 @@ m.retrieve("metricId").get().toString()
 </dependency>
 ```
 
-Find latest version [here](http://modules.appjangle.com/lightweight-java-metrics/latest/project-summary.html)
+Find latest version [here](http://modules.appjangle.com/lightweight-java-metrics/latest/project-summary.html).
 
-Repository
+And add repository if required:
 
 ```xml
-
+<repositories>
+	<repository>
+		<id>Appjangle Releases</id>
+		<url>http://maven.appjangle.com/appjangle/releases</url>
+	</repository>
+</repositories>
 ```
 
 ## Compatibility
@@ -136,6 +141,7 @@ This project is compatible with the following environments:
 - Java 1.6+
 - GWT 2.5.0+
 - Android
+- OSGi
 
 ## Further Resources
 
