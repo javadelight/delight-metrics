@@ -28,7 +28,6 @@ class TestMeter {
 		val m = Metrics.create
 
 		for (i : 0 ..< 20) {
-
 			m.record(Metrics.happened("de.mxro.test.meter1"))
 
 			Thread.sleep(110)
@@ -39,7 +38,6 @@ class TestMeter {
 			m.record(Metrics.happened("de.mxro.test.meter1"))
 
 			Thread.sleep(110)
-
 		}
 
 		(m.retrieve("de.mxro.test.meter1", Meter).get.fiveMinuteRate > 5.0) => true
