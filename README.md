@@ -4,8 +4,6 @@ A very lightweight way to report metrics for Java applications based on the [Dro
 
 ## Usage
 
-
-
 ### Counters
 
 Keeping a count of a metric. 
@@ -99,7 +97,7 @@ Should result in.
 }
 ```
 
-## Reporting
+### Reporting
 
 Metrics are turned into easily human-readable strings. What you do with these is up to.
 
@@ -111,6 +109,18 @@ Metrics are turned into easily human-readable strings. What you do with these is
 MetricsNode m = ...
 
 m.retrieve("metricId").get().toString()
+```
+
+### Maven Dependency
+
+```xml
+
+```
+
+Repository
+
+```xml
+
 ```
 
 ## Compatibility
