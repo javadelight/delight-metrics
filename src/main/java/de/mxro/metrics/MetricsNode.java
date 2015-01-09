@@ -13,6 +13,13 @@ public interface MetricsNode {
 
     public <T> void retrieve(String id, Class<T> type, ValueCallback<T> cb);
 
+    /**
+     * <p>
+     * Retrieves a metric with the specified id.
+     * 
+     * @param id
+     * @return
+     */
     public Promise<Object> retrieve(String id);
 
     public void retrieve(String id, ValueCallback<Object> cb);
