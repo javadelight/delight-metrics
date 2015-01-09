@@ -100,6 +100,7 @@ public class SynchronizedMetricsNode implements MetricsNode {
                 decorated.print();
             }
         });
+        this.accessThread.startIfRequired();
     }
 
     @Override
@@ -123,6 +124,7 @@ public class SynchronizedMetricsNode implements MetricsNode {
                 decorated.render(cb);
             }
         });
+        this.accessThread.startIfRequired();
     }
 
 }
