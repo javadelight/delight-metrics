@@ -140,8 +140,8 @@ This project is compatible with the following environments:
 
 - Java 1.6+
 - GWT 2.5.0+
-- Android
-- OSGi
+- Android (any)
+- OSGi (any)
 
 ## Further Resources
 
