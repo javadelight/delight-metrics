@@ -13,12 +13,12 @@ public class JSON {
         entries.add(new Entry<String, Object>() {
 
             @Override
-            public String setValue(final String value) {
+            public String setValue(final Object value) {
                 return null;
             }
 
             @Override
-            public String getValue() {
+            public Object getValue() {
 
                 return value;
             }
