@@ -4,7 +4,7 @@
 	<artifactId>metrics</artifactId>
 	<version>0.0.2</version>
 
-	<description>Lightweight Java matrics.</description>
+	<description>Lightweight Java metrics.</description>
 	<url>https://github.com/mxro/lightweight-java-metrics</url>
 	<properties>
 		<module.gwtVersion>2.5.1</module.gwtVersion>
