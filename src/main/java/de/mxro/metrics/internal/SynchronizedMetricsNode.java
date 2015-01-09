@@ -91,4 +91,15 @@ public class SynchronizedMetricsNode implements MetricsNode {
         this.accessThread.shutdown(Async.wrap(cb));
     }
 
+    @Override
+    public void print() {
+        this.accessThread.offer(new Step() {
+
+            @Override
+            public void process() {
+                decorated.print();
+            }
+        });
+    }
+
 }

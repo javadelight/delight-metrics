@@ -21,4 +21,9 @@ public interface MetricsNode {
 
     public void stop(ValueCallback<Success> cb);
 
+    /**
+     * Prints all metrics to standard out.
+     */
+    public void print();
+
 }
