@@ -1,7 +1,14 @@
 package de.mxro.metrics.tests;
 
+import com.codahale.metrics.Meter;
+import de.mxro.async.Promise;
+import de.mxro.metrics.Metrics;
+import de.mxro.metrics.MetricsNode;
+import de.mxro.metrics.helpers.RecordOperation;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
+import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.hamcrest.CoreMatchers;
@@ -18,26 +25,51 @@ import org.junit.rules.ErrorCollector;
 public class TestMeter {
   @Test
   public void test_count() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method data is undefined for the type TestMeter"
-      + "\ntoString cannot be resolved"
-      + "\ncontains cannot be resolved"
-      + "\n=> cannot be resolved");
+    final MetricsNode m = Metrics.createUnsafe();
+    RecordOperation _happened = Metrics.happened("de.mxro.test.meter1");
+    m.record(_happened);
+    RecordOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
+    m.record(_happened_1);
+    RecordOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
+    m.record(_happened_2);
+    Promise<Object> _retrieve = m.retrieve("de.mxro.test.meter1");
+    Object _get = _retrieve.get();
+    String _string = _get.toString();
+    boolean _contains = _string.contains("3");
+    TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
   }
   
   @Test
   public void test_rates() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method data is undefined for the type TestMeter"
-      + "\nThe method data is undefined for the type TestMeter"
-      + "\nget cannot be resolved"
-      + "\nfiveMinuteRate cannot be resolved"
-      + "\n> cannot be resolved"
-      + "\n=> cannot be resolved"
-      + "\nget cannot be resolved"
-      + "\nfiveMinuteRate cannot be resolved"
-      + "\n< cannot be resolved"
-      + "\n=> cannot be resolved");
+    try {
+      final MetricsNode m = Metrics.createUnsafe();
+      ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, 20, true);
+      for (final Integer i : _doubleDotLessThan) {
+        {
+          RecordOperation _happened = Metrics.happened("de.mxro.test.meter1");
+          m.record(_happened);
+          Thread.sleep(110);
+          RecordOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
+          m.record(_happened_1);
+          Thread.sleep(110);
+          RecordOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
+          m.record(_happened_2);
+          Thread.sleep(110);
+        }
+      }
+      Promise<Meter> _retrieve = m.<Meter>retrieve("de.mxro.test.meter1", Meter.class);
+      Meter _get = _retrieve.get();
+      double _fiveMinuteRate = _get.getFiveMinuteRate();
+      boolean _greaterThan = (_fiveMinuteRate > 5.0);
+      TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_greaterThan), Boolean.valueOf(true));
+      Promise<Meter> _retrieve_1 = m.<Meter>retrieve("de.mxro.test.meter1", Meter.class);
+      Meter _get_1 = _retrieve_1.get();
+      double _fiveMinuteRate_1 = _get_1.getFiveMinuteRate();
+      boolean _lessThan = (_fiveMinuteRate_1 < 20.0);
+      TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_lessThan), Boolean.valueOf(true));
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   private static void assertArrayEquals(final Object[] expecteds, final Object[] actuals) {

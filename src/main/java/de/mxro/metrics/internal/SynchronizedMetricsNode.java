@@ -57,7 +57,6 @@ public class SynchronizedMetricsNode implements MetricsNode {
 
     @Override
     public Promise<Object> retrieve(final String id) {
-
         return retrieve(id, Object.class);
     }
 

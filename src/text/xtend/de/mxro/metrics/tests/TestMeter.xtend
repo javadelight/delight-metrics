@@ -18,7 +18,7 @@ class TestMeter {
 		m.record(Metrics.happened("de.mxro.test.meter1"))
 		m.record(Metrics.happened("de.mxro.test.meter1"))
 
-		m.data.toString("de.mxro.test.meter1").contains("3") => true
+		m.retrieve("de.mxro.test.meter1").get.toString.contains("3") => true
 	}
 
 	@Test
@@ -40,8 +40,8 @@ class TestMeter {
 
 		}
 
-		(m.data.get("de.mxro.test.meter1", Meter).fiveMinuteRate > 5.0) => true
-		(m.data.get("de.mxro.test.meter1", Meter).fiveMinuteRate < 20.0) => true
+		(m.retrieve("de.mxro.test.meter1", Meter).get.fiveMinuteRate > 5.0) => true
+		(m.retrieve("de.mxro.test.meter1", Meter).get.fiveMinuteRate < 20.0) => true
 	}
 
 }
