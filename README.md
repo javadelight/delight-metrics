@@ -33,9 +33,9 @@ Monitor how many times per second an event occurs. For instance: How many times 
 ```java
 final MetricsNode m = Metrics.create();
 
-m.record(Metrics.happened("process"));
-m.record(Metrics.happened("process"));
-m.record(Metrics.happened("process"));
+m.record(Metrics.happened("serviceCalled"));
+m.record(Metrics.happened("serviceCalled"));
+m.record(Metrics.happened("serviceCalled"));
 
 Thread.sleep(10000);
 
@@ -48,7 +48,7 @@ Should result in the output:
 
 ```
 {
-    'process': {
+    'serviceCalled': {
         'Total Events': '3',
         'Events per Second (last Minute)': '0.552026648777594',
         'Events per Second (last 5 Minutes)': '0.5900828722929705',
