@@ -1,5 +1,7 @@
 package de.mxro.metrics.internal;
 
+import de.mxro.async.Promise;
+import de.mxro.async.callbacks.ValueCallback;
 import de.mxro.concurrency.schedule.AccessThread;
 import de.mxro.concurrency.schedule.Step;
 import de.mxro.metrics.MetricsNode;
@@ -29,14 +31,31 @@ public class SynchronizedMetricsNode implements MetricsNode {
     }
 
     @Override
-    public <T> T get(final String id, final Class<T> type) {
-
-        return decorated.get(id, type);
+    public <T> Promise<T> retrieve(final String id, final Class<T> type) {
+        // TODO Auto-generated method stub
+        return null;
     }
 
     @Override
-    public Object get(final String id) {
-        return decorated.get(id);
+    public <T> void retrieve(final String id, final Class<T> type, final ValueCallback<T> cb) {
+        this.accessThread.offer(new Step() {
+
+            @Override
+            public void process() {
+
+            }
+        });
+    }
+
+    @Override
+    public Promise<Object> retrieve(final String id) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void retrieve(final String id, final ValueCallback<Object> cb) {
+
     }
 
 }
