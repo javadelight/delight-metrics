@@ -2,6 +2,9 @@
 
 A very lightweight way to report metrics for Java applications based on the [Dropwizard Metrics Project](https://dropwizard.github.io/metrics/3.1.0/).
 
+**Why**: Other metric frameworks are often complex and feature-rich. 
+This framework is very simple with only a handful of core classes. Easy to understand and plug into various environments.
+
 ## Usage
 
 ### Counters
@@ -147,3 +150,7 @@ This project is compatible with the following environments:
 
 - [JavaDocs](http://modules.appjangle.com/lightweight-java-metrics/latest/apidocs/)
 - [Project Reports](http://modules.appjangle.com/lightweight-java-metrics/latest/project-reports.html)
+
+## License
+
+[Apache 2.0](https://github.com/mxro/lightweight-java-metrics/blob/master/LICENSE.TXT)
