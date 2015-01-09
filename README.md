@@ -4,7 +4,7 @@ A very lightweight way to report metrics for Java applications based on the [Dro
 
 ## Counters
 
-Keeping a count.
+Keeping a count of a metric. For instance: How many users are logged into the system concurrently.
 
 ```java
 MetricsNode m = Metrics.create();
@@ -28,7 +28,7 @@ Should result in the output:
 
 ## Throughput Measurement
 
-Monitor how many times per second an event occurs.
+Monitor how many times per second an event occurs. For instance: How many times per second is a service called.
 
 ```java
 final MetricsNode m = Metrics.create();
