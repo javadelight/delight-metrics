@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import com.codahale.metrics.JSON;
+import com.codahale.metrics.JSONSerialization;
 
 import de.mxro.metrics.helpers.MetricsData;
 
@@ -51,7 +52,13 @@ public class MetricsDataImpl implements MetricsData {
     public String toString() {
         final JSON o = new JSON();
 
-        for (final Entry<String, Object> e : metrics) {
+        for (final Entry<String, Object> e : metrics.entrySet()) {
+            Object value;
+            if (e.getValue() instanceof JSONSerialization) {
+                value = ((JSONSerialization) e.getValue()).getJSON();
+            } else {
+                value = e.getValue();
+            }
 
         }
     }
