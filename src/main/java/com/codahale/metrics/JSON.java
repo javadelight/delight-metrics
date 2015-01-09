@@ -39,6 +39,10 @@ public class JSON {
         return indent;
     }
 
+    public String render() {
+        return render(0);
+    }
+
     public String render(final int indentSize) {
         final String indent = indent(indentSize);
         String res = indent + "{\n";
