@@ -15,7 +15,7 @@ import de.mxro.metrics.helpers.MetricsData;
  * @author <a href="http://www.mxro.de">Max Rohde</a>
  *
  */
-public class MetricsDataImpl implements MetricsData {
+public class MetricsDataImpl implements MetricsData, JSONSerialization {
 
     Map<String, Object> metrics;
 
@@ -50,6 +50,11 @@ public class MetricsDataImpl implements MetricsData {
 
     @Override
     public String toString() {
+        return getJSON().render();
+    }
+
+    @Override
+    public JSON getJSON() {
         final JSON o = new JSON();
 
         for (final Entry<String, Object> e : metrics.entrySet()) {
