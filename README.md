@@ -5,7 +5,7 @@
 A very lightweight way to report metrics for Java applications based on the [Dropwizard Metrics Project](https://dropwizard.github.io/metrics/3.1.0/).
 
 **Why** Other metric frameworks are often complex and feature-rich. 
-This framework is very simple with only a handful of core classes; thus, easy to understand and plug into various environments.
+This framework composed of a small set of core classes; thus, it is easy to understand and plug into various environments.
 
 ## Usage
 
