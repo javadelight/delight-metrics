@@ -8,6 +8,10 @@ public interface MetricsNode {
 
     public void record(RecordOperation op);
 
+    public <T> Promise<T> retrieve(String id, Class<T> type);
+
+    public void <T> retrieve(String id, Class<T> type, ValueCallback<T> cb);
+
     public Promise<Object> retrieve(String id);
 
     public void retrieve(String id, ValueCallback<Object> cb);
