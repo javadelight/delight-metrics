@@ -100,9 +100,6 @@ Should result in.
 Metrics are turned into easily human-readable strings. What you do with these is up to.
 
 
-
-
-
 ## Compatibility
 
 This project is compatible with the following environments:
@@ -110,3 +107,8 @@ This project is compatible with the following environments:
 - Java 1.6+
 - GWT 2.5.0+
 - Android
+
+## Further Resources
+
+- [JavaDocs](http://modules.appjangle.com/lightweight-java-metrics/latest/apidocs/)
+- [Project Reports](http://modules.appjangle.com/lightweight-java-metrics/latest/project-reports.html)
