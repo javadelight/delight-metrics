@@ -28,6 +28,7 @@ public class SynchronizedMetricsNode implements MetricsNode {
                 decorated.record(op);
             }
         });
+        this.accessThread.startIfRequired();
     }
 
     public SynchronizedMetricsNode(final MetricsNode decorated, final AccessThread accessThread,
@@ -52,15 +53,15 @@ public class SynchronizedMetricsNode implements MetricsNode {
 
     @Override
     public <T> void retrieve(final String id, final Class<T> type, final ValueCallback<T> cb) {
-        System.out.println("schedule it");
         this.accessThread.offer(new Step() {
 
             @Override
             public void process() {
-                System.out.println("do it");
+
                 decorated.retrieve(id, type, cb);
             }
         });
+        this.accessThread.startIfRequired();
     }
 
     @Override
