@@ -101,6 +101,13 @@ Metrics are turned into easily human-readable strings. What you do with these is
 
 - [MetricsNode.print()](http://modules.appjangle.com/lightweight-java-metrics/latest/apidocs/de/mxro/metrics/MetricsNode.html#print()): For printing all metrics on standard out.
 - [MetricsNode.render()](http://modules.appjangle.com/lightweight-java-metrics/latest/apidocs/de/mxro/metrics/MetricsNode.html#render()): For generating a String with all metrics.
+- [MetricsNode.retrieve(id)](http://modules.appjangle.com/lightweight-java-metrics/latest/apidocs/de/mxro/metrics/MetricsNode.html#retrieve(java.lang.String)): For retrieving a specific metric. Can be rendered as follows:
+
+```java
+MetricsNode m = ...
+
+m.retrieve("metricId").get().toString()
+```
 
 ## Compatibility
 
