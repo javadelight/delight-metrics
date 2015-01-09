@@ -99,6 +99,7 @@ Should result in.
 
 Metrics are turned into easily human-readable strings. What you do with these is up to.
 
+- [MetricsNode.print()](http://modules.appjangle.com/lightweight-java-metrics/latest/apidocs/de/mxro/metrics/MetricsNode.html#print()): For priting all metrics on standard out.
 
 ## Compatibility
 
