@@ -23,16 +23,16 @@ public class TestCounter {
   @Test
   public void test() {
     MetricsNode m = Metrics.createUnsafe();
-    RecordOperation _value = Metrics.value("de.mxro.hist", 1);
-    m.record(_value);
-    RecordOperation _value_1 = Metrics.value("de.mxro.hist", 2);
-    m.record(_value_1);
-    RecordOperation _value_2 = Metrics.value("de.mxro.hist", 3);
-    m.record(_value_2);
-    Promise<Object> _retrieve = m.retrieve("de.mxro.hist");
+    RecordOperation _increment = Metrics.increment("de.mxro.counter");
+    m.record(_increment);
+    RecordOperation _increment_1 = Metrics.increment("de.mxro.counter");
+    m.record(_increment_1);
+    RecordOperation _decrement = Metrics.decrement("de.mxro.counter");
+    m.record(_decrement);
+    Promise<Object> _retrieve = m.retrieve("de.mxro.counter");
     Object _get = _retrieve.get();
     String _string = _get.toString();
-    boolean _contains = _string.contains("2.0");
+    boolean _contains = _string.contains("1");
     TestCounter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
   }
   
