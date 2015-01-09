@@ -1,10 +1,10 @@
-# lightweight-java-metrics
+# Lightweight Java Metrics
 
 A very lightweight way to report metrics for Java applications based on the [Dropwizard Metrics Project](https://dropwizard.github.io/metrics/3.1.0/).
 
 ## Counters
 
-Counters allow to keep track of a specific value (for instance the currently logged in users) which is frequently incremented or decremented.
+Keeping track of a specific value which is frequently incremented or decremented (for instance the currently logged in users).
 
 ```java
 MetricsNode m = Metrics.create();
@@ -28,7 +28,7 @@ Should result in the output:
 
 ## Throughput Measurement
 
-Throughput measurement allows monitoring how many times per second an event occurs.
+Monitoring how many times per second an event occurs.
 
 ```java
 final MetricsNode m = Metrics.create();
