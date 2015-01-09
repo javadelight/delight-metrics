@@ -9,9 +9,9 @@ public class ExampleStatistics {
 
         final MetricsNode m = Metrics.create();
 
-        m.record(Metrics.increment("counter"));
-        m.record(Metrics.increment("counter"));
-        m.record(Metrics.decrement("counter"));
+        m.record(Metrics.value("requestSize", 300));
+        m.record(Metrics.value("requestSize", 100));
+        m.record(Metrics.value("requestSize", 200));
 
         m.print();
 
