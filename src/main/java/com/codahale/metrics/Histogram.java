@@ -53,7 +53,7 @@ public class Histogram implements Metric, Sampling, Counting, HasJSON {
      */
     @Override
     public long getCount() {
-        return count.sum();
+        return count.longValue();
     }
 
     @Override
