@@ -9,9 +9,9 @@ Counters allow to keep track of a specific value) for instance the currently log
 ```java
 MetricsNode m = Metrics.create();
 
-m.increment("counter");
-m.increment("counter");
-m.decrement("counter");
+m.record(Metrics.increment("counter"));
+m.record(Metrics.increment("counter"));
+m.record(Metrics.decrement("counter"));
 
 m.print();
 
