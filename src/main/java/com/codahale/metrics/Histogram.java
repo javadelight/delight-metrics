@@ -1,7 +1,8 @@
 package com.codahale.metrics;
 
 import de.mxro.json.JSON;
-import de.mxro.json.JSONSerialization;
+import de.mxro.json.HasJSON;
+import de.mxro.json.internal.JSONImpl;
 
 /**
  * A metric which calculates the distribution of a value.
@@ -9,7 +10,7 @@ import de.mxro.json.JSONSerialization;
  * @see <a href="http://www.johndcook.com/standard_deviation.html">Accurately
  *      computing running variance</a>
  */
-public class Histogram implements Metric, Sampling, Counting, JSONSerialization {
+public class Histogram implements Metric, Sampling, Counting, HasJSON {
     private final Reservoir reservoir;
     private final LongAdder count;
 
@@ -68,7 +69,7 @@ public class Histogram implements Metric, Sampling, Counting, JSONSerialization 
 
     @Override
     public JSON getJSON() {
-        final JSON o = new JSON();
+        final JSON o = new JSONImpl();
         final Snapshot snap = getSnapshot();
         o.add("Mean", snap.getMean());
         o.add("Standard Deviation", snap.getStdDev());

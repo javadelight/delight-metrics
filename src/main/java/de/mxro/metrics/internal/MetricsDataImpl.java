@@ -5,7 +5,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import de.mxro.json.JSON;
-import de.mxro.json.JSONSerialization;
+import de.mxro.json.HasJSON;
+import de.mxro.json.internal.JSONImpl;
 import de.mxro.metrics.helpers.MetricsData;
 
 /**
@@ -14,7 +15,7 @@ import de.mxro.metrics.helpers.MetricsData;
  * @author <a href="http://www.mxro.de">Max Rohde</a>
  *
  */
-public class MetricsDataImpl implements MetricsData, JSONSerialization {
+public class MetricsDataImpl implements MetricsData, HasJSON {
 
     Map<String, Object> metrics;
 
@@ -54,12 +55,12 @@ public class MetricsDataImpl implements MetricsData, JSONSerialization {
 
     @Override
     public JSON getJSON() {
-        final JSON o = new JSON();
+        final JSON o = new JSONImpl();
 
         for (final Entry<String, Object> e : metrics.entrySet()) {
             Object value;
-            if (e.getValue() instanceof JSONSerialization) {
-                value = ((JSONSerialization) e.getValue()).getJSON();
+            if (e.getValue() instanceof HasJSON) {
+                value = ((HasJSON) e.getValue()).getJSON();
             } else {
                 value = e.getValue();
             }

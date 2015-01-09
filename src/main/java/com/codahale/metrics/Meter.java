@@ -3,7 +3,8 @@ package com.codahale.metrics;
 import java.util.concurrent.TimeUnit;
 
 import de.mxro.json.JSON;
-import de.mxro.json.JSONSerialization;
+import de.mxro.json.HasJSON;
+import de.mxro.json.internal.JSONImpl;
 
 /**
  * A meter metric which measures mean throughput and one-, five-, and
@@ -11,7 +12,7 @@ import de.mxro.json.JSONSerialization;
  *
  * @see EWMA
  */
-public class Meter implements Metered, JSONSerialization {
+public class Meter implements Metered, HasJSON {
     private static final long TICK_INTERVAL = TimeUnit.SECONDS.toNanos(5);
 
     private final EWMA m1Rate = EWMA.oneMinuteEWMA();
@@ -124,7 +125,7 @@ public class Meter implements Metered, JSONSerialization {
 
     @Override
     public JSON getJSON() {
-        final JSON o = new JSON();
+        final JSON o = new JSONImpl();
         o.add("Total Events", count);
         o.add("Events per Second (last Minute)", getOneMinuteRate());
         o.add("Events per Second (last 5 Minutes)", getFiveMinuteRate());
