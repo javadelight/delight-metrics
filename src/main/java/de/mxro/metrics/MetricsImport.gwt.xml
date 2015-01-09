@@ -3,6 +3,7 @@
 <module rename-to='metrics'>
 	
 	<inherits name='com.codahale.metrics.MetricsImport' /> 
+	<inherits name='de.mxro.concurrency.Concurrency' />
 	<inherits name='de.mxro.async.Async' /> 
 
 
