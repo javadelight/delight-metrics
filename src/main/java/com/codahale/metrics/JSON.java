@@ -6,11 +6,11 @@ import java.util.Map.Entry;
 
 public class JSON {
 
-    private final List<Entry<String, String>> entries;
+    private final List<Entry<String, Object>> entries;
 
     public void add(final String key, final Object value) {
-        final String valueStr = value.toString();
-        entries.add(new Entry<String, String>() {
+
+        entries.add(new Entry<String, Object>() {
 
             @Override
             public String setValue(final String value) {
@@ -20,7 +20,7 @@ public class JSON {
             @Override
             public String getValue() {
 
-                return valueStr;
+                return value;
             }
 
             @Override
@@ -35,8 +35,10 @@ public class JSON {
 
         String res = "{\n";
 
-        for (final Entry<String, String> e : entries) {
-            res += "    '" + e.getKey() + "': '" + e.getValue() + "',\n";
+        for (final Entry<String, Object> e : entries) {
+            if (e.getValue() instanceof String) {
+                res += "    '" + e.getKey() + "': '" + e.getValue() + "',\n";
+            }
         }
 
         res += "}";
