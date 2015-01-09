@@ -10,7 +10,7 @@ public interface MetricsNode {
 
     public <T> Promise<T> retrieve(String id, Class<T> type);
 
-    public void <T> retrieve(String id, Class<T> type, ValueCallback<T> cb);
+    public <T> void retrieve(String id, Class<T> type, ValueCallback<T> cb);
 
     public Promise<Object> retrieve(String id);
 

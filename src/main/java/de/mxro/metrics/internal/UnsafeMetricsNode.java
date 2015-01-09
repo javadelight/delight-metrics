@@ -31,18 +31,28 @@ public class UnsafeMetricsNode implements MetricsNode {
     @Override
     public Promise<Object> retrieve(final String id) {
 
-        return Async.promise(new Deferred<Object>() {
+    }
+
+    @Override
+    public void retrieve(final String id, final ValueCallback<Object> cb) {
+
+    }
+
+    @Override
+    public <T> Promise<T> retrieve(final String id, final Class<T> type) {
+        return Async.promise(new Deferred<T>() {
 
             @Override
-            public void get(final ValueCallback<Object> callback) {
-                retrieve(id, callback);
+            public void get(final ValueCallback<T> callback) {
+                retrieve(id, type, callback);
             }
         });
     }
 
     @Override
-    public void retrieve(final String id, final ValueCallback<Object> cb) {
-        cb.onSuccess(data.get(id));
+    public <T> void retrieve(final String id, final Class<T> type, final ValueCallback<T> cb) {
+        cb.onSuccess((T) data.get(id));
+
     }
 
 }
