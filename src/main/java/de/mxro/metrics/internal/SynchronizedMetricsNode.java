@@ -68,10 +68,12 @@ public class SynchronizedMetricsNode implements MetricsNode {
 
     @Override
     public void retrieve(final String id, final ValueCallback<Object> cb) {
+        System.out.println("schedule it");
         this.accessThread.offer(new Step() {
 
             @Override
             public void process() {
+                System.out.println("do it");
                 decorated.retrieve(id, cb);
             }
         });
