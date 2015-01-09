@@ -75,7 +75,7 @@ public class JSON {
 
     public JSON() {
         super();
-        this.entries = new ArrayList<Entry<String, String>>();
+        this.entries = new ArrayList<Entry<String, Object>>();
     }
 
 }

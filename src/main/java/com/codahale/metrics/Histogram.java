@@ -6,7 +6,7 @@ package com.codahale.metrics;
  * @see <a href="http://www.johndcook.com/standard_deviation.html">Accurately
  *      computing running variance</a>
  */
-public class Histogram implements Metric, Sampling, Counting {
+public class Histogram implements Metric, Sampling, Counting, JSONSerialization {
     private final Reservoir reservoir;
     private final LongAdder count;
 
@@ -59,6 +59,12 @@ public class Histogram implements Metric, Sampling, Counting {
 
     @Override
     public String toString() {
+
+        return getJSON().render();
+    }
+
+    @Override
+    public JSON getJSON() {
         final JSON o = new JSON();
         final Snapshot snap = getSnapshot();
         o.add("Mean", snap.getMean());
@@ -68,9 +74,7 @@ public class Histogram implements Metric, Sampling, Counting {
         o.add("75% of Values Within", snap.get75thPercentile());
         o.add("95% of Values Within", snap.get95thPercentile());
         o.add("98% of Values Within", snap.get98thPercentile());
-        // o.add("Sum", getCount());
-
-        return o.render();
+        return o;
     }
 
 }
