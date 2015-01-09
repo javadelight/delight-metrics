@@ -3,7 +3,6 @@ package de.mxro.metrics.tests;
 import com.codahale.metrics.Meter;
 import de.mxro.async.Promise;
 import de.mxro.fn.Success;
-import de.mxro.metrics.MetricsCommon;
 import de.mxro.metrics.MetricsNode;
 import de.mxro.metrics.helpers.RecordOperation;
 import de.mxro.metrics.jre.Metrics;
@@ -28,11 +27,11 @@ public class TestMeter {
   @Test
   public void test_count() {
     final MetricsNode m = Metrics.create();
-    RecordOperation _happened = MetricsCommon.happened("de.mxro.test.meter1");
+    RecordOperation _happened = Metrics.happened("de.mxro.test.meter1");
     m.record(_happened);
-    RecordOperation _happened_1 = MetricsCommon.happened("de.mxro.test.meter1");
+    RecordOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
     m.record(_happened_1);
-    RecordOperation _happened_2 = MetricsCommon.happened("de.mxro.test.meter1");
+    RecordOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
     m.record(_happened_2);
     Promise<Object> _retrieve = m.retrieve("de.mxro.test.meter1");
     Object _get = _retrieve.get();
@@ -50,13 +49,13 @@ public class TestMeter {
       ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, 20, true);
       for (final Integer i : _doubleDotLessThan) {
         {
-          RecordOperation _happened = MetricsCommon.happened("de.mxro.test.meter1");
+          RecordOperation _happened = Metrics.happened("de.mxro.test.meter1");
           m.record(_happened);
           Thread.sleep(110);
-          RecordOperation _happened_1 = MetricsCommon.happened("de.mxro.test.meter1");
+          RecordOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
           m.record(_happened_1);
           Thread.sleep(110);
-          RecordOperation _happened_2 = MetricsCommon.happened("de.mxro.test.meter1");
+          RecordOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
           m.record(_happened_2);
           Thread.sleep(110);
         }

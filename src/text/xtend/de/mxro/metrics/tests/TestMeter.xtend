@@ -15,9 +15,9 @@ class TestMeter {
 	def void test_count() {
 		val m = Metrics.create
 
-		m.record(MetricsCommon.happened("de.mxro.test.meter1"))
-		m.record(MetricsCommon.happened("de.mxro.test.meter1"))
-		m.record(MetricsCommon.happened("de.mxro.test.meter1"))
+		m.record(Metrics.happened("de.mxro.test.meter1"))
+		m.record(Metrics.happened("de.mxro.test.meter1"))
+		m.record(Metrics.happened("de.mxro.test.meter1"))
 
 		m.retrieve("de.mxro.test.meter1").get.toString.contains("3") => true
 		
@@ -30,14 +30,14 @@ class TestMeter {
 
 		for (i : 0 ..< 20) {
 
-			m.record(MetricsCommon.happened("de.mxro.test.meter1"))
+			m.record(Metrics.happened("de.mxro.test.meter1"))
 
 			Thread.sleep(110)
 
-			m.record(MetricsCommon.happened("de.mxro.test.meter1"))
+			m.record(Metrics.happened("de.mxro.test.meter1"))
 
 			Thread.sleep(110)
-			m.record(MetricsCommon.happened("de.mxro.test.meter1"))
+			m.record(Metrics.happened("de.mxro.test.meter1"))
 
 			Thread.sleep(110)
 
