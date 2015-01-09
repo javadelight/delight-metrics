@@ -19,7 +19,7 @@ class TestCounter {
 		
 		m.record(Metrics.value("de.mxro.hist", 3))
 
-		m.data.toString("de.mxro.hist").contains("2.0") => true
+		m.retrieve("de.mxro.hist").get.toString.contains("2.0") => true
 		
 	}
 	

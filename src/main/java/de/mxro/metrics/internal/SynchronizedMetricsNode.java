@@ -38,7 +38,7 @@ public class SynchronizedMetricsNode implements MetricsNode {
         return Async.promise(new Deferred<T>() {
 
             @Override
-            public void get(final ValueCallback<T> callback) {
+            public void get(final ValueCallback<T> cb) {
                 retrieve(id, type, cb);
             }
         });
@@ -57,8 +57,8 @@ public class SynchronizedMetricsNode implements MetricsNode {
 
     @Override
     public Promise<Object> retrieve(final String id) {
-        // TODO Auto-generated method stub
-        return null;
+
+        return retrieve(id, Object.class);
     }
 
     @Override

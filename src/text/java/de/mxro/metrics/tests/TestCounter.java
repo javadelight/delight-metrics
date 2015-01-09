@@ -1,5 +1,9 @@
 package de.mxro.metrics.tests;
 
+import de.mxro.async.Promise;
+import de.mxro.metrics.Metrics;
+import de.mxro.metrics.MetricsNode;
+import de.mxro.metrics.helpers.RecordOperation;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
 import org.eclipse.xtext.xbase.lib.Extension;
@@ -18,11 +22,18 @@ import org.junit.rules.ErrorCollector;
 public class TestCounter {
   @Test
   public void test() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method data is undefined for the type TestCounter"
-      + "\ntoString cannot be resolved"
-      + "\ncontains cannot be resolved"
-      + "\n=> cannot be resolved");
+    MetricsNode m = Metrics.createUnsafe();
+    RecordOperation _value = Metrics.value("de.mxro.hist", 1);
+    m.record(_value);
+    RecordOperation _value_1 = Metrics.value("de.mxro.hist", 2);
+    m.record(_value_1);
+    RecordOperation _value_2 = Metrics.value("de.mxro.hist", 3);
+    m.record(_value_2);
+    Promise<Object> _retrieve = m.retrieve("de.mxro.hist");
+    Object _get = _retrieve.get();
+    String _string = _get.toString();
+    boolean _contains = _string.contains("2.0");
+    TestCounter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
   }
   
   private static void assertArrayEquals(final Object[] expecteds, final Object[] actuals) {
