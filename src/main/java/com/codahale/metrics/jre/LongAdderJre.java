@@ -52,7 +52,7 @@ public class LongAdderJre extends Striped64 implements Serializable, LongAdder {
     /**
      * Creates a new adder with initial sum of zero.
      */
-    LongAdderJre() {
+    public LongAdderJre() {
     }
 
     /**
@@ -163,7 +163,6 @@ public class LongAdderJre extends Striped64 implements Serializable, LongAdder {
      * @return the String representation of the {@link #sum}
      */
     @Override
-    @Override
     public String toString() {
         return Long.toString(sum());
     }
@@ -174,7 +173,6 @@ public class LongAdderJre extends Striped64 implements Serializable, LongAdder {
      * @return the sum
      */
     @Override
-    @Override
     public long longValue() {
         return sum();
     }
@@ -183,7 +181,6 @@ public class LongAdderJre extends Striped64 implements Serializable, LongAdder {
      * Returns the {@link #sum} as an {@code int} after a narrowing primitive
      * conversion.
      */
-    @Override
     @Override
     public int intValue() {
         return (int) sum();
@@ -194,7 +191,6 @@ public class LongAdderJre extends Striped64 implements Serializable, LongAdder {
      * conversion.
      */
     @Override
-    @Override
     public float floatValue() {
         return sum();
     }
@@ -203,7 +199,6 @@ public class LongAdderJre extends Striped64 implements Serializable, LongAdder {
      * Returns the {@link #sum} as a {@code double} after a widening primitive
      * conversion.
      */
-    @Override
     @Override
     public double doubleValue() {
         return sum();

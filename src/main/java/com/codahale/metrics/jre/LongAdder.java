@@ -1,6 +1,6 @@
 package com.codahale.metrics.jre;
 
-interface LongAdder {
+public interface LongAdder {
 
     /**
      * Adds the given value.
@@ -55,6 +55,7 @@ interface LongAdder {
      *
      * @return the String representation of the {@link #sum}
      */
+    @Override
     public String toString();
 
     /**
