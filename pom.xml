@@ -62,7 +62,6 @@
 					<groupId>org.eclipse.xtend</groupId>
 					<artifactId>org.eclipse.xtend.lib</artifactId>
 				</exclusion>
-
 			</exclusions>
 			<scope>test</scope>
 		</dependency>
