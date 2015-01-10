@@ -148,6 +148,10 @@ This project is compatible with the following environments:
 - Android (any)
 - OSGi (any)
 
+## Performance and Multi-Threading
+
+
+
 ## Further Resources
 
 - [JavaDocs](http://modules.appjangle.com/lightweight-java-metrics/latest/apidocs/)
