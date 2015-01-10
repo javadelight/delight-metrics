@@ -13,7 +13,7 @@ import de.mxro.json.internal.JSONImpl;
  * @see EWMA
  */
 public class Meter implements Metered, HasJSON {
-    private static final long TICK_INTERVAL = TimeUnit.SECONDS.toNanos(5);
+    private static final long TICK_INTERVAL = 5000000000L;// TimeUnit.SECONDS.toNanos(5);
 
     private final EWMA m1Rate = EWMA.oneMinuteEWMA();
     private final EWMA m5Rate = EWMA.fiveMinuteEWMA();
