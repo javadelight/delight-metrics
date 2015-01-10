@@ -1,7 +1,5 @@
 package com.codahale.metrics;
 
-import com.codahale.metrics.jre.LongAdderJre;
-
 import de.mxro.json.HasJSON;
 import de.mxro.json.JSON;
 import de.mxro.json.internal.JSONImpl;
@@ -14,7 +12,7 @@ import de.mxro.json.internal.JSONImpl;
  */
 public class Histogram implements Metric, Sampling, Counting, HasJSON {
     private final Reservoir reservoir;
-    private final LongAdderJre count;
+    private final LongAdder count;
 
     /**
      * Creates a new {@link Histogram} with the given reservoir.
@@ -24,7 +22,7 @@ public class Histogram implements Metric, Sampling, Counting, HasJSON {
      */
     public Histogram(final Reservoir reservoir) {
         this.reservoir = reservoir;
-        this.count = new LongAdderJre();
+        this.count = new LongAdderGwt();
     }
 
     /**

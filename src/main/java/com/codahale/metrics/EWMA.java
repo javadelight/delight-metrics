@@ -4,8 +4,6 @@ import static java.lang.Math.exp;
 
 import java.util.concurrent.TimeUnit;
 
-import com.codahale.metrics.jre.LongAdderJre;
-
 /**
  * An exponentially-weighted moving average.
  *
@@ -29,7 +27,7 @@ public class EWMA {
     private volatile boolean initialized = false;
     private volatile double rate = 0.0;
 
-    private final LongAdderJre uncounted = new LongAdderJre();
+    private final LongAdder uncounted = new LongAdderGwt();
     private final double alpha, interval;
 
     /**
