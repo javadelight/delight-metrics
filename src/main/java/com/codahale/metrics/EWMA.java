@@ -106,8 +106,8 @@ public class EWMA {
      *            the unit of time
      * @return the rate
      */
-    public double getRate(final TimeUnit rateUnit) {
-        return rate * rateUnit.toNanos(1);
+    public double getRate(final long nanos) {
+        return rate * nanos;
     }
 
     @Override
