@@ -1,15 +1,15 @@
 package com.codahale.metrics;
 
-import com.codahale.metrics.jre.LongAdder;
+import com.codahale.metrics.jre.LongAdderJre;
 
 /**
  * An incrementing and decrementing counter metric.
  */
 public class Counter implements Metric, Counting {
-    private final LongAdder count;
+    private final LongAdderJre count;
 
     public Counter() {
-        this.count = new LongAdder();
+        this.count = new LongAdderJre();
     }
 
     /**

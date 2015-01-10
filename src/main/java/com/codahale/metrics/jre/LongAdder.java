@@ -1,59 +1,6 @@
-/*
- * Written by Doug Lea with assistance from members of JCP JSR-166
- * Expert Group and released to the public domain, as explained at
- * http://creativecommons.org/publicdomain/zero/1.0/
- *
- * http://gee.cs.oswego.edu/cgi-bin/viewcvs.cgi/jsr166/src/jsr166e/LongAdder.java?revision=1.14&view=markup
- */
-
 package com.codahale.metrics.jre;
 
-import java.io.Serializable;
-
-// CHECKSTYLE:OFF
-/**
- * One or more variables that together maintain an initially zero {@code long}
- * sum. When updates (method {@link #add}) are contended across threads, the set
- * of variables may grow dynamically to reduce contention. Method {@link #sum}
- * (or, equivalently, {@link #longValue}) returns the current total combined
- * across the variables maintaining the sum.
- * <p/>
- * <p>
- * This class is usually preferable to AtomicLong when multiple threads update a
- * common sum that is used for purposes such as collecting statistics, not for
- * fine-grained synchronization control. Under low update contention, the two
- * classes have similar characteristics. But under high contention, expected
- * throughput of this class is significantly higher, at the expense of higher
- * space consumption.
- * <p/>
- * <p>
- * This class extends {@link Number}, but does <em>not</em> define methods such
- * as {@code equals}, {@code hashCode} and {@code compareTo} because instances
- * are expected to be mutated, and so are not useful as collection keys.
- * <p/>
- * <p>
- * <em>jsr166e note: This class is targeted to be placed in java.util.concurrent.atomic.</em>
- *
- * @author Doug Lea
- * @since 1.8
- */
-@SuppressWarnings("all")
-class LongAdder extends Striped64 implements Serializable {
-    private static final long serialVersionUID = 7249069246863182397L;
-
-    /**
-     * Version of plus for use in retryUpdate
-     */
-    @Override
-    final long fn(final long v, final long x) {
-        return v + x;
-    }
-
-    /**
-     * Creates a new adder with initial sum of zero.
-     */
-    LongAdder() {
-    }
+interface LongAdder {
 
     /**
      * Adds the given value.
@@ -61,35 +8,17 @@ class LongAdder extends Striped64 implements Serializable {
      * @param x
      *            the value to add
      */
-    public void add(final long x) {
-        Cell[] as;
-        long b, v;
-        HashCode hc;
-        Cell a;
-        int n;
-        if ((as = cells) != null || !casBase(b = base, b + x)) {
-            boolean uncontended = true;
-            final int h = (hc = threadHashCode.get()).code;
-            if (as == null || (n = as.length) < 1 || (a = as[(n - 1) & h]) == null
-                    || !(uncontended = a.cas(v = a.value, v + x))) {
-                retryUpdate(x, hc, uncontended);
-            }
-        }
-    }
+    public void add(long x);
 
     /**
      * Equivalent to {@code add(1)}.
      */
-    public void increment() {
-        add(1L);
-    }
+    public void increment();
 
     /**
      * Equivalent to {@code add(-1)}.
      */
-    public void decrement() {
-        add(-1L);
-    }
+    public void decrement();
 
     /**
      * Returns the current sum. The returned value is <em>NOT</em> an atomic
@@ -99,20 +28,7 @@ class LongAdder extends Striped64 implements Serializable {
      *
      * @return the sum
      */
-    public long sum() {
-        long sum = base;
-        final Cell[] as = cells;
-        if (as != null) {
-            final int n = as.length;
-            for (int i = 0; i < n; ++i) {
-                final Cell a = as[i];
-                if (a != null) {
-                    sum += a.value;
-                }
-            }
-        }
-        return sum;
-    }
+    public long sum();
 
     /**
      * Resets variables maintaining the sum to zero. This method may be a useful
@@ -121,9 +37,7 @@ class LongAdder extends Striped64 implements Serializable {
      * should only be used when it is known that no threads are concurrently
      * updating.
      */
-    public void reset() {
-        internalReset(0L);
-    }
+    public void reset();
 
     /**
      * Equivalent in effect to {@link #sum} followed by {@link #reset}. This
@@ -134,69 +48,38 @@ class LongAdder extends Striped64 implements Serializable {
      *
      * @return the sum
      */
-    public long sumThenReset() {
-        long sum = base;
-        final Cell[] as = cells;
-        base = 0L;
-        if (as != null) {
-            final int n = as.length;
-            for (int i = 0; i < n; ++i) {
-                final Cell a = as[i];
-                if (a != null) {
-                    sum += a.value;
-                    a.value = 0L;
-                }
-            }
-        }
-        return sum;
-    }
+    public long sumThenReset();
 
     /**
      * Returns the String representation of the {@link #sum}.
      *
      * @return the String representation of the {@link #sum}
      */
-    @Override
-    public String toString() {
-        return Long.toString(sum());
-    }
+    public String toString();
 
     /**
      * Equivalent to {@link #sum}.
      *
      * @return the sum
      */
-    @Override
-    public long longValue() {
-        return sum();
-    }
+    public long longValue();
 
     /**
      * Returns the {@link #sum} as an {@code int} after a narrowing primitive
      * conversion.
      */
-    @Override
-    public int intValue() {
-        return (int) sum();
-    }
+    public int intValue();
 
     /**
      * Returns the {@link #sum} as a {@code float} after a widening primitive
      * conversion.
      */
-    @Override
-    public float floatValue() {
-        return sum();
-    }
+    public float floatValue();
 
     /**
      * Returns the {@link #sum} as a {@code double} after a widening primitive
      * conversion.
      */
-    @Override
-    public double doubleValue() {
-        return sum();
-    }
+    public double doubleValue();
 
 }
-// CHECKSTYLE:ON

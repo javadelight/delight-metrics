@@ -2,7 +2,7 @@ package com.codahale.metrics;
 
 import java.util.concurrent.TimeUnit;
 
-import com.codahale.metrics.jre.LongAdder;
+import com.codahale.metrics.jre.LongAdderJre;
 
 import de.mxro.json.JSON;
 import de.mxro.json.HasJSON;
@@ -21,7 +21,7 @@ public class Meter implements Metered, HasJSON {
     private final EWMA m5Rate = EWMA.fiveMinuteEWMA();
     private final EWMA m15Rate = EWMA.fifteenMinuteEWMA();
 
-    private final LongAdder count = new LongAdder();
+    private final LongAdderJre count = new LongAdderJre();
     private final long startTime;
     private long lastTick;
     private final Clock clock;
