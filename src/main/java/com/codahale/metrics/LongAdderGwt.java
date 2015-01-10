@@ -56,4 +56,8 @@ public class LongAdderGwt implements LongAdder {
         return value;
     }
 
+    public LongAdderGwt() {
+        super();
+    }
+
 }
