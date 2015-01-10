@@ -150,7 +150,13 @@ This project is compatible with the following environments:
 
 ## Performance and Multi-Threading
 
+A significant part of the internal implementation in the library is based on the [Dropwizard Metrics Project](https://dropwizard.github.io/metrics/3.1.0/). 
+Thus, some of the performance characteristics are inherited from this project.
 
+However, this project uses a different approach to multi-threading. While in the Dropwizard Metrics Project every metric and operation is synchronized 
+independent, the Lightweight Java Metrics project synchronizes all operations in one place (see [SynchronizedMetricsNode.java](http://modules.appjangle.com/lightweight-java-metrics/latest/xref/de/mxro/metrics/internal/SynchronizedMetricsNode.html)).
+
+ 
 
 ## Further Resources
 
