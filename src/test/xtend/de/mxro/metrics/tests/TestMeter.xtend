@@ -19,7 +19,7 @@ class TestMeter {
 		m.record(Metrics.happened("de.mxro.test.meter1"))
 
 		m.retrieve("de.mxro.test.meter1").get.toString.contains("3") => true
-		
+
 		m.stop.get
 	}
 
@@ -27,22 +27,23 @@ class TestMeter {
 	def void test_rates() {
 		val m = Metrics.create
 
-		for (i : 0 ..< 50) {
-			m.record(Metrics.happened("de.mxro.test.meter1"))
+		// 8s
+		for (i : 1 .. 8) {
 
-			Thread.sleep(100)
+			// 10 events per second
+			for (j : 1 .. 10) {
+				m.record(Metrics.happened("de.mxro.test.meter1"))
 
-			m.record(Metrics.happened("de.mxro.test.meter1"))
+				Thread.sleep(100)
+			}
 
-			Thread.sleep(100)
-			
 		}
 
 		println(m.retrieve("de.mxro.test.meter1", Meter).get.fiveMinuteRate);
 
-		(m.retrieve("de.mxro.test.meter1", Meter).get.fiveMinuteRate > 3.0) => true
-		(m.retrieve("de.mxro.test.meter1", Meter).get.fiveMinuteRate < 7.0) => true
-		
+		(m.retrieve("de.mxro.test.meter1", Meter).get.fiveMinuteRate > 8.0) => true
+		(m.retrieve("de.mxro.test.meter1", Meter).get.fiveMinuteRate < 12.0) => true
+
 		m.stop.get
 	}
 

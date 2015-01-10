@@ -9,9 +9,9 @@ import de.mxro.metrics.jre.Metrics;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
 import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.Matcher;
@@ -47,15 +47,15 @@ public class TestMeter {
   public void test_rates() {
     try {
       final MetricsNode m = Metrics.create();
-      ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, 50, true);
-      for (final Integer i : _doubleDotLessThan) {
-        {
-          RecordOperation _happened = Metrics.happened("de.mxro.test.meter1");
-          m.record(_happened);
-          Thread.sleep(100);
-          RecordOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
-          m.record(_happened_1);
-          Thread.sleep(100);
+      IntegerRange _upTo = new IntegerRange(1, 8);
+      for (final Integer i : _upTo) {
+        IntegerRange _upTo_1 = new IntegerRange(1, 10);
+        for (final Integer j : _upTo_1) {
+          {
+            RecordOperation _happened = Metrics.happened("de.mxro.test.meter1");
+            m.record(_happened);
+            Thread.sleep(100);
+          }
         }
       }
       Promise<Meter> _retrieve = m.<Meter>retrieve("de.mxro.test.meter1", Meter.class);
@@ -65,12 +65,12 @@ public class TestMeter {
       Promise<Meter> _retrieve_1 = m.<Meter>retrieve("de.mxro.test.meter1", Meter.class);
       Meter _get_1 = _retrieve_1.get();
       double _fiveMinuteRate_1 = _get_1.getFiveMinuteRate();
-      boolean _greaterThan = (_fiveMinuteRate_1 > 3.0);
+      boolean _greaterThan = (_fiveMinuteRate_1 > 8.0);
       TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_greaterThan), Boolean.valueOf(true));
       Promise<Meter> _retrieve_2 = m.<Meter>retrieve("de.mxro.test.meter1", Meter.class);
       Meter _get_2 = _retrieve_2.get();
       double _fiveMinuteRate_2 = _get_2.getFiveMinuteRate();
-      boolean _lessThan = (_fiveMinuteRate_2 < 7.0);
+      boolean _lessThan = (_fiveMinuteRate_2 < 12.0);
       TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_lessThan), Boolean.valueOf(true));
       Promise<Success> _stop = m.stop();
       _stop.get();
