@@ -2,6 +2,8 @@ package com.codahale.metrics;
 
 import java.util.concurrent.TimeUnit;
 
+import com.codahale.metrics.jre.LongAdder;
+
 import de.mxro.json.JSON;
 import de.mxro.json.HasJSON;
 import de.mxro.json.internal.JSONImpl;

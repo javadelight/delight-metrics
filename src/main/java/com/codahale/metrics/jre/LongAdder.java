@@ -6,11 +6,9 @@
  * http://gee.cs.oswego.edu/cgi-bin/viewcvs.cgi/jsr166/src/jsr166e/LongAdder.java?revision=1.14&view=markup
  */
 
-package com.codahale.metrics;
+package com.codahale.metrics.jre;
 
 import java.io.Serializable;
-
-import com.codahale.metrics.jre.Striped64;
 
 // CHECKSTYLE:OFF
 /**

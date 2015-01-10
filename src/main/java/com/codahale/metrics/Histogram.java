@@ -1,5 +1,7 @@
 package com.codahale.metrics;
 
+import com.codahale.metrics.jre.LongAdder;
+
 import de.mxro.json.HasJSON;
 import de.mxro.json.JSON;
 import de.mxro.json.internal.JSONImpl;

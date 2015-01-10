@@ -1,5 +1,7 @@
 package com.codahale.metrics;
 
+import com.codahale.metrics.jre.LongAdder;
+
 /**
  * An incrementing and decrementing counter metric.
  */

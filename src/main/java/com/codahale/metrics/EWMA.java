@@ -4,6 +4,8 @@ import static java.lang.Math.exp;
 
 import java.util.concurrent.TimeUnit;
 
+import com.codahale.metrics.jre.LongAdder;
+
 /**
  * An exponentially-weighted moving average.
  *
