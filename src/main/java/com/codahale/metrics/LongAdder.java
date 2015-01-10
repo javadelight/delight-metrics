@@ -10,6 +10,8 @@ package com.codahale.metrics;
 
 import java.io.Serializable;
 
+import com.codahale.metrics.jre.Striped64;
+
 // CHECKSTYLE:OFF
 /**
  * One or more variables that together maintain an initially zero {@code long}
