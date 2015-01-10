@@ -1,7 +1,5 @@
 package com.codahale.metrics;
 
-import java.util.concurrent.TimeUnit;
-
 import de.mxro.json.HasJSON;
 import de.mxro.json.JSON;
 import de.mxro.json.internal.JSONImpl;
@@ -92,13 +90,13 @@ public class Meter implements Metered, HasJSON {
     @Override
     public double getFifteenMinuteRate() {
         tickIfNecessary();
-        return m15Rate.getRate(TimeUnit.SECONDS);
+        return m15Rate.getRate(1000000000 /* 1 s in nanosecons */);
     }
 
     @Override
     public double getFiveMinuteRate() {
         tickIfNecessary();
-        return m5Rate.getRate(TimeUnit.SECONDS);
+        return m5Rate.getRate(1000000000 /* 1 s in nanosecons */);
     }
 
     @Override
@@ -107,14 +105,14 @@ public class Meter implements Metered, HasJSON {
             return 0.0;
         } else {
             final double elapsed = (clock.getTick() - startTime);
-            return getCount() / elapsed * TimeUnit.SECONDS.toNanos(1);
+            return getCount() / elapsed * 1000000000 /* 1 s in nanosecons */;
         }
     }
 
     @Override
     public double getOneMinuteRate() {
         tickIfNecessary();
-        return m1Rate.getRate(TimeUnit.SECONDS);
+        return m1Rate.getRate(1000000000 /* 1 s in nanosecons */);
     }
 
     @Override
