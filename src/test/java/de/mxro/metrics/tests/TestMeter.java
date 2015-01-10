@@ -65,12 +65,12 @@ public class TestMeter {
       Promise<Meter> _retrieve_1 = m.<Meter>retrieve("de.mxro.test.meter1", Meter.class);
       Meter _get_1 = _retrieve_1.get();
       double _fiveMinuteRate_1 = _get_1.getFiveMinuteRate();
-      boolean _greaterThan = (_fiveMinuteRate_1 > 5.0);
+      boolean _greaterThan = (_fiveMinuteRate_1 > 3.0);
       TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_greaterThan), Boolean.valueOf(true));
       Promise<Meter> _retrieve_2 = m.<Meter>retrieve("de.mxro.test.meter1", Meter.class);
       Meter _get_2 = _retrieve_2.get();
       double _fiveMinuteRate_2 = _get_2.getFiveMinuteRate();
-      boolean _lessThan = (_fiveMinuteRate_2 < 20.0);
+      boolean _lessThan = (_fiveMinuteRate_2 < 10.0);
       TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_lessThan), Boolean.valueOf(true));
       Promise<Success> _stop = m.stop();
       _stop.get();
