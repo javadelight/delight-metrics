@@ -41,7 +41,7 @@ class TestMeter {
 		println(m.retrieve("de.mxro.test.meter1", Meter).get.fiveMinuteRate);
 
 		(m.retrieve("de.mxro.test.meter1", Meter).get.fiveMinuteRate > 3.0) => true
-		(m.retrieve("de.mxro.test.meter1", Meter).get.fiveMinuteRate < 10.0) => true
+		(m.retrieve("de.mxro.test.meter1", Meter).get.fiveMinuteRate < 7.0) => true
 		
 		m.stop.get
 	}
