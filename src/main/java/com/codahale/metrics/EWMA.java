@@ -69,8 +69,9 @@ public class EWMA {
      *            the time unit of the tick interval
      */
     public EWMA(final double alpha, final long interval, final long nanos) {
-        this.interval = nanos * (interval * 2);
-        System.out.println("int " + interval);
+        this.interval = nanos * (interval * 2); // don't know why x2 necessary
+                                                // here?
+
         this.alpha = alpha;
     }
 
