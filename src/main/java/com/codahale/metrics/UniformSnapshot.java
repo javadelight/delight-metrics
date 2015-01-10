@@ -27,6 +27,18 @@ public class UniformSnapshot extends Snapshot {
         Arrays.sort(this.values);
     }
 
+    private final static long[] copy(final long[] source) {
+        final long[] copy = new long[source.length];
+
+        int idx = -1;
+        for (final long l : source) {
+            idx++;
+            copy[idx] = l;
+        }
+
+        return copy;
+    }
+
     /**
      * Create a new {@link Snapshot} with the given values.
      *
@@ -34,7 +46,8 @@ public class UniformSnapshot extends Snapshot {
      *            an unordered set of values in the reservoir
      */
     public UniformSnapshot(final long[] values) {
-        this.values = Arrays.copyOf(values, values.length);
+        this.values = copy(values);
+
         Arrays.sort(this.values);
     }
 
@@ -88,7 +101,7 @@ public class UniformSnapshot extends Snapshot {
      */
     @Override
     public long[] getValues() {
-        return Arrays.copyOf(values, values.length);
+        return copy(values);
     }
 
     /**
