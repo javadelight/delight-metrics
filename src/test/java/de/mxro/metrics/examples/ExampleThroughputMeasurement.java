@@ -13,11 +13,12 @@ public class ExampleThroughputMeasurement {
         m.record(Metrics.happened("process"));
         m.record(Metrics.happened("process"));
         m.record(Metrics.happened("process"));
-        m.record(Metrics.happened("process"));
-        m.record(Metrics.happened("process"));
-        m.record(Metrics.happened("process"));
-        m.record(Metrics.happened("process"));
-        m.record(Metrics.happened("process"));
+
+        // m.record(Metrics.happened("process"));
+        // m.record(Metrics.happened("process"));
+        // m.record(Metrics.happened("process"));
+        // m.record(Metrics.happened("process"));
+        // m.record(Metrics.happened("process"));
 
         Thread.sleep(10000);
 
