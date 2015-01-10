@@ -20,7 +20,7 @@ public class ExampleThroughputMeasurement {
         // m.record(Metrics.happened("process"));
         // m.record(Metrics.happened("process"));
 
-        Thread.sleep(8000);
+        Thread.sleep(1000);
 
         m.print();
 
