@@ -4,8 +4,12 @@ import de.mxro.async.jre.AsyncJre;
 import de.mxro.concurrency.jre.ConcurrencyJre;
 import de.mxro.concurrency.schedule.AccessThread;
 import de.mxro.concurrency.schedule.BetterAccessThreadImplementation;
+import de.mxro.factories.Configuration;
+import de.mxro.factories.Dependencies;
+import de.mxro.factories.Factory;
 import de.mxro.metrics.MetricsCommon;
 import de.mxro.metrics.MetricsNode;
+import de.mxro.metrics.helpers.MetricsConfiguration;
 import de.mxro.metrics.internal.SynchronizedMetricsNode;
 
 /**
@@ -23,6 +27,22 @@ public class Metrics extends MetricsCommon {
 
         return new SynchronizedMetricsNode(createUnsafe(), accessThread, AsyncJre.promiseFactory());
 
+    }
+
+    public static Factory<?, ?, ?> createFactory() {
+        return new Factory<MetricsNode, Configuration, Dependencies>() {
+
+            @Override
+            public boolean canInstantiate(final Configuration conf) {
+
+                return conf instanceof MetricsConfiguration;
+            }
+
+            @Override
+            public MetricsNode create(final Configuration conf, final Dependencies dependencies) {
+                return Metrics.create();
+            }
+        };
     }
 
 }
