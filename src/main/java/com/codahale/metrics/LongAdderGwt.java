@@ -56,6 +56,11 @@ public class LongAdderGwt implements LongAdder {
         return value;
     }
 
+    @Override
+    public String toString() {
+        return value + "";
+    }
+
     public LongAdderGwt() {
         super();
     }
