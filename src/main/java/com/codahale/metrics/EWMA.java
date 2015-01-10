@@ -2,8 +2,6 @@ package com.codahale.metrics;
 
 import static java.lang.Math.exp;
 
-
-
 /**
  * An exponentially-weighted moving average.
  *
@@ -37,7 +35,7 @@ public class EWMA {
      * @return a one-minute EWMA
      */
     public static EWMA oneMinuteEWMA() {
-        return new EWMA(M1_ALPHA, INTERVAL, 1000000000/* 1s in ns*/);
+        return new EWMA(M1_ALPHA, INTERVAL, 1000000000/* 1s in ns */);
     }
 
     /**
@@ -47,7 +45,7 @@ public class EWMA {
      * @return a five-minute EWMA
      */
     public static EWMA fiveMinuteEWMA() {
-        return new EWMA(M5_ALPHA, INTERVAL, 1000000000/* 1s in ns*/);
+        return new EWMA(M5_ALPHA, INTERVAL, 1000000000/* 1s in ns */);
     }
 
     /**
@@ -57,7 +55,7 @@ public class EWMA {
      * @return a fifteen-minute EWMA
      */
     public static EWMA fifteenMinuteEWMA() {
-        return new EWMA(M15_ALPHA, INTERVAL, 1000000000/* 1s in ns*/);
+        return new EWMA(M15_ALPHA, INTERVAL, 1000000000/* 1s in ns */);
     }
 
     /**
@@ -71,7 +69,7 @@ public class EWMA {
      *            the time unit of the tick interval
      */
     public EWMA(final double alpha, final long interval, final long nanos) {
-        this.interval = nanos;
+        this.interval = nanos * interval;
         this.alpha = alpha;
     }
 
