@@ -1,5 +1,9 @@
 package de.mxro.metrics;
 
+import de.mxro.factories.Configuration;
+import de.mxro.factories.Dependencies;
+import de.mxro.factories.Factory;
+import de.mxro.metrics.helpers.MetricsConfiguration;
 import de.mxro.metrics.helpers.RecordOperation;
 import de.mxro.metrics.internal.UnsafeMetricsNode;
 import de.mxro.metrics.internal.operations.CounterEvent;
@@ -24,6 +28,22 @@ public class MetricsCommon {
      */
     public static MetricsNode createUnsafe() {
         return new UnsafeMetricsNode();
+    }
+
+    public static Factory<?, ?, ?> createUnsafeFactory() {
+        return new Factory<MetricsNode, Configuration, Dependencies>() {
+
+            @Override
+            public boolean canInstantiate(final Configuration conf) {
+
+                return conf instanceof MetricsConfiguration;
+            }
+
+            @Override
+            public MetricsNode create(final Configuration conf, final Dependencies dependencies) {
+                return MetricsCommon.createUnsafe();
+            }
+        };
     }
 
     public static RecordOperation happened(final String id) {
