@@ -27,18 +27,18 @@ class TestMeter {
 	def void test_rates() {
 		val m = Metrics.create
 
-		for (i : 0 ..< 20) {
+		for (i : 0 ..< 50) {
 			m.record(Metrics.happened("de.mxro.test.meter1"))
 
-			Thread.sleep(110)
+			Thread.sleep(100)
 
 			m.record(Metrics.happened("de.mxro.test.meter1"))
 
-			Thread.sleep(110)
-			m.record(Metrics.happened("de.mxro.test.meter1"))
-
-			Thread.sleep(110)
+			Thread.sleep(100)
+			
 		}
+
+		println(m.retrieve("de.mxro.test.meter1", Meter).get.fiveMinuteRate);
 
 		(m.retrieve("de.mxro.test.meter1", Meter).get.fiveMinuteRate > 5.0) => true
 		(m.retrieve("de.mxro.test.meter1", Meter).get.fiveMinuteRate < 20.0) => true
