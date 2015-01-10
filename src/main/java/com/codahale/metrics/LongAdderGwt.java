@@ -1,66 +1,59 @@
 package com.codahale.metrics;
 
-
 public class LongAdderGwt implements LongAdder {
+
+    private long value = 0;
 
     @Override
     public void add(final long x) {
-        // TODO Auto-generated method stub
-
+        value += x;
     }
 
     @Override
     public void increment() {
-        // TODO Auto-generated method stub
-
+        value += 1;
     }
 
     @Override
     public void decrement() {
-        // TODO Auto-generated method stub
-
+        value -= 1;
     }
 
     @Override
     public long sum() {
-        // TODO Auto-generated method stub
-        return 0;
+        return value;
     }
 
     @Override
     public void reset() {
-        // TODO Auto-generated method stub
-
+        value = 0;
     }
 
     @Override
     public long sumThenReset() {
-        // TODO Auto-generated method stub
-        return 0;
+        final long saveVal = value;
+        value = 0;
+        return saveVal;
     }
 
     @Override
     public long longValue() {
-        // TODO Auto-generated method stub
-        return 0;
+        return value;
     }
 
     @Override
     public int intValue() {
-        // TODO Auto-generated method stub
-        return 0;
+        return (int) value;
     }
 
     @Override
     public float floatValue() {
-        // TODO Auto-generated method stub
-        return 0;
+        return value;
     }
 
     @Override
     public double doubleValue() {
-        // TODO Auto-generated method stub
-        return 0;
+        return value;
     }
 
 }
