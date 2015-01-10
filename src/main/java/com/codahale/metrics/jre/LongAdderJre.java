@@ -10,6 +10,8 @@ package com.codahale.metrics.jre;
 
 import java.io.Serializable;
 
+import com.codahale.metrics.LongAdder;
+
 // CHECKSTYLE:OFF
 /**
  * One or more variables that together maintain an initially zero {@code long}

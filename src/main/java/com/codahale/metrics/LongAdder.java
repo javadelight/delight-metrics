@@ -1,4 +1,4 @@
-package com.codahale.metrics.jre;
+package com.codahale.metrics;
 
 public interface LongAdder {
 
