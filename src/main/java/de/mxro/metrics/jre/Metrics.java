@@ -10,7 +10,7 @@ import de.mxro.metrics.MetricsCommon;
 import de.mxro.metrics.MetricsNode;
 import de.mxro.metrics.helpers.MetricsConfiguration;
 import de.mxro.metrics.internal.SynchronizedMetricsNode;
-import de.mxro.promise.jre.Promise;
+import de.mxro.promise.jre.Promises;
 
 /**
  * <p>
@@ -25,7 +25,7 @@ public class Metrics extends MetricsCommon {
     public static MetricsNode create() {
         final AccessThread accessThread = new BetterAccessThreadImplementation(ConcurrencyJre.create());
 
-        return new SynchronizedMetricsNode(createUnsafe(), accessThread, Promise.factory());
+        return new SynchronizedMetricsNode(createUnsafe(), accessThread, Promises.factory());
 
     }
 

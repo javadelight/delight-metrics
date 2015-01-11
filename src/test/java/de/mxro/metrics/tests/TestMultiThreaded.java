@@ -5,7 +5,7 @@ import de.mxro.fn.Closure;
 import de.mxro.metrics.MetricsNode;
 import de.mxro.metrics.helpers.RecordOperation;
 import de.mxro.metrics.jre.Metrics;
-import de.mxro.promise.helper.P;
+import de.mxro.promise.helper.Promise;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
 import java.util.Random;
@@ -44,7 +44,7 @@ public class TestMultiThreaded {
                 Random _random = new Random();
                 int _nextInt = _random.nextInt(3);
                 Thread.sleep(_nextInt);
-                P<Object> _retrieve = m.retrieve("de.mxro.test.meter1");
+                Promise<Object> _retrieve = m.retrieve("de.mxro.test.meter1");
                 final Closure<Object> _function = new Closure<Object>() {
                   public void apply(final Object v) {
                   }
@@ -72,7 +72,7 @@ public class TestMultiThreaded {
                 Random _random = new Random();
                 int _nextInt = _random.nextInt(3);
                 Thread.sleep(_nextInt);
-                P<Object> _retrieve = m.retrieve("de.mxro.test.meter1");
+                Promise<Object> _retrieve = m.retrieve("de.mxro.test.meter1");
                 final Closure<Object> _function = new Closure<Object>() {
                   public void apply(final Object v) {
                   }
@@ -89,7 +89,7 @@ public class TestMultiThreaded {
       thread2.start();
       thread1.join();
       thread2.join();
-      P<Meter> _retrieve = m.<Meter>retrieve("de.mxro.test.meter1", Meter.class);
+      Promise<Meter> _retrieve = m.<Meter>retrieve("de.mxro.test.meter1", Meter.class);
       Meter _get = _retrieve.get();
       final long count = _get.getCount();
       final boolean test = (count == 600);
