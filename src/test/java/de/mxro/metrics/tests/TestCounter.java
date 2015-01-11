@@ -4,7 +4,7 @@ import de.mxro.fn.Success;
 import de.mxro.metrics.MetricsNode;
 import de.mxro.metrics.helpers.RecordOperation;
 import de.mxro.metrics.jre.Metrics;
-import de.mxro.promise.helper.Promise;
+import de.mxro.promise.helper.PromiseTemplate;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
 import org.eclipse.xtext.xbase.lib.Extension;
@@ -30,12 +30,12 @@ public class TestCounter {
     m.record(_increment_1);
     RecordOperation _decrement = Metrics.decrement("de.mxro.counter");
     m.record(_decrement);
-    Promise<Object> _retrieve = m.retrieve("de.mxro.counter");
+    PromiseTemplate<Object> _retrieve = m.retrieve("de.mxro.counter");
     Object _get = _retrieve.get();
     String _string = _get.toString();
     boolean _contains = _string.contains("1");
     TestCounter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
-    Promise<Success> _stop = m.stop();
+    PromiseTemplate<Success> _stop = m.stop();
     _stop.get();
   }
   

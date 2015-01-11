@@ -3,7 +3,7 @@ package de.mxro.metrics;
 import de.mxro.async.callbacks.ValueCallback;
 import de.mxro.fn.Success;
 import de.mxro.metrics.helpers.RecordOperation;
-import de.mxro.promise.helper.Promise;
+import de.mxro.promise.helper.PromiseTemplate;
 
 /**
  * <p>
@@ -28,7 +28,7 @@ public interface MetricsNode {
      * @param type
      * @return
      */
-    public <T> Promise<T> retrieve(String id, Class<T> type);
+    public <T> PromiseTemplate<T> retrieve(String id, Class<T> type);
 
     /**
      * Retrieves a metric with a specified type and id.
@@ -46,7 +46,7 @@ public interface MetricsNode {
      * @param id
      * @return
      */
-    public Promise<Object> retrieve(String id);
+    public PromiseTemplate<Object> retrieve(String id);
 
     /**
      * Retrieves a metric with the specified id.
@@ -56,7 +56,7 @@ public interface MetricsNode {
      */
     public void retrieve(String id, ValueCallback<Object> cb);
 
-    public Promise<Success> stop();
+    public PromiseTemplate<Success> stop();
 
     public void stop(ValueCallback<Success> cb);
 
@@ -68,7 +68,7 @@ public interface MetricsNode {
     /**
      * Returns a {@link String} representation of all metrics.
      */
-    public Promise<String> render();
+    public PromiseTemplate<String> render();
 
     /**
      * Returns a {@link String} representation of all metrics.
