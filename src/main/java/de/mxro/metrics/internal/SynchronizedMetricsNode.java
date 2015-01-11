@@ -45,7 +45,7 @@ public class SynchronizedMetricsNode implements MetricsNode {
         return promiseFactory.promise(new Deferred<T>() {
 
             @Override
-            public void get(final ValueCallback<T> cb) {
+            public void apply(final ValueCallback<T> cb) {
                 retrieve(id, type, cb);
             }
         });
@@ -80,7 +80,7 @@ public class SynchronizedMetricsNode implements MetricsNode {
         return promiseFactory.promise(new Deferred<Success>() {
 
             @Override
-            public void get(final ValueCallback<Success> callback) {
+            public void apply(final ValueCallback<Success> callback) {
                 stop(callback);
             }
         });
@@ -109,7 +109,7 @@ public class SynchronizedMetricsNode implements MetricsNode {
         return promiseFactory.promise(new Deferred<String>() {
 
             @Override
-            public void get(final ValueCallback<String> callback) {
+            public void apply(final ValueCallback<String> callback) {
                 render(callback);
             }
         });

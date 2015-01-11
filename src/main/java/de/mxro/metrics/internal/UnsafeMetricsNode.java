@@ -44,7 +44,7 @@ public class UnsafeMetricsNode implements MetricsNode {
         return PromiseCommon.promise(new Deferred<T>() {
 
             @Override
-            public void get(final ValueCallback<T> callback) {
+            public void apply(final ValueCallback<T> callback) {
                 retrieve(id, type, callback);
             }
         });
@@ -67,7 +67,7 @@ public class UnsafeMetricsNode implements MetricsNode {
         return PromiseCommon.promise(new Deferred<Success>() {
 
             @Override
-            public void get(final ValueCallback<Success> callback) {
+            public void apply(final ValueCallback<Success> callback) {
                 stop(callback);
             }
         });
@@ -89,7 +89,7 @@ public class UnsafeMetricsNode implements MetricsNode {
         return PromiseCommon.promise(new Deferred<String>() {
 
             @Override
-            public void get(final ValueCallback<String> callback) {
+            public void apply(final ValueCallback<String> callback) {
                 render(callback);
             }
         });
