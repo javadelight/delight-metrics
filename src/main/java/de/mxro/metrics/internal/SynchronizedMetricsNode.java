@@ -8,7 +8,7 @@ import de.mxro.concurrency.schedule.Step;
 import de.mxro.fn.Success;
 import de.mxro.metrics.MetricsNode;
 import de.mxro.metrics.helpers.RecordOperation;
-import de.mxro.promise.helper.Promise;
+import de.mxro.promise.Promise;
 import de.mxro.promise.helper.PromiseFactory;
 
 public class SynchronizedMetricsNode implements MetricsNode {

@@ -5,7 +5,7 @@ import de.mxro.fn.Closure;
 import de.mxro.metrics.MetricsNode;
 import de.mxro.metrics.helpers.RecordOperation;
 import de.mxro.metrics.jre.Metrics;
-import de.mxro.promise.helper.Promise;
+import de.mxro.promise.Promise;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
 import java.util.Random;

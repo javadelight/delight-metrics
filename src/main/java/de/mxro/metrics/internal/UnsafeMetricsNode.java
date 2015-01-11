@@ -6,8 +6,8 @@ import de.mxro.fn.Success;
 import de.mxro.metrics.MetricsNode;
 import de.mxro.metrics.helpers.MetricsData;
 import de.mxro.metrics.helpers.RecordOperation;
+import de.mxro.promise.Promise;
 import de.mxro.promise.PromiseCommon;
-import de.mxro.promise.helper.Promise;
 
 /**
  * A non-thread safe implementation of {@link MetricsNode}.
