@@ -36,6 +36,12 @@
 			<groupId>de.mxro.concurrency</groupId>
 			<version>0.0.5</version>
 		</dependency>
+		
+		<dependency>
+		<groupId>de.mxro.promise</groupId>
+	<artifactId>java-promise</artifactId>
+	<version>[0.0.1,)</version>
+		</dependency>
 
 		<dependency>
 			<groupId>de.mxro.fn</groupId>
