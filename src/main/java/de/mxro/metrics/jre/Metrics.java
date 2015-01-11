@@ -25,7 +25,7 @@ public class Metrics extends MetricsCommon {
     public static MetricsNode create() {
         final AccessThread accessThread = new BetterAccessThreadImplementation(ConcurrencyJre.create());
 
-        return new SynchronizedMetricsNode(createUnsafe(), accessThread, Promise.promiseFactory());
+        return new SynchronizedMetricsNode(createUnsafe(), accessThread, Promise.factory());
 
     }
 
