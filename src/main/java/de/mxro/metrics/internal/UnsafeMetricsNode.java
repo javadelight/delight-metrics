@@ -1,6 +1,6 @@
 package de.mxro.metrics.internal;
 
-import de.mxro.async.Deferred;
+import de.mxro.async.Operation;
 import de.mxro.async.callbacks.ValueCallback;
 import de.mxro.fn.Success;
 import de.mxro.metrics.MetricsNode;
@@ -41,7 +41,7 @@ public class UnsafeMetricsNode implements MetricsNode {
 
     @Override
     public <T> Promise<T> retrieve(final String id, final Class<T> type) {
-        return PromiseCommon.promise(new Deferred<T>() {
+        return PromiseCommon.promise(new Operation<T>() {
 
             @Override
             public void apply(final ValueCallback<T> callback) {
@@ -64,7 +64,7 @@ public class UnsafeMetricsNode implements MetricsNode {
     @Override
     public Promise<Success> stop() {
 
-        return PromiseCommon.promise(new Deferred<Success>() {
+        return PromiseCommon.promise(new Operation<Success>() {
 
             @Override
             public void apply(final ValueCallback<Success> callback) {
@@ -86,7 +86,7 @@ public class UnsafeMetricsNode implements MetricsNode {
     @Override
     public Promise<String> render() {
 
-        return PromiseCommon.promise(new Deferred<String>() {
+        return PromiseCommon.promise(new Operation<String>() {
 
             @Override
             public void apply(final ValueCallback<String> callback) {

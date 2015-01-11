@@ -1,7 +1,7 @@
 package de.mxro.metrics.internal;
 
 import de.mxro.async.Async;
-import de.mxro.async.Deferred;
+import de.mxro.async.Operation;
 import de.mxro.async.callbacks.ValueCallback;
 import de.mxro.concurrency.schedule.AccessThread;
 import de.mxro.concurrency.schedule.Step;
@@ -42,7 +42,7 @@ public class SynchronizedMetricsNode implements MetricsNode {
     @Override
     public <T> Promise<T> retrieve(final String id, final Class<T> type) {
 
-        return promiseFactory.promise(new Deferred<T>() {
+        return promiseFactory.promise(new Operation<T>() {
 
             @Override
             public void apply(final ValueCallback<T> cb) {
@@ -77,7 +77,7 @@ public class SynchronizedMetricsNode implements MetricsNode {
     @Override
     public Promise<Success> stop() {
 
-        return promiseFactory.promise(new Deferred<Success>() {
+        return promiseFactory.promise(new Operation<Success>() {
 
             @Override
             public void apply(final ValueCallback<Success> callback) {
@@ -106,7 +106,7 @@ public class SynchronizedMetricsNode implements MetricsNode {
     @Override
     public Promise<String> render() {
 
-        return promiseFactory.promise(new Deferred<String>() {
+        return promiseFactory.promise(new Operation<String>() {
 
             @Override
             public void apply(final ValueCallback<String> callback) {
