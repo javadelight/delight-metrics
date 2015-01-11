@@ -1,6 +1,6 @@
 package de.mxro.metrics.internal;
 
-import de.mxro.async.Async;
+import de.mxro.async.AsyncCommon;
 import de.mxro.async.Operation;
 import de.mxro.async.callbacks.ValueCallback;
 import de.mxro.concurrency.schedule.AccessThread;
@@ -88,7 +88,7 @@ public class SynchronizedMetricsNode implements MetricsNode {
 
     @Override
     public void stop(final ValueCallback<Success> cb) {
-        this.accessThread.shutdown(Async.wrap(cb));
+        this.accessThread.shutdown(AsyncCommon.wrap(cb));
     }
 
     @Override
