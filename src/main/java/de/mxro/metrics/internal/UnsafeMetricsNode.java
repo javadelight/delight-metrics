@@ -7,7 +7,7 @@ import de.mxro.metrics.MetricsNode;
 import de.mxro.metrics.helpers.MetricsData;
 import de.mxro.metrics.helpers.RecordOperation;
 import de.mxro.promise.PromiseCommon;
-import de.mxro.promise.helper.PromiseTemplate;
+import de.mxro.promise.helper.P;
 
 /**
  * A non-thread safe implementation of {@link MetricsNode}.
@@ -30,7 +30,7 @@ public class UnsafeMetricsNode implements MetricsNode {
     }
 
     @Override
-    public PromiseTemplate<Object> retrieve(final String id) {
+    public P<Object> retrieve(final String id) {
         return retrieve(id, Object.class);
     }
 
@@ -40,7 +40,7 @@ public class UnsafeMetricsNode implements MetricsNode {
     }
 
     @Override
-    public <T> PromiseTemplate<T> retrieve(final String id, final Class<T> type) {
+    public <T> P<T> retrieve(final String id, final Class<T> type) {
         return PromiseCommon.promise(new Operation<T>() {
 
             @Override
@@ -62,7 +62,7 @@ public class UnsafeMetricsNode implements MetricsNode {
     }
 
     @Override
-    public PromiseTemplate<Success> stop() {
+    public P<Success> stop() {
 
         return PromiseCommon.promise(new Operation<Success>() {
 
@@ -84,7 +84,7 @@ public class UnsafeMetricsNode implements MetricsNode {
     }
 
     @Override
-    public PromiseTemplate<String> render() {
+    public P<String> render() {
 
         return PromiseCommon.promise(new Operation<String>() {
 

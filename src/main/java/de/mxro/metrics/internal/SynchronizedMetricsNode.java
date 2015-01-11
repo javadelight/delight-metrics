@@ -8,7 +8,7 @@ import de.mxro.concurrency.schedule.Step;
 import de.mxro.fn.Success;
 import de.mxro.metrics.MetricsNode;
 import de.mxro.metrics.helpers.RecordOperation;
-import de.mxro.promise.helper.PromiseTemplate;
+import de.mxro.promise.helper.P;
 import de.mxro.promise.helper.PromiseFactory;
 
 public class SynchronizedMetricsNode implements MetricsNode {
@@ -40,7 +40,7 @@ public class SynchronizedMetricsNode implements MetricsNode {
     }
 
     @Override
-    public <T> PromiseTemplate<T> retrieve(final String id, final Class<T> type) {
+    public <T> P<T> retrieve(final String id, final Class<T> type) {
 
         return promiseFactory.promise(new Operation<T>() {
 
@@ -65,7 +65,7 @@ public class SynchronizedMetricsNode implements MetricsNode {
     }
 
     @Override
-    public PromiseTemplate<Object> retrieve(final String id) {
+    public P<Object> retrieve(final String id) {
         return retrieve(id, Object.class);
     }
 
@@ -75,7 +75,7 @@ public class SynchronizedMetricsNode implements MetricsNode {
     }
 
     @Override
-    public PromiseTemplate<Success> stop() {
+    public P<Success> stop() {
 
         return promiseFactory.promise(new Operation<Success>() {
 
@@ -104,7 +104,7 @@ public class SynchronizedMetricsNode implements MetricsNode {
     }
 
     @Override
-    public PromiseTemplate<String> render() {
+    public P<String> render() {
 
         return promiseFactory.promise(new Operation<String>() {
 
