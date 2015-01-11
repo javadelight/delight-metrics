@@ -1,11 +1,11 @@
 package de.mxro.metrics.tests;
 
 import com.codahale.metrics.Meter;
-import de.mxro.async.promise.Promise;
 import de.mxro.fn.Success;
 import de.mxro.metrics.MetricsNode;
 import de.mxro.metrics.helpers.RecordOperation;
 import de.mxro.metrics.jre.Metrics;
+import de.mxro.promise.helper.Promise;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
 import org.eclipse.xtext.xbase.lib.Exceptions;

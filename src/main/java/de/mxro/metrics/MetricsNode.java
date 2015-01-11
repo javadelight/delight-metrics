@@ -1,9 +1,9 @@
 package de.mxro.metrics;
 
 import de.mxro.async.callbacks.ValueCallback;
-import de.mxro.async.promise.Promise;
 import de.mxro.fn.Success;
 import de.mxro.metrics.helpers.RecordOperation;
+import de.mxro.promise.helper.Promise;
 
 /**
  * <p>

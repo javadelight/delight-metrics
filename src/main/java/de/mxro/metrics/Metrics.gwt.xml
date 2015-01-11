@@ -4,7 +4,7 @@
 	<inherits name='com.codahale.metrics.MetricsImport' /> 
 	<inherits name='de.mxro.concurrency.Concurrency' />
 	<inherits name='de.mxro.async.Async' /> 
-
+	<inherits name="de.mxro.promise.Promise" />
 
 	<!-- Other module inherits -->
 

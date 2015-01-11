@@ -1,13 +1,13 @@
 package de.mxro.metrics.internal;
 
-import de.mxro.async.Async;
+import de.mxro.async.Deferred;
 import de.mxro.async.callbacks.ValueCallback;
-import de.mxro.async.promise.Deferred;
-import de.mxro.async.promise.Promise;
 import de.mxro.fn.Success;
 import de.mxro.metrics.MetricsNode;
 import de.mxro.metrics.helpers.MetricsData;
 import de.mxro.metrics.helpers.RecordOperation;
+import de.mxro.promise.PromiseCommon;
+import de.mxro.promise.helper.Promise;
 
 /**
  * A non-thread safe implementation of {@link MetricsNode}.
@@ -41,7 +41,7 @@ public class UnsafeMetricsNode implements MetricsNode {
 
     @Override
     public <T> Promise<T> retrieve(final String id, final Class<T> type) {
-        return Async.promise(new Deferred<T>() {
+        return PromiseCommon.promise(new Deferred<T>() {
 
             @Override
             public void get(final ValueCallback<T> callback) {
@@ -64,7 +64,7 @@ public class UnsafeMetricsNode implements MetricsNode {
     @Override
     public Promise<Success> stop() {
 
-        return Async.promise(new Deferred<Success>() {
+        return PromiseCommon.promise(new Deferred<Success>() {
 
             @Override
             public void get(final ValueCallback<Success> callback) {
@@ -86,7 +86,7 @@ public class UnsafeMetricsNode implements MetricsNode {
     @Override
     public Promise<String> render() {
 
-        return Async.promise(new Deferred<String>() {
+        return PromiseCommon.promise(new Deferred<String>() {
 
             @Override
             public void get(final ValueCallback<String> callback) {
