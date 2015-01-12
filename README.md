@@ -64,9 +64,7 @@ Should result in the output:
 }
 ```
 
-### Statistics
-
-Doing simple sampling for a numerical value. 
+### Calculate Statistics
 
 For instance: How large are received requests in average?
 
@@ -150,7 +148,7 @@ A significant part of the internal implementation in the library is based on the
 Thus, some of the performance characteristics are inherited from this project.
 
 However, this project uses a different approach to multi-threading. While in the Dropwizard Metrics Project every metric and operation is synchronized 
-independent, the Lightweight Java Metrics project synchronizes all operations in one place (see [SynchronizedMetricsNode.java](http://modules.appjangle.com/lightweight-java-metrics/latest/xref/de/mxro/metrics/internal/SynchronizedMetricsNode.html)).
+independently, the Lightweight Java Metrics project synchronizes all operations in one place (see [SynchronizedMetricsNode.java](http://modules.appjangle.com/lightweight-java-metrics/latest/xref/de/mxro/metrics/internal/SynchronizedMetricsNode.html)).
 
 Thus, more operations can be performed within the scope of one thread. This might lead to better performance as compared to the Dropwizard Metrics Project in some case and to worse performance in others. 
 
