@@ -9,9 +9,7 @@ This framework is composed of a small set of core classes; thus, it is easy to u
 
 ## Usage
 
-### Counters
-
-Keeping a count. 
+### Keeping a count
 
 For instance: How many users are logged into the system concurrently?
 
@@ -35,9 +33,7 @@ Should result in the output:
 }
 ```
 
-### Throughput Measurement
-
-Monitor how many times per second an event occurs. 
+### Measure Operations per Second
 
 For instance: How many times per second is a service called?
 
