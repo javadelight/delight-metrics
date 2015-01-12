@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mxro/lightweight-java-metrics.svg?branch=master)](https://travis-ci.org/mxro/lightweight-java-metrics)
+[![Build Status](https://travis-ci.org/mxro/lightweight-java-metrics.svg?branch=master)](https://travis-ci.org/mxro/lightweight-java-metrics) <span class="octicon octicon-mark-github"></span> [lightweight-java-metrics](https://github.com/mxro/lightweight-java-metrics)
 
 # Lightweight Java Metrics
 
