@@ -164,6 +164,7 @@ Thus, more operations can be performed within the scope of one thread. This migh
 - [Project Reports](http://modules.appjangle.com/lightweight-java-metrics/latest/project-reports.html)
 - [Rendered README](http://documentup.com/mxro/lightweight-java-metrics)
 
+
 ## License
 
 [Apache 2.0](https://github.com/mxro/lightweight-java-metrics/blob/master/LICENSE.TXT)
