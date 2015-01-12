@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/mxro/lightweight-java-metrics.svg?branch=master)](https://travis-ci.org/mxro/lightweight-java-metrics) <span class="octicon octicon-mark-github"></span> [lightweight-java-metrics](https://github.com/mxro/lightweight-java-metrics)
+[![Build Status](https://travis-ci.org/mxro/lightweight-java-metrics.svg?branch=master)](https://travis-ci.org/mxro/lightweight-java-metrics) 
 
 # Lightweight Java Metrics
 
-A very lightweight way to report metrics for Java applications based on the [Dropwizard Metrics Project](https://dropwizard.github.io/metrics/3.1.0/).
+The [Lightweight Java Metrics](https://github.com/mxro/lightweight-java-metrics) library provides a simple way to report metrics for Java applications based on the [Dropwizard Metrics Project](https://dropwizard.github.io/metrics/3.1.0/).
 
 **Why** Other metric frameworks are often complex and feature-rich. 
 This framework is composed of a small set of core classes; thus, it is easy to understand and plug into various environments.
