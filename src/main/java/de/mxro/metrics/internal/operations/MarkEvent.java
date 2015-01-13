@@ -3,8 +3,9 @@ package de.mxro.metrics.internal.operations;
 import com.codahale.metrics.Meter;
 
 import de.mxro.async.properties.PropertyData;
+import de.mxro.async.properties.operations.PropertyOperationWithId;
 
-public class MarkEvent extends OperationWithId {
+public class MarkEvent extends PropertyOperationWithId {
 
     @Override
     public void perform(final PropertyData data) {

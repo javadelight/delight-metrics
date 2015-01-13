@@ -19,7 +19,7 @@ import de.mxro.metrics.internal.operations.MarkEvent;
  * @author <a href="http://www.mxro.de">Max Rohde</a>
  *
  */
-public class MetricsCommon {
+public class MetricsCommon extends PropertiesCommon {
 
     /**
      * <p>

@@ -3,8 +3,9 @@ package de.mxro.metrics.internal.operations;
 import com.codahale.metrics.Histogram;
 
 import de.mxro.async.properties.PropertyData;
+import de.mxro.async.properties.operations.PropertyOperationWithId;
 
-public class HistrogramEvent extends OperationWithId {
+public class HistrogramEvent extends PropertyOperationWithId {
 
     private final long value;
 

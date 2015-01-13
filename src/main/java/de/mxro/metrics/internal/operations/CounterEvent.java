@@ -3,8 +3,9 @@ package de.mxro.metrics.internal.operations;
 import com.codahale.metrics.Counter;
 
 import de.mxro.async.properties.PropertyData;
+import de.mxro.async.properties.operations.PropertyOperationWithId;
 
-public class CounterEvent extends OperationWithId {
+public class CounterEvent extends PropertyOperationWithId {
 
     private final long increment;
 

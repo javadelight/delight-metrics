@@ -20,9 +20,7 @@ import de.mxro.metrics.internal.MetricsFactory;
 public class Metrics extends MetricsCommon {
 
     public static PropertyNode create() {
-
         return Properties.create(new MetricsFactory());
-
     }
 
     public static Factory<?, ?, ?> createFactory() {
