@@ -2,7 +2,9 @@
 
 # Lightweight Java Metrics
 
-The [Lightweight Java Metrics](https://github.com/mxro/lightweight-java-metrics) library provides a simple way to report metrics for Java applications based on the [Dropwizard Metrics Project](https://dropwizard.github.io/metrics/3.1.0/).
+The [Lightweight Java Metrics](https://github.com/mxro/lightweight-java-metrics) library provides a simple
+ way to report metrics for Java applications based on the [Dropwizard Metrics Project](https://dropwizard.github.io/metrics/3.1.0/)
+ and the [Async Properties](https://github.com/mxro/async-properties) library.
 
 **Why** Other metric frameworks are often complex and feature-rich. 
 This framework is composed of a small set of core classes; thus, it is easy to understand and plug into various environments.
