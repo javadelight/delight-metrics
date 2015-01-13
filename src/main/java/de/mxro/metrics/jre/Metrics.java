@@ -1,16 +1,13 @@
 package de.mxro.metrics.jre;
 
 import de.mxro.async.properties.PropertyNode;
-import de.mxro.async.properties.internal.SynchronizedMetricsNode;
-import de.mxro.concurrency.jre.ConcurrencyJre;
-import de.mxro.concurrency.schedule.AccessThread;
-import de.mxro.concurrency.schedule.BetterAccessThreadImplementation;
+import de.mxro.async.properties.jre.Properties;
 import de.mxro.factories.Configuration;
 import de.mxro.factories.Dependencies;
 import de.mxro.factories.Factory;
 import de.mxro.metrics.MetricsCommon;
 import de.mxro.metrics.helpers.MetricsConfiguration;
-import de.mxro.promise.jre.Promises;
+import de.mxro.metrics.internal.MetricsFactory;
 
 /**
  * <p>
@@ -23,9 +20,8 @@ import de.mxro.promise.jre.Promises;
 public class Metrics extends MetricsCommon {
 
     public static PropertyNode create() {
-        final AccessThread accessThread = new BetterAccessThreadImplementation(ConcurrencyJre.create());
 
-        return new SynchronizedMetricsNode(createUnsafe(), accessThread, Promises.factory());
+        return Properties.create(new MetricsFactory());
 
     }
 
