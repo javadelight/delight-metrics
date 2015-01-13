@@ -25,7 +25,7 @@ public class MetricsFactory implements PropertyFactory {
             return (T) new Histogram(new UniformReservoir());
         }
 
-        throw new RuntimeException("Cannot create metric of type [" + type.getClass() + "]");
+        return null;
 
     }
 
