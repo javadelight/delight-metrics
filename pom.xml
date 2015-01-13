@@ -21,6 +21,13 @@
 
 	<!-- Dependent Modules -->
 	<dependencies>
+		
+		<dependency>
+		<groupId>de.mxro.async.properties</groupId>
+	<artifactId>async-properties</artifactId>
+	<version>[0.0.1,)</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>de.mxro.factories</groupId>
 			<artifactId>factories</artifactId>
