@@ -29,7 +29,8 @@ public class MetricsCommon extends PropertiesCommon {
      * @return
      */
     public static PropertyNode createUnsafe() {
-        return PropertiesCommon.createUnsafe(new MetricsFactory());
+        return PropertiesCommon.createUnsafe(PropertiesCommon.compositeFactory(new MetricsFactory(),
+                PropertiesCommon.defaultFactory()));
     }
 
     public static Factory<?, ?, ?> createUnsafeFactory() {

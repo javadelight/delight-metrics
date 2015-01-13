@@ -1,5 +1,6 @@
 package de.mxro.metrics.jre;
 
+import de.mxro.async.properties.PropertiesCommon;
 import de.mxro.async.properties.PropertyNode;
 import de.mxro.async.properties.jre.Properties;
 import de.mxro.factories.Configuration;
@@ -20,7 +21,8 @@ import de.mxro.metrics.internal.MetricsFactory;
 public class Metrics extends MetricsCommon {
 
     public static PropertyNode create() {
-        return Properties.create(new MetricsFactory());
+        return Properties.create(PropertiesCommon.compositeFactory(new MetricsFactory(),
+                PropertiesCommon.defaultFactory()));
     }
 
     public static Factory<?, ?, ?> createFactory() {
