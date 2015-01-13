@@ -2,7 +2,8 @@ package de.mxro.metrics.tests;
 
 import de.mxro.async.properties.PropertyNode;
 import de.mxro.async.properties.PropertyOperation;
-import de.mxro.metrics.MetricsCommon;
+import de.mxro.fn.Success;
+import de.mxro.metrics.jre.Metrics;
 import de.mxro.promise.Promise;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
@@ -22,18 +23,20 @@ import org.junit.rules.ErrorCollector;
 public class TestCounter {
   @Test
   public void test() {
-    PropertyNode m = MetricsCommon.createUnsafe();
-    PropertyOperation _value = MetricsCommon.value("de.mxro.hist", 1);
-    m.record(_value);
-    PropertyOperation _value_1 = MetricsCommon.value("de.mxro.hist", 2);
-    m.record(_value_1);
-    PropertyOperation _value_2 = MetricsCommon.value("de.mxro.hist", 3);
-    m.record(_value_2);
-    Promise<Object> _retrieve = m.retrieve("de.mxro.hist");
+    PropertyNode m = Metrics.create();
+    PropertyOperation _increment = Metrics.increment("de.mxro.counter");
+    m.record(_increment);
+    PropertyOperation _increment_1 = Metrics.increment("de.mxro.counter");
+    m.record(_increment_1);
+    PropertyOperation _decrement = Metrics.decrement("de.mxro.counter");
+    m.record(_decrement);
+    Promise<Object> _retrieve = m.retrieve("de.mxro.counter");
     Object _get = _retrieve.get();
     String _string = _get.toString();
-    boolean _contains = _string.contains("2.0");
+    boolean _contains = _string.contains("1");
     TestCounter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
+    Promise<Success> _stop = m.stop();
+    _stop.get();
   }
   
   private static void assertArrayEquals(final Object[] expecteds, final Object[] actuals) {
