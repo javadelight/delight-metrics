@@ -5,8 +5,11 @@ import com.codahale.metrics.Histogram;
 import com.codahale.metrics.Meter;
 import com.codahale.metrics.UniformReservoir;
 
-public class MetricsFactory {
+import de.mxro.async.properties.PropertyFactory;
 
+public class MetricsFactory implements PropertyFactory {
+
+    @Override
     @SuppressWarnings("unchecked")
     public <T> T create(final Class<T> type) {
 
