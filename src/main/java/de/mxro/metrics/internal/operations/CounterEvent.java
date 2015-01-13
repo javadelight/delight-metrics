@@ -2,7 +2,7 @@ package de.mxro.metrics.internal.operations;
 
 import com.codahale.metrics.Counter;
 
-import de.mxro.metrics.helpers.PropertyData;
+import de.mxro.async.properties.PropertyData;
 
 public class CounterEvent extends OperationWithId {
 

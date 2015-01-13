@@ -1,10 +1,11 @@
 package de.mxro.metrics;
 
+import de.mxro.async.properties.PropertyNode;
+import de.mxro.async.properties.PropertyOperation;
 import de.mxro.factories.Configuration;
 import de.mxro.factories.Dependencies;
 import de.mxro.factories.Factory;
 import de.mxro.metrics.helpers.MetricsConfiguration;
-import de.mxro.metrics.helpers.PropertyOperation;
 import de.mxro.metrics.internal.UnsafeMetricsNode;
 import de.mxro.metrics.internal.operations.CounterEvent;
 import de.mxro.metrics.internal.operations.HistrogramEvent;

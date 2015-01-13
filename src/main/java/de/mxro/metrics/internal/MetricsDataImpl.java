@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import de.mxro.async.properties.PropertyData;
 import de.mxro.json.JSON;
 import de.mxro.json.HasJSON;
 import de.mxro.json.internal.JSONImpl;
-import de.mxro.metrics.helpers.PropertyData;
 
 /**
  * 

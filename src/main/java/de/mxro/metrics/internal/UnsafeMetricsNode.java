@@ -2,10 +2,10 @@ package de.mxro.metrics.internal;
 
 import de.mxro.async.Operation;
 import de.mxro.async.callbacks.ValueCallback;
+import de.mxro.async.properties.PropertyData;
+import de.mxro.async.properties.PropertyNode;
+import de.mxro.async.properties.PropertyOperation;
 import de.mxro.fn.Success;
-import de.mxro.metrics.PropertyNode;
-import de.mxro.metrics.helpers.PropertyData;
-import de.mxro.metrics.helpers.PropertyOperation;
 import de.mxro.promise.Promise;
 import de.mxro.promise.PromisesCommon;
 

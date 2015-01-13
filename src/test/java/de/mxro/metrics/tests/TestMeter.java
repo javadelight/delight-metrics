@@ -1,9 +1,9 @@
 package de.mxro.metrics.tests;
 
 import com.codahale.metrics.Meter;
+import de.mxro.async.properties.PropertyNode;
+import de.mxro.async.properties.PropertyOperation;
 import de.mxro.fn.Success;
-import de.mxro.metrics.PropertyNode;
-import de.mxro.metrics.helpers.PropertyOperation;
 import de.mxro.metrics.jre.Metrics;
 import de.mxro.promise.Promise;
 import de.oehme.xtend.junit.Hamcrest;

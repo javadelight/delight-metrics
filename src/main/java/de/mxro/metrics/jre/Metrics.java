@@ -1,5 +1,6 @@
 package de.mxro.metrics.jre;
 
+import de.mxro.async.properties.PropertyNode;
 import de.mxro.concurrency.jre.ConcurrencyJre;
 import de.mxro.concurrency.schedule.AccessThread;
 import de.mxro.concurrency.schedule.BetterAccessThreadImplementation;
@@ -7,7 +8,6 @@ import de.mxro.factories.Configuration;
 import de.mxro.factories.Dependencies;
 import de.mxro.factories.Factory;
 import de.mxro.metrics.MetricsCommon;
-import de.mxro.metrics.PropertyNode;
 import de.mxro.metrics.helpers.MetricsConfiguration;
 import de.mxro.metrics.internal.SynchronizedMetricsNode;
 import de.mxro.promise.jre.Promises;

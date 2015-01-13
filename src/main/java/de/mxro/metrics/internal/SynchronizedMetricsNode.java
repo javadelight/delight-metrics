@@ -3,11 +3,11 @@ package de.mxro.metrics.internal;
 import de.mxro.async.AsyncCommon;
 import de.mxro.async.Operation;
 import de.mxro.async.callbacks.ValueCallback;
+import de.mxro.async.properties.PropertyNode;
+import de.mxro.async.properties.PropertyOperation;
 import de.mxro.concurrency.schedule.AccessThread;
 import de.mxro.concurrency.schedule.Step;
 import de.mxro.fn.Success;
-import de.mxro.metrics.PropertyNode;
-import de.mxro.metrics.helpers.PropertyOperation;
 import de.mxro.promise.Promise;
 import de.mxro.promise.helper.PromiseFactory;
 

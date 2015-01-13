@@ -1,7 +1,7 @@
 package de.mxro.metrics.internal.operations;
 
-import de.mxro.metrics.helpers.PropertyOperation;
-import de.mxro.metrics.helpers.PropertyData;
+import de.mxro.async.properties.PropertyData;
+import de.mxro.async.properties.PropertyOperation;
 
 public abstract class OperationWithId implements PropertyOperation {
 

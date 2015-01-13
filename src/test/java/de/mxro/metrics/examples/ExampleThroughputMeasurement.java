@@ -1,6 +1,6 @@
 package de.mxro.metrics.examples;
 
-import de.mxro.metrics.PropertyNode;
+import de.mxro.async.properties.PropertyNode;
 import de.mxro.metrics.jre.Metrics;
 
 public class ExampleThroughputMeasurement {
