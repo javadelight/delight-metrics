@@ -10,12 +10,13 @@ import de.mxro.promise.Promise;
 import de.mxro.promise.PromisesCommon;
 
 /**
+ * <p>
  * A non-thread safe implementation of {@link PropertyNode}.
  * 
  * @author <a href="http://www.mxro.de">Max Rohde</a>
  *
  */
-public class UnsafeMetricsNode implements PropertyNode {
+public class UnsafePropertyNode implements PropertyNode {
 
     private final PropertyData data;
 
@@ -24,7 +25,7 @@ public class UnsafeMetricsNode implements PropertyNode {
         op.perform(data);
     }
 
-    public UnsafeMetricsNode() {
+    public UnsafePropertyNode() {
         super();
         this.data = new MetricsDataImpl();
     }
