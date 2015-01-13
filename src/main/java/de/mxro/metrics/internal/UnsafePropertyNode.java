@@ -27,7 +27,7 @@ public class UnsafePropertyNode implements PropertyNode {
 
     public UnsafePropertyNode() {
         super();
-        this.data = new MetricsDataImpl();
+        this.data = new PropertyDataImpl();
     }
 
     @Override

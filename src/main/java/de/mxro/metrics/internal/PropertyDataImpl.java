@@ -5,8 +5,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import de.mxro.async.properties.PropertyData;
-import de.mxro.json.JSON;
 import de.mxro.json.HasJSON;
+import de.mxro.json.JSON;
 import de.mxro.json.internal.JSONImpl;
 
 /**
@@ -15,37 +15,37 @@ import de.mxro.json.internal.JSONImpl;
  * @author <a href="http://www.mxro.de">Max Rohde</a>
  *
  */
-public class MetricsDataImpl implements PropertyData, HasJSON {
+public class PropertyDataImpl implements PropertyData, HasJSON {
 
-    Map<String, Object> metrics;
+    Map<String, Object> props;
 
     @Override
     @SuppressWarnings("unchecked")
     public <T> T get(final String id, final Class<T> type) {
-        final Object object = metrics.get(id);
+        final Object object = props.get(id);
 
         if (object == null) {
             final Object newEntry = new MetricsFactory().create(type);
-            metrics.put(id, newEntry);
+            props.put(id, newEntry);
             return (T) newEntry;
         }
 
         if (!(object.getClass().equals(type))) {
-            throw new RuntimeException("Id " + id + " is assigned the incompatible metrics type [" + object.getClass()
+            throw new RuntimeException("Id " + id + " is assigned the incompatible property type [" + object.getClass()
                     + "]. Expected: " + type);
         }
 
         return (T) object;
     }
 
-    public MetricsDataImpl() {
+    public PropertyDataImpl() {
         super();
-        this.metrics = new HashMap<String, Object>();
+        this.props = new HashMap<String, Object>();
     }
 
     @Override
     public Object get(final String id) {
-        return metrics.get(id);
+        return props.get(id);
     }
 
     @Override
@@ -57,7 +57,7 @@ public class MetricsDataImpl implements PropertyData, HasJSON {
     public JSON getJSON() {
         final JSON o = new JSONImpl();
 
-        for (final Entry<String, Object> e : metrics.entrySet()) {
+        for (final Entry<String, Object> e : props.entrySet()) {
             Object value;
             if (e.getValue() instanceof HasJSON) {
                 value = ((HasJSON) e.getValue()).getJSON();
