@@ -9,9 +9,9 @@ public class ExampleCounter {
 
         final PropertyNode m = Metrics.create();
 
-        m.perform(Metrics.increment("counter"));
-        m.perform(Metrics.increment("counter"));
-        m.perform(Metrics.decrement("counter"));
+        m.record(Metrics.increment("counter"));
+        m.record(Metrics.increment("counter"));
+        m.record(Metrics.decrement("counter"));
 
         m.print();
 

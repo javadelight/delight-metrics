@@ -25,11 +25,11 @@ public class TestCounter {
   public void test() {
     PropertyNode m = Metrics.create();
     PropertyOperation _increment = Metrics.increment("de.mxro.counter");
-    m.perform(_increment);
+    m.record(_increment);
     PropertyOperation _increment_1 = Metrics.increment("de.mxro.counter");
-    m.perform(_increment_1);
+    m.record(_increment_1);
     PropertyOperation _decrement = Metrics.decrement("de.mxro.counter");
-    m.perform(_decrement);
+    m.record(_decrement);
     Promise<Object> _retrieve = m.retrieve("de.mxro.counter");
     Object _get = _retrieve.get();
     String _string = _get.toString();

@@ -36,11 +36,11 @@ public class TestMultiThreaded {
             for (final Integer i : _upTo) {
               {
                 PropertyOperation _happened = Metrics.happened("de.mxro.test.meter1");
-                m.perform(_happened);
+                m.record(_happened);
                 PropertyOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
-                m.perform(_happened_1);
+                m.record(_happened_1);
                 PropertyOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
-                m.perform(_happened_2);
+                m.record(_happened_2);
                 Random _random = new Random();
                 int _nextInt = _random.nextInt(3);
                 Thread.sleep(_nextInt);
@@ -64,11 +64,11 @@ public class TestMultiThreaded {
             for (final Integer i : _upTo) {
               {
                 PropertyOperation _happened = Metrics.happened("de.mxro.test.meter1");
-                m.perform(_happened);
+                m.record(_happened);
                 PropertyOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
-                m.perform(_happened_1);
+                m.record(_happened_1);
                 PropertyOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
-                m.perform(_happened_2);
+                m.record(_happened_2);
                 Random _random = new Random();
                 int _nextInt = _random.nextInt(3);
                 Thread.sleep(_nextInt);

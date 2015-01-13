@@ -8,11 +8,11 @@ public class ExampleThroughputMeasurement {
 
         final PropertyNode m = Metrics.create();
 
-        m.perform(Metrics.happened("process"));
-        m.perform(Metrics.happened("process"));
-        m.perform(Metrics.happened("process"));
-        m.perform(Metrics.happened("process"));
-        m.perform(Metrics.happened("process"));
+        m.record(Metrics.happened("process"));
+        m.record(Metrics.happened("process"));
+        m.record(Metrics.happened("process"));
+        m.record(Metrics.happened("process"));
+        m.record(Metrics.happened("process"));
 
         // m.record(Metrics.happened("process"));
         // m.record(Metrics.happened("process"));

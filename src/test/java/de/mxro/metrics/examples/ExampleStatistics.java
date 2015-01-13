@@ -9,9 +9,9 @@ public class ExampleStatistics {
 
         final PropertyNode m = Metrics.create();
 
-        m.perform(Metrics.value("requestSize", 300));
-        m.perform(Metrics.value("requestSize", 100));
-        m.perform(Metrics.value("requestSize", 200));
+        m.record(Metrics.value("requestSize", 300));
+        m.record(Metrics.value("requestSize", 100));
+        m.record(Metrics.value("requestSize", 200));
 
         m.print();
 

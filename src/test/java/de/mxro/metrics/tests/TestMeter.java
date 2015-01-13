@@ -28,11 +28,11 @@ public class TestMeter {
   public void test_count() {
     final PropertyNode m = Metrics.create();
     PropertyOperation _happened = Metrics.happened("de.mxro.test.meter1");
-    m.perform(_happened);
+    m.record(_happened);
     PropertyOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
-    m.perform(_happened_1);
+    m.record(_happened_1);
     PropertyOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
-    m.perform(_happened_2);
+    m.record(_happened_2);
     Promise<Object> _retrieve = m.retrieve("de.mxro.test.meter1");
     Object _get = _retrieve.get();
     String _string = _get.toString();
@@ -52,7 +52,7 @@ public class TestMeter {
         for (final Integer j : _upTo_1) {
           {
             PropertyOperation _happened = Metrics.happened("de.mxro.test.meter1");
-            m.perform(_happened);
+            m.record(_happened);
             Thread.sleep(100);
           }
         }
