@@ -206,6 +206,7 @@
 									<link>http://modules.appjangle.com/async-api/latest/apidocs/</link>
 									<link>http://modules.appjangle.com/concurrency/latest/apidocs/</link>
 									<link>http://modules.appjangle.com/java-promise/latest/apidocs/</link>
+									<link>http://modules.appjangle.com/async-properties/latest/apidocs/</link>
 								</links>
 							</configuration>
 						</plugin>

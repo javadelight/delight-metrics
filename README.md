@@ -100,12 +100,22 @@ Should result in.
 
 Metrics are turned into easily human-readable strings. What you do with these is up to.
 
-
+#### Retrieve Single Metric as String
 
 ```java
 PropertyNode m = ...
 
-m.retrieve("metricId").get().toString()
+String metric = m.retrieve("metricId").get().toString()
+```
+
+
+#### Retrieve All Metrics as String
+
+```java
+PropertyNode m = ...
+
+String metrics = m.render().get();
+
 ```
 
 ### Maven Dependency
