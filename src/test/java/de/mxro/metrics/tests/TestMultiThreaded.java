@@ -2,7 +2,7 @@ package de.mxro.metrics.tests;
 
 import com.codahale.metrics.Meter;
 import de.mxro.fn.Closure;
-import de.mxro.metrics.MetricsNode;
+import de.mxro.metrics.PropertyNode;
 import de.mxro.metrics.helpers.RecordOperation;
 import de.mxro.metrics.jre.Metrics;
 import de.mxro.promise.Promise;
@@ -28,7 +28,7 @@ public class TestMultiThreaded {
   @Test
   public void test() {
     try {
-      final MetricsNode m = Metrics.create();
+      final PropertyNode m = Metrics.create();
       final Thread thread1 = new Thread() {
         public void run() {
           try {
@@ -36,11 +36,11 @@ public class TestMultiThreaded {
             for (final Integer i : _upTo) {
               {
                 RecordOperation _happened = Metrics.happened("de.mxro.test.meter1");
-                m.record(_happened);
+                m.perform(_happened);
                 RecordOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
-                m.record(_happened_1);
+                m.perform(_happened_1);
                 RecordOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
-                m.record(_happened_2);
+                m.perform(_happened_2);
                 Random _random = new Random();
                 int _nextInt = _random.nextInt(3);
                 Thread.sleep(_nextInt);
@@ -64,11 +64,11 @@ public class TestMultiThreaded {
             for (final Integer i : _upTo) {
               {
                 RecordOperation _happened = Metrics.happened("de.mxro.test.meter1");
-                m.record(_happened);
+                m.perform(_happened);
                 RecordOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
-                m.record(_happened_1);
+                m.perform(_happened_1);
                 RecordOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
-                m.record(_happened_2);
+                m.perform(_happened_2);
                 Random _random = new Random();
                 int _nextInt = _random.nextInt(3);
                 Thread.sleep(_nextInt);

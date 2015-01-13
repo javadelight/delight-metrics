@@ -14,10 +14,10 @@ class TestCounter {
 		
 		var m = Metrics.create
 		
-		m.record(Metrics.increment("de.mxro.counter"))
-		m.record(Metrics.increment("de.mxro.counter"))
+		m.perform(Metrics.increment("de.mxro.counter"))
+		m.perform(Metrics.increment("de.mxro.counter"))
 		
-		m.record(Metrics.decrement("de.mxro.counter"))
+		m.perform(Metrics.decrement("de.mxro.counter"))
 		
 		m.retrieve("de.mxro.counter").get.toString().contains("1") => true
 		

@@ -1,17 +1,17 @@
 package de.mxro.metrics.examples;
 
-import de.mxro.metrics.MetricsNode;
+import de.mxro.metrics.PropertyNode;
 import de.mxro.metrics.jre.Metrics;
 
 public class ExampleCounter {
 
     public static void main(final String[] args) {
 
-        final MetricsNode m = Metrics.create();
+        final PropertyNode m = Metrics.create();
 
-        m.record(Metrics.increment("counter"));
-        m.record(Metrics.increment("counter"));
-        m.record(Metrics.decrement("counter"));
+        m.perform(Metrics.increment("counter"));
+        m.perform(Metrics.increment("counter"));
+        m.perform(Metrics.decrement("counter"));
 
         m.print();
 

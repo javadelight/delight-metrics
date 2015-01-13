@@ -14,10 +14,10 @@ class TestCounter {
 		
 		var m = MetricsCommon.createUnsafe
 		
-		m.record(MetricsCommon.value("de.mxro.hist", 1))
-		m.record(MetricsCommon.value("de.mxro.hist", 2))
+		m.perform(MetricsCommon.value("de.mxro.hist", 1))
+		m.perform(MetricsCommon.value("de.mxro.hist", 2))
 		
-		m.record(MetricsCommon.value("de.mxro.hist", 3))
+		m.perform(MetricsCommon.value("de.mxro.hist", 3))
 
 		m.retrieve("de.mxro.hist").get.toString.contains("2.0") => true
 		

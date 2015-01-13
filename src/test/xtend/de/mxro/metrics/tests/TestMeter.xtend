@@ -14,9 +14,9 @@ class TestMeter {
 	def void test_count() {
 		val m = Metrics.create
 
-		m.record(Metrics.happened("de.mxro.test.meter1"))
-		m.record(Metrics.happened("de.mxro.test.meter1"))
-		m.record(Metrics.happened("de.mxro.test.meter1"))
+		m.perform(Metrics.happened("de.mxro.test.meter1"))
+		m.perform(Metrics.happened("de.mxro.test.meter1"))
+		m.perform(Metrics.happened("de.mxro.test.meter1"))
 
 		m.retrieve("de.mxro.test.meter1").get.toString.contains("3") => true
 
@@ -32,7 +32,7 @@ class TestMeter {
 
 			// 10 events per second
 			for (j : 1 .. 10) {
-				m.record(Metrics.happened("de.mxro.test.meter1"))
+				m.perform(Metrics.happened("de.mxro.test.meter1"))
 
 				Thread.sleep(100)
 			}

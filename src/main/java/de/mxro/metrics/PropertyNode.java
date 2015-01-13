@@ -7,19 +7,19 @@ import de.mxro.promise.Promise;
 
 /**
  * <p>
- * Stores a set of metrics by id.
+ * Stores a set of properties by id.
  * 
  * @author <a href="http://www.mxro.de">Max Rohde</a>
  *
  */
-public interface MetricsNode {
+public interface PropertyNode {
 
     /**
      * Records the specified operation for the affected metrics.
      * 
      * @param op
      */
-    public void record(RecordOperation op);
+    public void perform(RecordOperation op);
 
     /**
      * Retrieves a metric with a specified type and id.

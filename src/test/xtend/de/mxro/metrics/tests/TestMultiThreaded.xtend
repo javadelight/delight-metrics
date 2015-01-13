@@ -20,9 +20,9 @@ class TestMultiThreaded {
 
 			override run() {
 				for (i : 1 .. 100) {
-					m.record(Metrics.happened("de.mxro.test.meter1"))
-					m.record(Metrics.happened("de.mxro.test.meter1"))
-					m.record(Metrics.happened("de.mxro.test.meter1"))
+					m.perform(Metrics.happened("de.mxro.test.meter1"))
+					m.perform(Metrics.happened("de.mxro.test.meter1"))
+					m.perform(Metrics.happened("de.mxro.test.meter1"))
 					Thread.sleep(new Random().nextInt(3))
 					
 					m.retrieve("de.mxro.test.meter1").get([v | ])
@@ -34,9 +34,9 @@ class TestMultiThreaded {
 
 			override run() {
 				for (i : 1 .. 100) {
-					m.record(Metrics.happened("de.mxro.test.meter1"))
-					m.record(Metrics.happened("de.mxro.test.meter1"))
-					m.record(Metrics.happened("de.mxro.test.meter1"))
+					m.perform(Metrics.happened("de.mxro.test.meter1"))
+					m.perform(Metrics.happened("de.mxro.test.meter1"))
+					m.perform(Metrics.happened("de.mxro.test.meter1"))
 					Thread.sleep(new Random().nextInt(3))
 					m.retrieve("de.mxro.test.meter1").get([v | ])
 				}

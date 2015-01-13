@@ -7,14 +7,14 @@ import de.mxro.factories.Configuration;
 import de.mxro.factories.Dependencies;
 import de.mxro.factories.Factory;
 import de.mxro.metrics.MetricsCommon;
-import de.mxro.metrics.MetricsNode;
+import de.mxro.metrics.PropertyNode;
 import de.mxro.metrics.helpers.MetricsConfiguration;
 import de.mxro.metrics.internal.SynchronizedMetricsNode;
 import de.mxro.promise.jre.Promises;
 
 /**
  * <p>
- * Convenient class to create new {@link MetricsNode}s and various metric
+ * Convenient class to create new {@link PropertyNode}s and various metric
  * operations.
  * 
  * @author <a href="http://www.mxro.de">Max Rohde</a>
@@ -22,7 +22,7 @@ import de.mxro.promise.jre.Promises;
  */
 public class Metrics extends MetricsCommon {
 
-    public static MetricsNode create() {
+    public static PropertyNode create() {
         final AccessThread accessThread = new BetterAccessThreadImplementation(ConcurrencyJre.create());
 
         return new SynchronizedMetricsNode(createUnsafe(), accessThread, Promises.factory());
@@ -30,7 +30,7 @@ public class Metrics extends MetricsCommon {
     }
 
     public static Factory<?, ?, ?> createFactory() {
-        return new Factory<MetricsNode, Configuration, Dependencies>() {
+        return new Factory<PropertyNode, Configuration, Dependencies>() {
 
             @Override
             public boolean canInstantiate(final Configuration conf) {
@@ -39,7 +39,7 @@ public class Metrics extends MetricsCommon {
             }
 
             @Override
-            public MetricsNode create(final Configuration conf, final Dependencies dependencies) {
+            public PropertyNode create(final Configuration conf, final Dependencies dependencies) {
                 return Metrics.create();
             }
         };

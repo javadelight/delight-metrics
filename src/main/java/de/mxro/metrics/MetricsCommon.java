@@ -26,12 +26,12 @@ public class MetricsCommon {
      * 
      * @return
      */
-    public static MetricsNode createUnsafe() {
+    public static PropertyNode createUnsafe() {
         return new UnsafeMetricsNode();
     }
 
     public static Factory<?, ?, ?> createUnsafeFactory() {
-        return new Factory<MetricsNode, Configuration, Dependencies>() {
+        return new Factory<PropertyNode, Configuration, Dependencies>() {
 
             @Override
             public boolean canInstantiate(final Configuration conf) {
@@ -40,7 +40,7 @@ public class MetricsCommon {
             }
 
             @Override
-            public MetricsNode create(final Configuration conf, final Dependencies dependencies) {
+            public PropertyNode create(final Configuration conf, final Dependencies dependencies) {
                 return MetricsCommon.createUnsafe();
             }
         };

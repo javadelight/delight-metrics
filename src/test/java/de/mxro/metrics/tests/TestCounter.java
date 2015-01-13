@@ -1,7 +1,7 @@
 package de.mxro.metrics.tests;
 
 import de.mxro.fn.Success;
-import de.mxro.metrics.MetricsNode;
+import de.mxro.metrics.PropertyNode;
 import de.mxro.metrics.helpers.RecordOperation;
 import de.mxro.metrics.jre.Metrics;
 import de.mxro.promise.Promise;
@@ -23,13 +23,13 @@ import org.junit.rules.ErrorCollector;
 public class TestCounter {
   @Test
   public void test() {
-    MetricsNode m = Metrics.create();
+    PropertyNode m = Metrics.create();
     RecordOperation _increment = Metrics.increment("de.mxro.counter");
-    m.record(_increment);
+    m.perform(_increment);
     RecordOperation _increment_1 = Metrics.increment("de.mxro.counter");
-    m.record(_increment_1);
+    m.perform(_increment_1);
     RecordOperation _decrement = Metrics.decrement("de.mxro.counter");
-    m.record(_decrement);
+    m.perform(_decrement);
     Promise<Object> _retrieve = m.retrieve("de.mxro.counter");
     Object _get = _retrieve.get();
     String _string = _get.toString();

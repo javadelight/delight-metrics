@@ -3,24 +3,24 @@ package de.mxro.metrics.internal;
 import de.mxro.async.Operation;
 import de.mxro.async.callbacks.ValueCallback;
 import de.mxro.fn.Success;
-import de.mxro.metrics.MetricsNode;
+import de.mxro.metrics.PropertyNode;
 import de.mxro.metrics.helpers.MetricsData;
 import de.mxro.metrics.helpers.RecordOperation;
 import de.mxro.promise.Promise;
 import de.mxro.promise.PromisesCommon;
 
 /**
- * A non-thread safe implementation of {@link MetricsNode}.
+ * A non-thread safe implementation of {@link PropertyNode}.
  * 
  * @author <a href="http://www.mxro.de">Max Rohde</a>
  *
  */
-public class UnsafeMetricsNode implements MetricsNode {
+public class UnsafeMetricsNode implements PropertyNode {
 
     private final MetricsData data;
 
     @Override
-    public void record(final RecordOperation op) {
+    public void perform(final RecordOperation op) {
         op.perform(data);
     }
 

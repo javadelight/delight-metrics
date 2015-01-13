@@ -6,32 +6,32 @@ import de.mxro.async.callbacks.ValueCallback;
 import de.mxro.concurrency.schedule.AccessThread;
 import de.mxro.concurrency.schedule.Step;
 import de.mxro.fn.Success;
-import de.mxro.metrics.MetricsNode;
+import de.mxro.metrics.PropertyNode;
 import de.mxro.metrics.helpers.RecordOperation;
 import de.mxro.promise.Promise;
 import de.mxro.promise.helper.PromiseFactory;
 
-public class SynchronizedMetricsNode implements MetricsNode {
+public class SynchronizedMetricsNode implements PropertyNode {
 
-    private final MetricsNode decorated;
+    private final PropertyNode decorated;
 
     private final AccessThread accessThread;
 
     private final PromiseFactory promiseFactory;
 
     @Override
-    public void record(final RecordOperation op) {
+    public void perform(final RecordOperation op) {
         accessThread.offer(new Step() {
 
             @Override
             public void process() {
-                decorated.record(op);
+                decorated.perform(op);
             }
         });
         this.accessThread.startIfRequired();
     }
 
-    public SynchronizedMetricsNode(final MetricsNode decorated, final AccessThread accessThread,
+    public SynchronizedMetricsNode(final PropertyNode decorated, final AccessThread accessThread,
             final PromiseFactory promiseFactory) {
         super();
         this.decorated = decorated;

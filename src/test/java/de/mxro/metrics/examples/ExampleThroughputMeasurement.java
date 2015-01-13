@@ -1,18 +1,18 @@
 package de.mxro.metrics.examples;
 
-import de.mxro.metrics.MetricsNode;
+import de.mxro.metrics.PropertyNode;
 import de.mxro.metrics.jre.Metrics;
 
 public class ExampleThroughputMeasurement {
     public static void main(final String[] args) throws InterruptedException {
 
-        final MetricsNode m = Metrics.create();
+        final PropertyNode m = Metrics.create();
 
-        m.record(Metrics.happened("process"));
-        m.record(Metrics.happened("process"));
-        m.record(Metrics.happened("process"));
-        m.record(Metrics.happened("process"));
-        m.record(Metrics.happened("process"));
+        m.perform(Metrics.happened("process"));
+        m.perform(Metrics.happened("process"));
+        m.perform(Metrics.happened("process"));
+        m.perform(Metrics.happened("process"));
+        m.perform(Metrics.happened("process"));
 
         // m.record(Metrics.happened("process"));
         // m.record(Metrics.happened("process"));

@@ -2,7 +2,7 @@ package de.mxro.metrics.tests;
 
 import com.codahale.metrics.Meter;
 import de.mxro.fn.Success;
-import de.mxro.metrics.MetricsNode;
+import de.mxro.metrics.PropertyNode;
 import de.mxro.metrics.helpers.RecordOperation;
 import de.mxro.metrics.jre.Metrics;
 import de.mxro.promise.Promise;
@@ -26,13 +26,13 @@ import org.junit.rules.ErrorCollector;
 public class TestMeter {
   @Test
   public void test_count() {
-    final MetricsNode m = Metrics.create();
+    final PropertyNode m = Metrics.create();
     RecordOperation _happened = Metrics.happened("de.mxro.test.meter1");
-    m.record(_happened);
+    m.perform(_happened);
     RecordOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
-    m.record(_happened_1);
+    m.perform(_happened_1);
     RecordOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
-    m.record(_happened_2);
+    m.perform(_happened_2);
     Promise<Object> _retrieve = m.retrieve("de.mxro.test.meter1");
     Object _get = _retrieve.get();
     String _string = _get.toString();
@@ -45,14 +45,14 @@ public class TestMeter {
   @Test
   public void test_rates() {
     try {
-      final MetricsNode m = Metrics.create();
+      final PropertyNode m = Metrics.create();
       IntegerRange _upTo = new IntegerRange(1, 8);
       for (final Integer i : _upTo) {
         IntegerRange _upTo_1 = new IntegerRange(1, 10);
         for (final Integer j : _upTo_1) {
           {
             RecordOperation _happened = Metrics.happened("de.mxro.test.meter1");
-            m.record(_happened);
+            m.perform(_happened);
             Thread.sleep(100);
           }
         }
