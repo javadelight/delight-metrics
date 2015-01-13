@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- Template: Source 
-	+ GWT + in workspace dependencies 27.11.2010 --><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	+ GWT + in workspace dependencies 27.11.2010 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<groupId>de.mxro.metrics</groupId>
 	<artifactId>metrics</artifactId>
 	<version>0.0.3</version>
@@ -21,41 +23,14 @@
 
 	<!-- Dependent Modules -->
 	<dependencies>
+
+		<dependency>
+			<groupId>de.mxro.async.properties</groupId>
+			<artifactId>async-properties</artifactId>
+			<version>[0.0.1,)</version>
+		</dependency>
+
 		
-		<dependency>
-		<groupId>de.mxro.async.properties</groupId>
-	<artifactId>async-properties</artifactId>
-	<version>[0.0.1,)</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>de.mxro.factories</groupId>
-			<artifactId>factories</artifactId>
-			<version>0.0.3</version>
-		</dependency>
-		<dependency>
-			<groupId>de.mxro.json</groupId>
-			<artifactId>java-json</artifactId>
-			<version>0.0.2</version>
-		</dependency>
-
-		<dependency>
-			<artifactId>concurrency-api</artifactId>
-			<groupId>de.mxro.concurrency</groupId>
-			<version>0.0.5</version>
-		</dependency>
-
-		<dependency>
-			<groupId>de.mxro.promise</groupId>
-			<artifactId>java-promise</artifactId>
-			<version>0.0.2</version>
-		</dependency>
-
-		<dependency>
-			<groupId>de.mxro.fn</groupId>
-			<artifactId>fn-api</artifactId>
-			<version>0.0.6</version>
-		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -179,8 +154,8 @@
 						</goals>
 						<configuration>
 							<tasks>
-								<delete file="${basedir}/META-INF/MANIFEST.MF"/>
-								<copy file="target/classes/META-INF/MANIFEST.MF" tofile="${basedir}/META-INF/MANIFEST.MF"/>
+								<delete file="${basedir}/META-INF/MANIFEST.MF" />
+								<copy file="target/classes/META-INF/MANIFEST.MF" tofile="${basedir}/META-INF/MANIFEST.MF" />
 							</tasks>
 						</configuration>
 					</execution>
