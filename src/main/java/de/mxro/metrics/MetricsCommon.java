@@ -7,6 +7,7 @@ import de.mxro.factories.Configuration;
 import de.mxro.factories.Dependencies;
 import de.mxro.factories.Factory;
 import de.mxro.metrics.helpers.MetricsConfiguration;
+import de.mxro.metrics.internal.MetricsFactory;
 import de.mxro.metrics.internal.operations.CounterEvent;
 import de.mxro.metrics.internal.operations.HistrogramEvent;
 import de.mxro.metrics.internal.operations.MarkEvent;
@@ -28,7 +29,7 @@ public class MetricsCommon {
      * @return
      */
     public static PropertyNode createUnsafe() {
-        return new UnsafePropertyNode();
+        return new UnsafePropertyNode(new MetricsFactory());
     }
 
     public static Factory<?, ?, ?> createUnsafeFactory() {
