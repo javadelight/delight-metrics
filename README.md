@@ -14,7 +14,7 @@ This framework is composed of a small set of core classes; thus, it is easy to u
 For instance: How many users are logged into the system concurrently?
 
 ```java
-MetricsNode m = Metrics.create();
+PropertyNode m = Metrics.create();
 
 m.record(Metrics.increment("users"));
 m.record(Metrics.increment("users"));
@@ -38,7 +38,7 @@ Should result in the output:
 For instance: How many times per second is a service called?
 
 ```java
-final MetricsNode m = Metrics.create();
+final PropertyNode m = Metrics.create();
 
 m.record(Metrics.happened("serviceCalled"));
 m.record(Metrics.happened("serviceCalled"));
@@ -69,7 +69,7 @@ Should result in the output:
 For instance: How large are received requests in average?
 
 ```Java
-final MetricsNode m = Metrics.create();
+final PropertyNode m = Metrics.create();
 
 m.record(Metrics.value("requestSize", 300));
 m.record(Metrics.value("requestSize", 100));
@@ -100,12 +100,10 @@ Should result in.
 
 Metrics are turned into easily human-readable strings. What you do with these is up to.
 
-- [MetricsNode.print()](http://modules.appjangle.com/lightweight-java-metrics/latest/apidocs/de/mxro/metrics/MetricsNode.html#print()): For printing all metrics on standard out.
-- [MetricsNode.render()](http://modules.appjangle.com/lightweight-java-metrics/latest/apidocs/de/mxro/metrics/MetricsNode.html#render()): For generating a String with all metrics.
-- [MetricsNode.retrieve(id)](http://modules.appjangle.com/lightweight-java-metrics/latest/apidocs/de/mxro/metrics/MetricsNode.html#retrieve(java.lang.String)): For retrieving a specific metric. Can be rendered as follows:
+
 
 ```java
-MetricsNode m = ...
+PropertyNode m = ...
 
 m.retrieve("metricId").get().toString()
 ```
