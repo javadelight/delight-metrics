@@ -1,8 +1,8 @@
 package de.mxro.metrics;
 
+import de.mxro.async.properties.Properties;
 import de.mxro.async.properties.PropertyNode;
 import de.mxro.async.properties.PropertyOperation;
-import de.mxro.async.properties.internal.UnsafePropertyNode;
 import de.mxro.factories.Configuration;
 import de.mxro.factories.Dependencies;
 import de.mxro.factories.Factory;
@@ -29,7 +29,7 @@ public class MetricsCommon {
      * @return
      */
     public static PropertyNode createUnsafe() {
-        return new UnsafePropertyNode(new MetricsFactory());
+        return Properties.createUnsafe(new MetricsFactory());
     }
 
     public static Factory<?, ?, ?> createUnsafeFactory() {
