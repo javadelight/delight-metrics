@@ -2,7 +2,7 @@ package de.mxro.metrics;
 
 import de.mxro.async.callbacks.ValueCallback;
 import de.mxro.fn.Success;
-import de.mxro.metrics.helpers.RecordOperation;
+import de.mxro.metrics.helpers.PropertyOperation;
 import de.mxro.promise.Promise;
 
 /**
@@ -19,7 +19,7 @@ public interface PropertyNode {
      * 
      * @param op
      */
-    public void perform(RecordOperation op);
+    public void perform(PropertyOperation op);
 
     /**
      * Retrieves a metric with a specified type and id.

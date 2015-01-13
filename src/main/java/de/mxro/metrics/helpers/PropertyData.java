@@ -1,6 +1,6 @@
 package de.mxro.metrics.helpers;
 
-public interface MetricsData {
+public interface PropertyData {
 
     public <T> T get(String id, Class<T> type);
 

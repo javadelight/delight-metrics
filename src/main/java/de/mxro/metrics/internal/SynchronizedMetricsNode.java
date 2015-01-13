@@ -7,7 +7,7 @@ import de.mxro.concurrency.schedule.AccessThread;
 import de.mxro.concurrency.schedule.Step;
 import de.mxro.fn.Success;
 import de.mxro.metrics.PropertyNode;
-import de.mxro.metrics.helpers.RecordOperation;
+import de.mxro.metrics.helpers.PropertyOperation;
 import de.mxro.promise.Promise;
 import de.mxro.promise.helper.PromiseFactory;
 
@@ -20,7 +20,7 @@ public class SynchronizedMetricsNode implements PropertyNode {
     private final PromiseFactory promiseFactory;
 
     @Override
-    public void perform(final RecordOperation op) {
+    public void perform(final PropertyOperation op) {
         accessThread.offer(new Step() {
 
             @Override

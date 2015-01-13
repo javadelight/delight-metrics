@@ -3,7 +3,7 @@ package de.mxro.metrics.tests;
 import com.codahale.metrics.Meter;
 import de.mxro.fn.Closure;
 import de.mxro.metrics.PropertyNode;
-import de.mxro.metrics.helpers.RecordOperation;
+import de.mxro.metrics.helpers.PropertyOperation;
 import de.mxro.metrics.jre.Metrics;
 import de.mxro.promise.Promise;
 import de.oehme.xtend.junit.Hamcrest;
@@ -35,11 +35,11 @@ public class TestMultiThreaded {
             IntegerRange _upTo = new IntegerRange(1, 100);
             for (final Integer i : _upTo) {
               {
-                RecordOperation _happened = Metrics.happened("de.mxro.test.meter1");
+                PropertyOperation _happened = Metrics.happened("de.mxro.test.meter1");
                 m.perform(_happened);
-                RecordOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
+                PropertyOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
                 m.perform(_happened_1);
-                RecordOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
+                PropertyOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
                 m.perform(_happened_2);
                 Random _random = new Random();
                 int _nextInt = _random.nextInt(3);
@@ -63,11 +63,11 @@ public class TestMultiThreaded {
             IntegerRange _upTo = new IntegerRange(1, 100);
             for (final Integer i : _upTo) {
               {
-                RecordOperation _happened = Metrics.happened("de.mxro.test.meter1");
+                PropertyOperation _happened = Metrics.happened("de.mxro.test.meter1");
                 m.perform(_happened);
-                RecordOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
+                PropertyOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
                 m.perform(_happened_1);
-                RecordOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
+                PropertyOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
                 m.perform(_happened_2);
                 Random _random = new Random();
                 int _nextInt = _random.nextInt(3);

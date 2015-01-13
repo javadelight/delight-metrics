@@ -4,8 +4,8 @@ import de.mxro.async.Operation;
 import de.mxro.async.callbacks.ValueCallback;
 import de.mxro.fn.Success;
 import de.mxro.metrics.PropertyNode;
-import de.mxro.metrics.helpers.MetricsData;
-import de.mxro.metrics.helpers.RecordOperation;
+import de.mxro.metrics.helpers.PropertyData;
+import de.mxro.metrics.helpers.PropertyOperation;
 import de.mxro.promise.Promise;
 import de.mxro.promise.PromisesCommon;
 
@@ -17,10 +17,10 @@ import de.mxro.promise.PromisesCommon;
  */
 public class UnsafeMetricsNode implements PropertyNode {
 
-    private final MetricsData data;
+    private final PropertyData data;
 
     @Override
-    public void perform(final RecordOperation op) {
+    public void perform(final PropertyOperation op) {
         op.perform(data);
     }
 

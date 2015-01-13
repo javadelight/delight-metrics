@@ -7,7 +7,7 @@ import java.util.Map.Entry;
 import de.mxro.json.JSON;
 import de.mxro.json.HasJSON;
 import de.mxro.json.internal.JSONImpl;
-import de.mxro.metrics.helpers.MetricsData;
+import de.mxro.metrics.helpers.PropertyData;
 
 /**
  * 
@@ -15,7 +15,7 @@ import de.mxro.metrics.helpers.MetricsData;
  * @author <a href="http://www.mxro.de">Max Rohde</a>
  *
  */
-public class MetricsDataImpl implements MetricsData, HasJSON {
+public class MetricsDataImpl implements PropertyData, HasJSON {
 
     Map<String, Object> metrics;
 

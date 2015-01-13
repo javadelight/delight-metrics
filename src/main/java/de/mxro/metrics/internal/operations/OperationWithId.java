@@ -1,14 +1,14 @@
 package de.mxro.metrics.internal.operations;
 
-import de.mxro.metrics.helpers.RecordOperation;
-import de.mxro.metrics.helpers.MetricsData;
+import de.mxro.metrics.helpers.PropertyOperation;
+import de.mxro.metrics.helpers.PropertyData;
 
-public abstract class OperationWithId implements RecordOperation {
+public abstract class OperationWithId implements PropertyOperation {
 
     protected String id;
 
     @Override
-    public abstract void perform(MetricsData data);
+    public abstract void perform(PropertyData data);
 
     public OperationWithId setId(final String id) {
         this.id = id;

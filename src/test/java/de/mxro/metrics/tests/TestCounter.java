@@ -2,7 +2,7 @@ package de.mxro.metrics.tests;
 
 import de.mxro.fn.Success;
 import de.mxro.metrics.PropertyNode;
-import de.mxro.metrics.helpers.RecordOperation;
+import de.mxro.metrics.helpers.PropertyOperation;
 import de.mxro.metrics.jre.Metrics;
 import de.mxro.promise.Promise;
 import de.oehme.xtend.junit.Hamcrest;
@@ -24,11 +24,11 @@ public class TestCounter {
   @Test
   public void test() {
     PropertyNode m = Metrics.create();
-    RecordOperation _increment = Metrics.increment("de.mxro.counter");
+    PropertyOperation _increment = Metrics.increment("de.mxro.counter");
     m.perform(_increment);
-    RecordOperation _increment_1 = Metrics.increment("de.mxro.counter");
+    PropertyOperation _increment_1 = Metrics.increment("de.mxro.counter");
     m.perform(_increment_1);
-    RecordOperation _decrement = Metrics.decrement("de.mxro.counter");
+    PropertyOperation _decrement = Metrics.decrement("de.mxro.counter");
     m.perform(_decrement);
     Promise<Object> _retrieve = m.retrieve("de.mxro.counter");
     Object _get = _retrieve.get();

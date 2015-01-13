@@ -3,7 +3,7 @@ package de.mxro.metrics.tests;
 import com.codahale.metrics.Meter;
 import de.mxro.fn.Success;
 import de.mxro.metrics.PropertyNode;
-import de.mxro.metrics.helpers.RecordOperation;
+import de.mxro.metrics.helpers.PropertyOperation;
 import de.mxro.metrics.jre.Metrics;
 import de.mxro.promise.Promise;
 import de.oehme.xtend.junit.Hamcrest;
@@ -27,11 +27,11 @@ public class TestMeter {
   @Test
   public void test_count() {
     final PropertyNode m = Metrics.create();
-    RecordOperation _happened = Metrics.happened("de.mxro.test.meter1");
+    PropertyOperation _happened = Metrics.happened("de.mxro.test.meter1");
     m.perform(_happened);
-    RecordOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
+    PropertyOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
     m.perform(_happened_1);
-    RecordOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
+    PropertyOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
     m.perform(_happened_2);
     Promise<Object> _retrieve = m.retrieve("de.mxro.test.meter1");
     Object _get = _retrieve.get();
@@ -51,7 +51,7 @@ public class TestMeter {
         IntegerRange _upTo_1 = new IntegerRange(1, 10);
         for (final Integer j : _upTo_1) {
           {
-            RecordOperation _happened = Metrics.happened("de.mxro.test.meter1");
+            PropertyOperation _happened = Metrics.happened("de.mxro.test.meter1");
             m.perform(_happened);
             Thread.sleep(100);
           }
