@@ -69,7 +69,7 @@ public class MetricsCommon extends PropertiesCommon {
      * @param value
      * @return
      */
-    public static PropertyOperation value(final String id, final long value) {
+    public static PropertyOperation<Long> value(final String id, final long value) {
         return new HistrogramEvent(value).setId(id);
     }
 
