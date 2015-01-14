@@ -1,6 +1,6 @@
 package com.codahale.metrics;
 
-import de.mxro.json.HasJSON;
+import de.mxro.json.ToJSON;
 import de.mxro.json.JSON;
 import de.mxro.json.JSONObject;
 
@@ -10,7 +10,7 @@ import de.mxro.json.JSONObject;
  * @see <a href="http://www.johndcook.com/standard_deviation.html">Accurately
  *      computing running variance</a>
  */
-public class Histogram implements Metric, Sampling, Counting, HasJSON {
+public class Histogram implements Metric, Sampling, Counting, ToJSON {
     private final Reservoir reservoir;
     private final LongAdder count;
 

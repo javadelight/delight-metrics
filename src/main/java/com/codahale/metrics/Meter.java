@@ -1,6 +1,6 @@
 package com.codahale.metrics;
 
-import de.mxro.json.HasJSON;
+import de.mxro.json.ToJSON;
 import de.mxro.json.JSON;
 import de.mxro.json.JSONObject;
 
@@ -10,7 +10,7 @@ import de.mxro.json.JSONObject;
  *
  * @see EWMA
  */
-public class Meter implements Metered, HasJSON {
+public class Meter implements Metered, ToJSON {
     private static final long TICK_INTERVAL = 5000000000L;// TimeUnit.SECONDS.toNanos(5);
 
     private final EWMA m1Rate = EWMA.oneMinuteEWMA();
