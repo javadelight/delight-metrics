@@ -2,7 +2,7 @@ package com.codahale.metrics;
 
 import de.mxro.json.HasJSON;
 import de.mxro.json.JSON;
-import de.mxro.json.internal.JSONImpl;
+import de.mxro.json.JSONObject;
 
 /**
  * A meter metric which measures mean throughput and one-, five-, and
@@ -123,7 +123,7 @@ public class Meter implements Metered, HasJSON {
 
     @Override
     public JSON getJSON() {
-        final JSON o = new JSONImpl();
+        final JSONObject o = JSON.create();
         o.add("Total Events", count);
         o.add("Events per Second (last Minute)", getOneMinuteRate());
         o.add("Events per Second (last 5 Minutes)", getFiveMinuteRate());
