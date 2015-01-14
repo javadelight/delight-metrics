@@ -35,12 +35,12 @@ public class TestMultiThreaded {
             IntegerRange _upTo = new IntegerRange(1, 100);
             for (final Integer i : _upTo) {
               {
-                PropertyOperation _happened = Metrics.happened("de.mxro.test.meter1");
-                m.record(_happened);
-                PropertyOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
-                m.record(_happened_1);
-                PropertyOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
-                m.record(_happened_2);
+                PropertyOperation<Long> _happened = Metrics.happened("de.mxro.test.meter1");
+                m.<Long>record(_happened);
+                PropertyOperation<Long> _happened_1 = Metrics.happened("de.mxro.test.meter1");
+                m.<Long>record(_happened_1);
+                PropertyOperation<Long> _happened_2 = Metrics.happened("de.mxro.test.meter1");
+                m.<Long>record(_happened_2);
                 Random _random = new Random();
                 int _nextInt = _random.nextInt(3);
                 Thread.sleep(_nextInt);
@@ -63,12 +63,12 @@ public class TestMultiThreaded {
             IntegerRange _upTo = new IntegerRange(1, 100);
             for (final Integer i : _upTo) {
               {
-                PropertyOperation _happened = Metrics.happened("de.mxro.test.meter1");
-                m.record(_happened);
-                PropertyOperation _happened_1 = Metrics.happened("de.mxro.test.meter1");
-                m.record(_happened_1);
-                PropertyOperation _happened_2 = Metrics.happened("de.mxro.test.meter1");
-                m.record(_happened_2);
+                PropertyOperation<Long> _happened = Metrics.happened("de.mxro.test.meter1");
+                m.<Long>record(_happened);
+                PropertyOperation<Long> _happened_1 = Metrics.happened("de.mxro.test.meter1");
+                m.<Long>record(_happened_1);
+                PropertyOperation<Long> _happened_2 = Metrics.happened("de.mxro.test.meter1");
+                m.<Long>record(_happened_2);
                 Random _random = new Random();
                 int _nextInt = _random.nextInt(3);
                 Thread.sleep(_nextInt);

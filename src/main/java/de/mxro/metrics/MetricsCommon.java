@@ -49,15 +49,15 @@ public class MetricsCommon extends PropertiesCommon {
         };
     }
 
-    public static PropertyOperation happened(final String id) {
+    public static PropertyOperation<Long> happened(final String id) {
         return new MarkEvent().setId(id);
     }
 
-    public static PropertyOperation increment(final String id) {
+    public static PropertyOperation<Long> increment(final String id) {
         return new CounterEvent(1).setId(id);
     }
 
-    public static PropertyOperation decrement(final String id) {
+    public static PropertyOperation<Long> decrement(final String id) {
         return new CounterEvent(-1).setId(id);
     }
 
