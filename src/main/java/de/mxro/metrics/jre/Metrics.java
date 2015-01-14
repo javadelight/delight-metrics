@@ -25,7 +25,7 @@ public class Metrics extends MetricsCommon {
                 PropertiesCommon.defaultFactory()));
     }
 
-    public static Factory<?, ?, ?> createFactory() {
+    public static Factory<?, ?, ?> createMetricsFactory() {
         return new Factory<PropertyNode, Configuration, Dependencies>() {
 
             @Override
