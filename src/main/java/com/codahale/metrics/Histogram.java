@@ -2,7 +2,7 @@ package com.codahale.metrics;
 
 import de.mxro.json.HasJSON;
 import de.mxro.json.JSON;
-import de.mxro.json.internal.JSONImpl;
+import de.mxro.json.JSONObject;
 
 /**
  * A metric which calculates the distribution of a value.
@@ -69,7 +69,7 @@ public class Histogram implements Metric, Sampling, Counting, HasJSON {
 
     @Override
     public JSON getJSON() {
-        final JSON o = new JSONImpl();
+        final JSONObject o = JSON.create();
         final Snapshot snap = getSnapshot();
         o.add("Mean", snap.getMean());
         o.add("Standard Deviation", snap.getStdDev());
