@@ -1,8 +1,17 @@
 package de.mxro.metrics.tests;
 
+import com.codahale.metrics.Meter;
+import de.mxro.async.properties.PropertyNode;
+import de.mxro.async.properties.PropertyOperation;
+import de.mxro.fn.Closure;
+import de.mxro.metrics.jre.Metrics;
+import de.mxro.promise.Promise;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
+import java.util.Random;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.Matcher;
@@ -18,27 +27,76 @@ import org.junit.rules.ErrorCollector;
 public class TestMultiThreaded {
   @Test
   public void test() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method get is undefined for the type TestMultiThreaded"
-      + "\nThe method record is undefined for the type null"
-      + "\nThe method record is undefined for the type null"
-      + "\nThe method record is undefined for the type null"
-      + "\nThe method get is undefined for the type null"
-      + "\nThe method record is undefined for the type null"
-      + "\nThe method record is undefined for the type null"
-      + "\nThe method record is undefined for the type null"
-      + "\nThe method get is undefined for the type null"
-      + "\nInvalid number of arguments. The method retrieve(String, ValueCallback<Object>) is not applicable for the arguments (String)"
-      + "\nInvalid number of arguments. The method retrieve(String, ValueCallback<Object>) is not applicable for the arguments (String)"
-      + "\nType mismatch: cannot convert from Class<Meter> to ValueCallback<Object>"
-      + "\nType mismatch: type void is not applicable at this location"
-      + "\nType mismatch: type void is not applicable at this location"
-      + "\nType mismatch: type void is not applicable at this location"
-      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
-      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
-      + "\ncount cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\n=> cannot be resolved");
+    try {
+      final PropertyNode m = Metrics.create();
+      final Thread thread1 = new Thread() {
+        public void run() {
+          try {
+            IntegerRange _upTo = new IntegerRange(1, 100);
+            for (final Integer i : _upTo) {
+              {
+                PropertyOperation<Long> _happened = Metrics.happened("de.mxro.test.meter1");
+                m.<Long>record(_happened);
+                PropertyOperation<Long> _happened_1 = Metrics.happened("de.mxro.test.meter1");
+                m.<Long>record(_happened_1);
+                PropertyOperation<Long> _happened_2 = Metrics.happened("de.mxro.test.meter1");
+                m.<Long>record(_happened_2);
+                Random _random = new Random();
+                int _nextInt = _random.nextInt(3);
+                Thread.sleep(_nextInt);
+                Promise<Object> _retrieve = m.retrieve("de.mxro.test.meter1");
+                final Closure<Object> _function = new Closure<Object>() {
+                  public void apply(final Object v) {
+                  }
+                };
+                _retrieve.get(_function);
+              }
+            }
+          } catch (Throwable _e) {
+            throw Exceptions.sneakyThrow(_e);
+          }
+        }
+      };
+      final Thread thread2 = new Thread() {
+        public void run() {
+          try {
+            IntegerRange _upTo = new IntegerRange(1, 100);
+            for (final Integer i : _upTo) {
+              {
+                PropertyOperation<Long> _happened = Metrics.happened("de.mxro.test.meter1");
+                m.<Long>record(_happened);
+                PropertyOperation<Long> _happened_1 = Metrics.happened("de.mxro.test.meter1");
+                m.<Long>record(_happened_1);
+                PropertyOperation<Long> _happened_2 = Metrics.happened("de.mxro.test.meter1");
+                m.<Long>record(_happened_2);
+                Random _random = new Random();
+                int _nextInt = _random.nextInt(3);
+                Thread.sleep(_nextInt);
+                Promise<Object> _retrieve = m.retrieve("de.mxro.test.meter1");
+                final Closure<Object> _function = new Closure<Object>() {
+                  public void apply(final Object v) {
+                  }
+                };
+                _retrieve.get(_function);
+              }
+            }
+          } catch (Throwable _e) {
+            throw Exceptions.sneakyThrow(_e);
+          }
+        }
+      };
+      thread1.start();
+      thread2.start();
+      thread1.join();
+      thread2.join();
+      Promise<Meter> _retrieve = m.<Meter>retrieve("de.mxro.test.meter1", Meter.class);
+      Meter _get = _retrieve.get();
+      final long count = _get.getCount();
+      final boolean test = (count == 600);
+      TestMultiThreaded.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(test), Boolean.valueOf(true));
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   private static void assertArrayEquals(final Object[] expecteds, final Object[] actuals) {
