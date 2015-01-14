@@ -118,11 +118,11 @@ public class Meter implements Metered, ToJSON {
     @Override
     public String toString() {
 
-        return getJSON().render();
+        return toJSON().render();
     }
 
     @Override
-    public JSON getJSON() {
+    public JSON toJSON() {
         final JSONObject o = JSON.create();
         o.add("Total Events", count);
         o.add("Events per Second (last Minute)", getOneMinuteRate());

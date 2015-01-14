@@ -64,11 +64,11 @@ public class Histogram implements Metric, Sampling, Counting, ToJSON {
     @Override
     public String toString() {
 
-        return getJSON().render();
+        return toJSON().render();
     }
 
     @Override
-    public JSON getJSON() {
+    public JSON toJSON() {
         final JSONObject o = JSON.create();
         final Snapshot snap = getSnapshot();
         o.add("Mean", snap.getMean());
