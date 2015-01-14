@@ -1,4 +1,4 @@
-package de.mxro.metrics.helpers;
+package de.mxro.metrics;
 
 import de.mxro.factories.Configuration;
 

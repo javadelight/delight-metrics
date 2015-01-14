@@ -7,7 +7,7 @@ import de.mxro.factories.Configuration;
 import de.mxro.factories.Dependencies;
 import de.mxro.factories.Factory;
 import de.mxro.metrics.MetricsCommon;
-import de.mxro.metrics.helpers.MetricsConfiguration;
+import de.mxro.metrics.MetricsConfiguration;
 import de.mxro.metrics.internal.MetricsFactory;
 
 /**
