@@ -5,13 +5,15 @@ import com.codahale.metrics.Meter;
 import de.mxro.async.properties.PropertyData;
 import de.mxro.async.properties.operations.PropertyOperationWithId;
 
-public class MarkEvent extends PropertyOperationWithId {
+public class MarkEvent extends PropertyOperationWithId<Long> {
 
     @Override
-    public void perform(final PropertyData data) {
+    public Long perform(final PropertyData data) {
         final Meter meter = data.get(id, Meter.class);
 
         meter.mark();
+
+        return meter.getCount();
     }
 
 }
