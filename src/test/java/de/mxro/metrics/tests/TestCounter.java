@@ -2,16 +2,13 @@ package de.mxro.metrics.tests;
 
 import de.mxro.async.properties.PropertyNode;
 import de.mxro.async.properties.PropertyOperation;
-import de.mxro.fn.Success;
-import de.mxro.metrics.jre.Metrics;
+import de.mxro.metrics.MetricsCommon;
 import de.mxro.promise.Promise;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
-import org.hamcrest.CoreMatchers;
 import org.hamcrest.Matcher;
-import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.internal.ArrayComparisonFailure;
@@ -23,276 +20,326 @@ import org.junit.rules.ErrorCollector;
 public class TestCounter {
   @Test
   public void test() {
-    PropertyNode m = Metrics.create();
-    PropertyOperation<Long> _increment = Metrics.increment("de.mxro.counter");
-    m.<Long>record(_increment);
-    PropertyOperation<Long> _increment_1 = Metrics.increment("de.mxro.counter");
-    m.<Long>record(_increment_1);
-    PropertyOperation<Long> _decrement = Metrics.decrement("de.mxro.counter");
-    m.<Long>record(_decrement);
-    Promise<Object> _retrieve = m.retrieve("de.mxro.counter");
+    PropertyNode m = MetricsCommon.createUnsafe();
+    PropertyOperation<Long> _value = MetricsCommon.value("de.mxro.hist", 1);
+    m.<Long>record(_value);
+    PropertyOperation<Long> _value_1 = MetricsCommon.value("de.mxro.hist", 2);
+    m.<Long>record(_value_1);
+    PropertyOperation<Long> _value_2 = MetricsCommon.value("de.mxro.hist", 3);
+    m.<Long>record(_value_2);
+    Promise<Object> _retrieve = m.retrieve("de.mxro.hist");
     Object _get = _retrieve.get();
     String _string = _get.toString();
-    boolean _contains = _string.contains("1");
+    boolean _contains = _string.contains("2.0");
     TestCounter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
-    Promise<Success> _stop = m.stop();
-    _stop.get();
   }
   
   private static void assertArrayEquals(final Object[] expecteds, final Object[] actuals) {
-    Assert.assertArrayEquals(expecteds, actuals);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertArrayEquals(final byte[] expecteds, final byte[] actuals) {
-    Assert.assertArrayEquals(expecteds, actuals);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertArrayEquals(final char[] expecteds, final char[] actuals) {
-    Assert.assertArrayEquals(expecteds, actuals);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertArrayEquals(final short[] expecteds, final short[] actuals) {
-    Assert.assertArrayEquals(expecteds, actuals);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertArrayEquals(final int[] expecteds, final int[] actuals) {
-    Assert.assertArrayEquals(expecteds, actuals);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertArrayEquals(final long[] expecteds, final long[] actuals) {
-    Assert.assertArrayEquals(expecteds, actuals);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertArrayEquals(final String message, final Object[] expecteds, final Object[] actuals) throws ArrayComparisonFailure {
-    Assert.assertArrayEquals(message, expecteds, actuals);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertArrayEquals(final String message, final byte[] expecteds, final byte[] actuals) throws ArrayComparisonFailure {
-    Assert.assertArrayEquals(message, expecteds, actuals);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertArrayEquals(final String message, final char[] expecteds, final char[] actuals) throws ArrayComparisonFailure {
-    Assert.assertArrayEquals(message, expecteds, actuals);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertArrayEquals(final String message, final short[] expecteds, final short[] actuals) throws ArrayComparisonFailure {
-    Assert.assertArrayEquals(message, expecteds, actuals);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertArrayEquals(final String message, final int[] expecteds, final int[] actuals) throws ArrayComparisonFailure {
-    Assert.assertArrayEquals(message, expecteds, actuals);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertArrayEquals(final String message, final long[] expecteds, final long[] actuals) throws ArrayComparisonFailure {
-    Assert.assertArrayEquals(message, expecteds, actuals);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertArrayEquals(final double[] expecteds, final double[] actuals, final double delta) {
-    Assert.assertArrayEquals(expecteds, actuals, delta);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertArrayEquals(final float[] expecteds, final float[] actuals, final float delta) {
-    Assert.assertArrayEquals(expecteds, actuals, delta);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertArrayEquals(final String message, final double[] expecteds, final double[] actuals, final double delta) throws ArrayComparisonFailure {
-    Assert.assertArrayEquals(message, expecteds, actuals, delta);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertArrayEquals(final String message, final float[] expecteds, final float[] actuals, final float delta) throws ArrayComparisonFailure {
-    Assert.assertArrayEquals(message, expecteds, actuals, delta);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertEquals(final Object expected, final Object actual) {
-    Assert.assertEquals(expected, actual);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertEquals(final long expected, final long actual) {
-    Assert.assertEquals(expected, actual);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertEquals(final String arg0, final Object arg1, final Object arg2) {
-    Assert.assertEquals(arg0, arg1, arg2);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertEquals(final String message, final long expected, final long actual) {
-    Assert.assertEquals(message, expected, actual);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertEquals(final double expected, final double actual, final double delta) {
-    Assert.assertEquals(expected, actual, delta);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertEquals(final String message, final double expected, final double actual, final double delta) {
-    Assert.assertEquals(message, expected, actual, delta);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertFalse(final boolean condition) {
-    Assert.assertFalse(condition);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertFalse(final String message, final boolean condition) {
-    Assert.assertFalse(message, condition);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertNotNull(final Object object) {
-    Assert.assertNotNull(object);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertNotNull(final String message, final Object object) {
-    Assert.assertNotNull(message, object);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertNotSame(final Object unexpected, final Object actual) {
-    Assert.assertNotSame(unexpected, actual);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertNotSame(final String message, final Object unexpected, final Object actual) {
-    Assert.assertNotSame(message, unexpected, actual);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertNull(final Object object) {
-    Assert.assertNull(object);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertNull(final String message, final Object object) {
-    Assert.assertNull(message, object);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertSame(final Object expected, final Object actual) {
-    Assert.assertSame(expected, actual);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertSame(final String message, final Object expected, final Object actual) {
-    Assert.assertSame(message, expected, actual);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object> void assertThat(final T actual, final Matcher<T> matcher) {
-    Assert.<T>assertThat(actual, matcher);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object> void assertThat(final String arg0, final T arg1, final Matcher<T> arg2) {
-    Assert.<T>assertThat(arg0, arg1, arg2);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertTrue(final boolean condition) {
-    Assert.assertTrue(condition);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void assertTrue(final String message, final boolean condition) {
-    Assert.assertTrue(message, condition);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void fail() {
-    Assert.fail();
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static void fail(final String message) {
-    Assert.fail(message);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object, U extends T> void operator_doubleArrow(final T actual, final U expected) {
-    Assert.assertEquals(expected, actual);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Exception> void isThrownBy(final Class<T> expected, final Procedure0 block) {
-    try {
-    	block.apply();
-    	Assert.fail("Expected a " + expected.getName());
-    } catch (Exception e) {
-    	Class<?> actual = e.getClass();
-    	Assert.assertTrue(
-    		"Expected a " + expected.getName() + " but got " + actual.getName(), 
-    		expected.isAssignableFrom(actual)
-    	);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   @Rule
   @Extension
-  public final ErrorCollector _errorCollector = new ErrorCollector();
+  public final ErrorCollector _errorCollector /* Skipped initializer because of errors */;
   
   private <T extends Object> void operator_doubleArrow(final T object, final Matcher<? super T> matcher) {
-    Assert.assertThat(object, matcher);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object> Matcher<T> allOf(final Matcher<? extends T>... matchers) {
-    return CoreMatchers.<T>allOf(matchers);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object> Matcher<T> allOf(final Iterable<Matcher<? extends T>> matchers) {
-    return CoreMatchers.<T>allOf(matchers);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object> Matcher<T> any(final Class<T> type) {
-    return CoreMatchers.<T>any(type);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object> Matcher<T> anyOf(final Matcher<? extends T>... matchers) {
-    return CoreMatchers.<T>anyOf(matchers);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object> Matcher<T> anyOf(final Iterable<Matcher<? extends T>> matchers) {
-    return CoreMatchers.<T>anyOf(matchers);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object> Matcher<T> anything() {
-    return CoreMatchers.<T>anything();
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object> Matcher<T> anything(final String description) {
-    return CoreMatchers.<T>anything(description);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object> Matcher<T> describedAs(final String description, final Matcher<T> matcher, final Object... values) {
-    return CoreMatchers.<T>describedAs(description, matcher, values);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object> Matcher<T> equalTo(final T operand) {
-    return CoreMatchers.<T>equalTo(operand);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static Matcher<Object> instanceOf(final Class<?> type) {
-    return CoreMatchers.instanceOf(type);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object> Matcher<T> is(final Matcher<T> matcher) {
-    return CoreMatchers.<T>is(matcher);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object> Matcher<T> is(final T value) {
-    return CoreMatchers.<T>is(value);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static Matcher<Object> is(final Class<?> type) {
-    return CoreMatchers.is(type);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object> Matcher<T> not(final Matcher<T> matcher) {
-    return CoreMatchers.<T>not(matcher);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object> Matcher<T> not(final T value) {
-    return CoreMatchers.<T>not(value);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object> Matcher<T> notNullValue() {
-    return CoreMatchers.<T>notNullValue();
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object> Matcher<T> notNullValue(final Class<T> type) {
-    return CoreMatchers.<T>notNullValue(type);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object> Matcher<T> nullValue() {
-    return CoreMatchers.<T>nullValue();
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object> Matcher<T> nullValue(final Class<T> type) {
-    return CoreMatchers.<T>nullValue(type);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
   
   private static <T extends Object> Matcher<T> sameInstance(final T object) {
-    return CoreMatchers.<T>sameInstance(object);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TestCounter is already defined in TestCounter.xtend.");
   }
 }

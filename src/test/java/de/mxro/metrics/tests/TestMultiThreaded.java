@@ -30,6 +30,7 @@ public class TestMultiThreaded {
     try {
       final PropertyNode m = Metrics.create();
       final Thread thread1 = new Thread() {
+        @Override
         public void run() {
           try {
             IntegerRange _upTo = new IntegerRange(1, 100);
@@ -46,6 +47,7 @@ public class TestMultiThreaded {
                 Thread.sleep(_nextInt);
                 Promise<Object> _retrieve = m.retrieve("de.mxro.test.meter1");
                 final Closure<Object> _function = new Closure<Object>() {
+                  @Override
                   public void apply(final Object v) {
                   }
                 };
@@ -58,6 +60,7 @@ public class TestMultiThreaded {
         }
       };
       final Thread thread2 = new Thread() {
+        @Override
         public void run() {
           try {
             IntegerRange _upTo = new IntegerRange(1, 100);
@@ -74,6 +77,7 @@ public class TestMultiThreaded {
                 Thread.sleep(_nextInt);
                 Promise<Object> _retrieve = m.retrieve("de.mxro.test.meter1");
                 final Closure<Object> _function = new Closure<Object>() {
+                  @Override
                   public void apply(final Object v) {
                   }
                 };
