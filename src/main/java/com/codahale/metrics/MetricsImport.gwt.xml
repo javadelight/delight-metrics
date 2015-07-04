@@ -7,7 +7,7 @@
 	<!-- Other module inherits -->
 
 	<!-- Specify the app entry point class. 
-	<entry-point class='de.mxro.fn.internal.DummyEntryPoint' /> -->
+	<entry-point class='delight.functional.internal.DummyEntryPoint' /> -->
 
 	<!-- Specify the paths for translatable code -->
 	<source path=''>
