@@ -8,3 +8,6 @@ MANIFEST.MF
 **/*.java._trace
 **/*_trace
 *._trace
+**/*xtendbin
+*xtendbin
+

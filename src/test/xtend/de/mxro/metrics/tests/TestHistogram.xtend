@@ -1,13 +1,10 @@
 package de.mxro.metrics.tests
 
-import de.oehme.xtend.junit.Hamcrest
-import de.oehme.xtend.junit.JUnit
-import org.junit.Test
 import de.mxro.metrics.MetricsCommon
+import org.junit.Assert
+import org.junit.Test
 
-@JUnit
-@Hamcrest
-class TestCounter {
+class TestHistogram {
 	
 	@Test
 	def test() {
@@ -19,7 +16,7 @@ class TestCounter {
 		
 		m.record(MetricsCommon.value("de.mxro.hist", 3))
 
-		m.retrieve("de.mxro.hist").get.toString.contains("2.0") => true
+		Assert.assertTrue(m.retrieve("de.mxro.hist").get.toString.contains("2.0"))
 		
 	}
 	
