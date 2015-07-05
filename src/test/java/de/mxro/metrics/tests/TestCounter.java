@@ -1,12 +1,7 @@
 package de.mxro.metrics.tests;
 
-import de.mxro.async.properties.PropertyNode;
-import de.mxro.async.properties.PropertyOperation;
-import de.mxro.metrics.jre.Metrics;
-import de.mxro.promise.Promise;
-import de.oehme.xtend.junit.Hamcrest;
-import de.oehme.xtend.junit.JUnit;
 import delight.functional.Success;
+
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.hamcrest.CoreMatchers;
@@ -16,6 +11,13 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.internal.ArrayComparisonFailure;
 import org.junit.rules.ErrorCollector;
+
+import de.mxro.async.properties.PropertyNode;
+import de.mxro.async.properties.PropertyOperation;
+import de.mxro.metrics.jre.Metrics;
+import de.mxro.promise.Promise;
+import de.oehme.xtend.junit.Hamcrest;
+import de.oehme.xtend.junit.JUnit;
 
 @JUnit
 @Hamcrest

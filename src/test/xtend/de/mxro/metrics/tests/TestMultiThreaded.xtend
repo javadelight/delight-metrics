@@ -7,6 +7,8 @@ import de.oehme.xtend.junit.JUnit
 import java.util.Random
 import org.junit.Test
 
+import static extension de.mxro.metrics.tests.TestMultiThreaded.*
+
 @JUnit
 @Hamcrest
 class TestMultiThreaded {
