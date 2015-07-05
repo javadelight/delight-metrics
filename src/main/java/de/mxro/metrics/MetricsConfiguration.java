@@ -1,6 +1,6 @@
 package de.mxro.metrics;
 
-import de.mxro.factories.Configuration;
+import delight.factories.Configuration;
 
 public class MetricsConfiguration implements Configuration {
 
