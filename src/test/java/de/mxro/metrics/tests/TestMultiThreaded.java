@@ -1,7 +1,5 @@
 package de.mxro.metrics.tests;
 
-import de.oehme.xtend.junit.Hamcrest;
-import de.oehme.xtend.junit.JUnit;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.hamcrest.CoreMatchers;
@@ -11,6 +9,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.internal.ArrayComparisonFailure;
 import org.junit.rules.ErrorCollector;
+
+import de.oehme.xtend.junit.Hamcrest;
+import de.oehme.xtend.junit.JUnit;
 
 @JUnit
 @Hamcrest

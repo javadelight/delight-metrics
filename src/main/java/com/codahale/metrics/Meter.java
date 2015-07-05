@@ -1,8 +1,8 @@
 package com.codahale.metrics;
 
-import de.mxro.json.ToJSON;
 import de.mxro.json.JSON;
 import de.mxro.json.JSONObject;
+import de.mxro.json.ToJSON;
 
 /**
  * A meter metric which measures mean throughput and one-, five-, and

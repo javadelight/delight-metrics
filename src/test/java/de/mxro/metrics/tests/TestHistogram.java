@@ -1,11 +1,12 @@
 package de.mxro.metrics.tests;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 import de.mxro.async.properties.PropertyNode;
 import de.mxro.async.properties.PropertyOperation;
 import de.mxro.metrics.MetricsCommon;
 import de.mxro.promise.Promise;
-import org.junit.Assert;
-import org.junit.Test;
 
 @SuppressWarnings("all")
 public class TestHistogram {
