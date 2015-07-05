@@ -1,5 +1,12 @@
 package de.mxro.metrics.tests;
 
+import de.mxro.async.properties.PropertyNode;
+import de.mxro.async.properties.PropertyOperation;
+import de.mxro.metrics.jre.Metrics;
+import de.mxro.promise.Promise;
+import de.oehme.xtend.junit.Hamcrest;
+import de.oehme.xtend.junit.JUnit;
+import delight.functional.Success;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.hamcrest.CoreMatchers;
@@ -10,18 +17,26 @@ import org.junit.Test;
 import org.junit.internal.ArrayComparisonFailure;
 import org.junit.rules.ErrorCollector;
 
-import de.oehme.xtend.junit.Hamcrest;
-import de.oehme.xtend.junit.JUnit;
-
 @JUnit
 @Hamcrest
 @SuppressWarnings("all")
 public class TestCounter {
   @Test
   public void test() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method stop is undefined for the type TestCounter"
-      + "\nget cannot be resolved");
+    PropertyNode m = Metrics.create();
+    PropertyOperation<Long> _increment = Metrics.increment("de.mxro.counter");
+    m.<Long>record(_increment);
+    PropertyOperation<Long> _increment_1 = Metrics.increment("de.mxro.counter");
+    m.<Long>record(_increment_1);
+    PropertyOperation<Long> _decrement = Metrics.decrement("de.mxro.counter");
+    m.<Long>record(_decrement);
+    Promise<Object> _retrieve = m.retrieve("de.mxro.counter");
+    Object _get = _retrieve.get();
+    String _string = _get.toString();
+    boolean _contains = _string.contains("1");
+    TestCounter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
+    Promise<Success> _stop = m.stop();
+    _stop.get();
   }
   
   private static void assertArrayEquals(final Object[] expecteds, final Object[] actuals) {
