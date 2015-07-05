@@ -3,7 +3,7 @@ package de.mxro.metrics.tests;
 import de.mxro.async.properties.PropertyNode;
 import de.mxro.async.properties.PropertyOperation;
 import de.mxro.metrics.MetricsCommon;
-import de.mxro.promise.Promise;
+import delight.promise.Promise;
 import org.junit.Assert;
 import org.junit.Test;
 
