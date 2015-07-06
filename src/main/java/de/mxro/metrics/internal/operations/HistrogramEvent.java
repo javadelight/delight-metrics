@@ -1,9 +1,9 @@
 package de.mxro.metrics.internal.operations;
 
-import com.codahale.metrics.Histogram;
+import delight.async.properties.PropertyData;
+import delight.async.properties.operations.PropertyOperationWithId;
 
-import de.mxro.async.properties.PropertyData;
-import de.mxro.async.properties.operations.PropertyOperationWithId;
+import com.codahale.metrics.Histogram;
 
 public class HistrogramEvent extends PropertyOperationWithId<Long> {
 

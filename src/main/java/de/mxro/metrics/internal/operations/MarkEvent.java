@@ -1,9 +1,9 @@
 package de.mxro.metrics.internal.operations;
 
-import com.codahale.metrics.Meter;
+import delight.async.properties.PropertyData;
+import delight.async.properties.operations.PropertyOperationWithId;
 
-import de.mxro.async.properties.PropertyData;
-import de.mxro.async.properties.operations.PropertyOperationWithId;
+import com.codahale.metrics.Meter;
 
 public class MarkEvent extends PropertyOperationWithId<Long> {
 

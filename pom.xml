@@ -23,8 +23,8 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>de.mxro.async.properties</groupId>
-			<artifactId>async-properties</artifactId>
+			<groupId>org.javadelight</groupId>
+			<artifactId>delight-async-properties</artifactId>
 			<version>0.0.3</version>
 		</dependency>
 

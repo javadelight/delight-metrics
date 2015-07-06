@@ -2,7 +2,7 @@
 <module rename-to='metrics'>
 	
 	<inherits name='com.codahale.metrics.MetricsImport' /> 
-	<inherits name='de.mxro.async.properties.Properties' />
+	<inherits name='delight.async.properties.Properties' />
 
 	<!-- Other module inherits -->
 

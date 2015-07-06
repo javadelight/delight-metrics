@@ -1,8 +1,8 @@
 package de.mxro.metrics.tests;
 
-import de.mxro.async.properties.PropertyNode;
-import de.mxro.async.properties.PropertyOperation;
 import de.mxro.metrics.MetricsCommon;
+import delight.async.properties.PropertyNode;
+import delight.async.properties.PropertyOperation;
 import delight.promise.Promise;
 import org.junit.Assert;
 import org.junit.Test;

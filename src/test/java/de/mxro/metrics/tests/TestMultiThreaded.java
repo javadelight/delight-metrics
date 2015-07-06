@@ -1,11 +1,11 @@
 package de.mxro.metrics.tests;
 
 import com.codahale.metrics.Meter;
-import de.mxro.async.properties.PropertyNode;
-import de.mxro.async.properties.PropertyOperation;
 import de.mxro.metrics.jre.Metrics;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
+import delight.async.properties.PropertyNode;
+import delight.async.properties.PropertyOperation;
 import delight.functional.Closure;
 import delight.promise.Promise;
 import java.util.Random;

@@ -1,11 +1,11 @@
 package de.mxro.metrics.internal;
 
+import delight.async.properties.PropertyFactory;
+
 import com.codahale.metrics.Counter;
 import com.codahale.metrics.Histogram;
 import com.codahale.metrics.Meter;
 import com.codahale.metrics.UniformReservoir;
-
-import de.mxro.async.properties.PropertyFactory;
 
 public class MetricsFactory implements PropertyFactory {
 

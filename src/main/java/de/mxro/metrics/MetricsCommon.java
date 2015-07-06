@@ -1,12 +1,12 @@
 package de.mxro.metrics;
 
+import delight.async.properties.PropertiesCommon;
+import delight.async.properties.PropertyNode;
+import delight.async.properties.PropertyOperation;
 import delight.factories.Configuration;
 import delight.factories.Dependencies;
 import delight.factories.Factory;
 
-import de.mxro.async.properties.PropertiesCommon;
-import de.mxro.async.properties.PropertyNode;
-import de.mxro.async.properties.PropertyOperation;
 import de.mxro.metrics.internal.MetricsFactory;
 import de.mxro.metrics.internal.operations.CounterEvent;
 import de.mxro.metrics.internal.operations.HistrogramEvent;
