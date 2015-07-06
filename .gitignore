@@ -1,13 +1,11 @@
-/target
-/bin
+bin/
+target/
+**/target/
 MANIFEST.MF
-.classpath
-.project
-.settings
-/META-INF
-**/*.java._trace
-**/*_trace
+META-INF
+src/main/webapp/
+*.java.trace
+*.java._trace
+*.xtendbin
 *._trace
-**/*xtendbin
-*xtendbin
 
