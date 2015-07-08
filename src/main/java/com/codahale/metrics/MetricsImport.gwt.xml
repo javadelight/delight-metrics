@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module rename-to='metricsimport'>
 	
-	<inherits name='de.mxro.json.JSON' /> 
+	<inherits name='delight.json.JSON' /> 
 
 
 	<!-- Other module inherits -->

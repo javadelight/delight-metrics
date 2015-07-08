@@ -1,8 +1,8 @@
 package com.codahale.metrics;
 
-import de.mxro.json.JSON;
-import de.mxro.json.JSONObject;
-import de.mxro.json.ToJSON;
+import delight.json.JSON;
+import delight.json.JSONObject;
+import delight.json.ToJSON;
 
 /**
  * A metric which calculates the distribution of a value.
