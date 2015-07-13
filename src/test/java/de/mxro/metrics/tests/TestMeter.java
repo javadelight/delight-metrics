@@ -1,333 +1,46 @@
 package de.mxro.metrics.tests;
 
-import com.codahale.metrics.Meter;
-import de.mxro.metrics.jre.Metrics;
-import de.oehme.xtend.junit.Hamcrest;
-import de.oehme.xtend.junit.JUnit;
-import delight.async.properties.PropertyNode;
-import delight.async.properties.PropertyOperation;
-import delight.functional.Success;
-import delight.promise.Promise;
-import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.Extension;
-import org.eclipse.xtext.xbase.lib.IntegerRange;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.Matcher;
-import org.junit.Assert;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.internal.ArrayComparisonFailure;
-import org.junit.rules.ErrorCollector;
-
-@JUnit
-@Hamcrest
-@SuppressWarnings("all")
+/* @JUnit
+@Hamcrest */@SuppressWarnings("all")
 public class TestMeter {
-  @Test
-  public void test_count() {
-    final PropertyNode m = Metrics.create();
-    PropertyOperation<Long> _happened = Metrics.happened("de.mxro.test.meter1");
-    m.<Long>record(_happened);
-    PropertyOperation<Long> _happened_1 = Metrics.happened("de.mxro.test.meter1");
-    m.<Long>record(_happened_1);
-    PropertyOperation<Long> _happened_2 = Metrics.happened("de.mxro.test.meter1");
-    m.<Long>record(_happened_2);
-    Promise<Object> _retrieve = m.retrieve("de.mxro.test.meter1");
-    Object _get = _retrieve.get();
-    String _string = _get.toString();
-    boolean _contains = _string.contains("3");
-    TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
-    Promise<Success> _stop = m.stop();
-    _stop.get();
+  /* @Test
+   */public void test_count() {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method create is undefined for the type TestMeter"
+      + "\nThe method happened is undefined for the type TestMeter"
+      + "\nThe method happened is undefined for the type TestMeter"
+      + "\nThe method happened is undefined for the type TestMeter"
+      + "\nrecord cannot be resolved"
+      + "\nrecord cannot be resolved"
+      + "\nrecord cannot be resolved"
+      + "\nretrieve cannot be resolved"
+      + "\nget cannot be resolved"
+      + "\ntoString cannot be resolved"
+      + "\ncontains cannot be resolved"
+      + "\n=> cannot be resolved"
+      + "\nstop cannot be resolved"
+      + "\nget cannot be resolved");
   }
   
-  @Test
-  public void test_rates() {
-    try {
-      final PropertyNode m = Metrics.create();
-      IntegerRange _upTo = new IntegerRange(1, 8);
-      for (final Integer i : _upTo) {
-        IntegerRange _upTo_1 = new IntegerRange(1, 10);
-        for (final Integer j : _upTo_1) {
-          {
-            PropertyOperation<Long> _happened = Metrics.happened("de.mxro.test.meter1");
-            m.<Long>record(_happened);
-            Thread.sleep(100);
-          }
-        }
-      }
-      Promise<Meter> _retrieve = m.<Meter>retrieve("de.mxro.test.meter1", Meter.class);
-      Meter _get = _retrieve.get();
-      double _fiveMinuteRate = _get.getFiveMinuteRate();
-      boolean _greaterThan = (_fiveMinuteRate > 8.0);
-      TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_greaterThan), Boolean.valueOf(true));
-      Promise<Meter> _retrieve_1 = m.<Meter>retrieve("de.mxro.test.meter1", Meter.class);
-      Meter _get_1 = _retrieve_1.get();
-      double _fiveMinuteRate_1 = _get_1.getFiveMinuteRate();
-      boolean _lessThan = (_fiveMinuteRate_1 < 12.0);
-      TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_lessThan), Boolean.valueOf(true));
-      Promise<Success> _stop = m.stop();
-      _stop.get();
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
-  }
-  
-  private static void assertArrayEquals(final Object[] expecteds, final Object[] actuals) {
-    Assert.assertArrayEquals(expecteds, actuals);
-  }
-  
-  private static void assertArrayEquals(final byte[] expecteds, final byte[] actuals) {
-    Assert.assertArrayEquals(expecteds, actuals);
-  }
-  
-  private static void assertArrayEquals(final char[] expecteds, final char[] actuals) {
-    Assert.assertArrayEquals(expecteds, actuals);
-  }
-  
-  private static void assertArrayEquals(final short[] expecteds, final short[] actuals) {
-    Assert.assertArrayEquals(expecteds, actuals);
-  }
-  
-  private static void assertArrayEquals(final int[] expecteds, final int[] actuals) {
-    Assert.assertArrayEquals(expecteds, actuals);
-  }
-  
-  private static void assertArrayEquals(final long[] expecteds, final long[] actuals) {
-    Assert.assertArrayEquals(expecteds, actuals);
-  }
-  
-  private static void assertArrayEquals(final String message, final Object[] expecteds, final Object[] actuals) throws ArrayComparisonFailure {
-    Assert.assertArrayEquals(message, expecteds, actuals);
-  }
-  
-  private static void assertArrayEquals(final String message, final byte[] expecteds, final byte[] actuals) throws ArrayComparisonFailure {
-    Assert.assertArrayEquals(message, expecteds, actuals);
-  }
-  
-  private static void assertArrayEquals(final String message, final char[] expecteds, final char[] actuals) throws ArrayComparisonFailure {
-    Assert.assertArrayEquals(message, expecteds, actuals);
-  }
-  
-  private static void assertArrayEquals(final String message, final short[] expecteds, final short[] actuals) throws ArrayComparisonFailure {
-    Assert.assertArrayEquals(message, expecteds, actuals);
-  }
-  
-  private static void assertArrayEquals(final String message, final int[] expecteds, final int[] actuals) throws ArrayComparisonFailure {
-    Assert.assertArrayEquals(message, expecteds, actuals);
-  }
-  
-  private static void assertArrayEquals(final String message, final long[] expecteds, final long[] actuals) throws ArrayComparisonFailure {
-    Assert.assertArrayEquals(message, expecteds, actuals);
-  }
-  
-  private static void assertArrayEquals(final double[] expecteds, final double[] actuals, final double delta) {
-    Assert.assertArrayEquals(expecteds, actuals, delta);
-  }
-  
-  private static void assertArrayEquals(final float[] expecteds, final float[] actuals, final float delta) {
-    Assert.assertArrayEquals(expecteds, actuals, delta);
-  }
-  
-  private static void assertArrayEquals(final String message, final double[] expecteds, final double[] actuals, final double delta) throws ArrayComparisonFailure {
-    Assert.assertArrayEquals(message, expecteds, actuals, delta);
-  }
-  
-  private static void assertArrayEquals(final String message, final float[] expecteds, final float[] actuals, final float delta) throws ArrayComparisonFailure {
-    Assert.assertArrayEquals(message, expecteds, actuals, delta);
-  }
-  
-  private static void assertEquals(final Object expected, final Object actual) {
-    Assert.assertEquals(expected, actual);
-  }
-  
-  private static void assertEquals(final long expected, final long actual) {
-    Assert.assertEquals(expected, actual);
-  }
-  
-  private static void assertEquals(final String arg0, final Object arg1, final Object arg2) {
-    Assert.assertEquals(arg0, arg1, arg2);
-  }
-  
-  private static void assertEquals(final String message, final long expected, final long actual) {
-    Assert.assertEquals(message, expected, actual);
-  }
-  
-  private static void assertEquals(final double expected, final double actual, final double delta) {
-    Assert.assertEquals(expected, actual, delta);
-  }
-  
-  private static void assertEquals(final String message, final double expected, final double actual, final double delta) {
-    Assert.assertEquals(message, expected, actual, delta);
-  }
-  
-  private static void assertFalse(final boolean condition) {
-    Assert.assertFalse(condition);
-  }
-  
-  private static void assertFalse(final String message, final boolean condition) {
-    Assert.assertFalse(message, condition);
-  }
-  
-  private static void assertNotNull(final Object object) {
-    Assert.assertNotNull(object);
-  }
-  
-  private static void assertNotNull(final String message, final Object object) {
-    Assert.assertNotNull(message, object);
-  }
-  
-  private static void assertNotSame(final Object unexpected, final Object actual) {
-    Assert.assertNotSame(unexpected, actual);
-  }
-  
-  private static void assertNotSame(final String message, final Object unexpected, final Object actual) {
-    Assert.assertNotSame(message, unexpected, actual);
-  }
-  
-  private static void assertNull(final Object object) {
-    Assert.assertNull(object);
-  }
-  
-  private static void assertNull(final String message, final Object object) {
-    Assert.assertNull(message, object);
-  }
-  
-  private static void assertSame(final Object expected, final Object actual) {
-    Assert.assertSame(expected, actual);
-  }
-  
-  private static void assertSame(final String message, final Object expected, final Object actual) {
-    Assert.assertSame(message, expected, actual);
-  }
-  
-  private static <T extends Object> void assertThat(final T actual, final Matcher<T> matcher) {
-    Assert.<T>assertThat(actual, matcher);
-  }
-  
-  private static <T extends Object> void assertThat(final String arg0, final T arg1, final Matcher<T> arg2) {
-    Assert.<T>assertThat(arg0, arg1, arg2);
-  }
-  
-  private static void assertTrue(final boolean condition) {
-    Assert.assertTrue(condition);
-  }
-  
-  private static void assertTrue(final String message, final boolean condition) {
-    Assert.assertTrue(message, condition);
-  }
-  
-  private static void fail() {
-    Assert.fail();
-  }
-  
-  private static void fail(final String message) {
-    Assert.fail(message);
-  }
-  
-  private static <T extends Object, U extends T> void operator_doubleArrow(final T actual, final U expected) {
-    Assert.assertEquals(expected, actual);
-  }
-  
-  private static <T extends Exception> void isThrownBy(final Class<T> expected, final Procedure0 block) {
-    try {
-    	block.apply();
-    	Assert.fail("Expected a " + expected.getName());
-    } catch (Exception e) {
-    	Class<?> actual = e.getClass();
-    	Assert.assertTrue(
-    		"Expected a " + expected.getName() + " but got " + actual.getName(), 
-    		expected.isAssignableFrom(actual)
-    	);
-    }
-  }
-  
-  @Rule
-  @Extension
-  public final ErrorCollector _errorCollector = new ErrorCollector();
-  
-  private <T extends Object> void operator_doubleArrow(final T object, final Matcher<? super T> matcher) {
-    Assert.assertThat(object, matcher);
-  }
-  
-  private static <T extends Object> Matcher<T> allOf(final Matcher<? extends T>... matchers) {
-    return CoreMatchers.<T>allOf(matchers);
-  }
-  
-  private static <T extends Object> Matcher<T> allOf(final Iterable<Matcher<? extends T>> matchers) {
-    return CoreMatchers.<T>allOf(matchers);
-  }
-  
-  private static <T extends Object> Matcher<T> any(final Class<T> type) {
-    return CoreMatchers.<T>any(type);
-  }
-  
-  private static <T extends Object> Matcher<T> anyOf(final Matcher<? extends T>... matchers) {
-    return CoreMatchers.<T>anyOf(matchers);
-  }
-  
-  private static <T extends Object> Matcher<T> anyOf(final Iterable<Matcher<? extends T>> matchers) {
-    return CoreMatchers.<T>anyOf(matchers);
-  }
-  
-  private static <T extends Object> Matcher<T> anything() {
-    return CoreMatchers.<T>anything();
-  }
-  
-  private static <T extends Object> Matcher<T> anything(final String description) {
-    return CoreMatchers.<T>anything(description);
-  }
-  
-  private static <T extends Object> Matcher<T> describedAs(final String description, final Matcher<T> matcher, final Object... values) {
-    return CoreMatchers.<T>describedAs(description, matcher, values);
-  }
-  
-  private static <T extends Object> Matcher<T> equalTo(final T operand) {
-    return CoreMatchers.<T>equalTo(operand);
-  }
-  
-  private static Matcher<Object> instanceOf(final Class<?> type) {
-    return CoreMatchers.instanceOf(type);
-  }
-  
-  private static <T extends Object> Matcher<T> is(final Matcher<T> matcher) {
-    return CoreMatchers.<T>is(matcher);
-  }
-  
-  private static <T extends Object> Matcher<T> is(final T value) {
-    return CoreMatchers.<T>is(value);
-  }
-  
-  private static Matcher<Object> is(final Class<?> type) {
-    return CoreMatchers.is(type);
-  }
-  
-  private static <T extends Object> Matcher<T> not(final Matcher<T> matcher) {
-    return CoreMatchers.<T>not(matcher);
-  }
-  
-  private static <T extends Object> Matcher<T> not(final T value) {
-    return CoreMatchers.<T>not(value);
-  }
-  
-  private static <T extends Object> Matcher<T> notNullValue() {
-    return CoreMatchers.<T>notNullValue();
-  }
-  
-  private static <T extends Object> Matcher<T> notNullValue(final Class<T> type) {
-    return CoreMatchers.<T>notNullValue(type);
-  }
-  
-  private static <T extends Object> Matcher<T> nullValue() {
-    return CoreMatchers.<T>nullValue();
-  }
-  
-  private static <T extends Object> Matcher<T> nullValue(final Class<T> type) {
-    return CoreMatchers.<T>nullValue(type);
-  }
-  
-  private static <T extends Object> Matcher<T> sameInstance(final T object) {
-    return CoreMatchers.<T>sameInstance(object);
+  /* @Test
+   */public void test_rates() {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method create is undefined for the type TestMeter"
+      + "\n.. cannot be resolved."
+      + "\n.. cannot be resolved."
+      + "\nThe method happened is undefined for the type TestMeter"
+      + "\nrecord cannot be resolved"
+      + "\nretrieve cannot be resolved"
+      + "\nget cannot be resolved"
+      + "\nfiveMinuteRate cannot be resolved"
+      + "\n> cannot be resolved"
+      + "\n=> cannot be resolved"
+      + "\nretrieve cannot be resolved"
+      + "\nget cannot be resolved"
+      + "\nfiveMinuteRate cannot be resolved"
+      + "\n< cannot be resolved"
+      + "\n=> cannot be resolved"
+      + "\nstop cannot be resolved"
+      + "\nget cannot be resolved");
   }
 }
