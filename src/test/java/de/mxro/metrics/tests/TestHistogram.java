@@ -1,22 +1,27 @@
 package de.mxro.metrics.tests;
 
+import de.mxro.metrics.MetricsCommon;
+import delight.async.properties.PropertyNode;
+import delight.async.properties.PropertyOperation;
+import delight.promise.Promise;
+import org.junit.Assert;
+import org.junit.Test;
+
 @SuppressWarnings("all")
 public class TestHistogram {
-  /* @Test
-   */public Object test() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method createUnsafe is undefined for the type TestHistogram"
-      + "\nThe method value is undefined for the type TestHistogram"
-      + "\nThe method value is undefined for the type TestHistogram"
-      + "\nThe method value is undefined for the type TestHistogram"
-      + "\nThe method or field Assert is undefined for the type TestHistogram"
-      + "\nrecord cannot be resolved"
-      + "\nrecord cannot be resolved"
-      + "\nrecord cannot be resolved"
-      + "\nassertTrue cannot be resolved"
-      + "\nretrieve cannot be resolved"
-      + "\nget cannot be resolved"
-      + "\ntoString cannot be resolved"
-      + "\ncontains cannot be resolved");
+  @Test
+  public void test() {
+    PropertyNode m = MetricsCommon.createUnsafe();
+    PropertyOperation<Long> _value = MetricsCommon.value("de.mxro.hist", 1);
+    m.<Long>record(_value);
+    PropertyOperation<Long> _value_1 = MetricsCommon.value("de.mxro.hist", 2);
+    m.<Long>record(_value_1);
+    PropertyOperation<Long> _value_2 = MetricsCommon.value("de.mxro.hist", 3);
+    m.<Long>record(_value_2);
+    Promise<Object> _retrieve = m.retrieve("de.mxro.hist");
+    Object _get = _retrieve.get();
+    String _string = _get.toString();
+    boolean _contains = _string.contains("2.0");
+    Assert.assertTrue(_contains);
   }
 }

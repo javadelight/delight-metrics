@@ -2,9 +2,9 @@
 
 # Lightweight Java Metrics
 
-The [Lightweight Java Metrics](https://github.com/mxro/lightweight-java-metrics) library provides a simple
+This library provides a simple
  way to report metrics for Java applications based on the [Dropwizard Metrics Project](https://dropwizard.github.io/metrics/3.1.0/)
- and the [Async Properties](https://github.com/mxro/async-properties) library.
+ and the [Async Properties](https://github.com/javadelight/delight-async-properties) library.
 
 **Why** Other metric frameworks are often complex and feature-rich. 
 This framework is composed of a small set of core classes; thus, it is easy to understand and plug into various environments.
@@ -120,28 +120,7 @@ String metrics = m.render().get();
 
 ```
 
-### Maven Dependency
 
-```xml
-<dependency>
-    <groupId>de.mxro.metrics</groupId>
-	<artifactId>metrics</artifactId>
-	<version>[latest version]</version>
-</dependency>
-```
-
-Find latest version [here](http://modules.appjangle.com/lightweight-java-metrics/latest/project-summary.html).
-
-Add repository if required:
-
-```xml
-<repositories>
-	<repository>
-		<id>Appjangle Releases</id>
-		<url>http://maven.appjangle.com/appjangle/releases</url>
-	</repository>
-</repositories>
-```
 
 ## Compatibility
 
@@ -164,11 +143,9 @@ Thus, more operations can be performed within the scope of one thread. This migh
 
 ## Further Resources
 
-- [JavaDocs](http://modules.appjangle.com/lightweight-java-metrics/latest/apidocs/)
-- [Project Reports](http://modules.appjangle.com/lightweight-java-metrics/latest/project-reports.html)
-- [Rendered README](http://documentup.com/mxro/lightweight-java-metrics)
+- [JavaDocs](http://modules.appjangle.com/delight-metrics/latest/apidocs/)
+- [Project Reports](http://modules.appjangle.com/delight-metrics/latest/project-reports.html)
+- [Rendered README](http://documentup.com/mxro/delight-metrics)
 
 
-## License
 
-[Apache 2.0](https://github.com/mxro/lightweight-java-metrics/blob/master/LICENSE.TXT)
