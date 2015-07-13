@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mxro/lightweight-java-metrics.svg?branch=master)](https://travis-ci.org/mxro/lightweight-java-metrics) 
+[![Build Status](https://travis-ci.org/javadelight/delight-metrics.svg)](https://travis-ci.org/javadelight/delight-metrics)
 
 # Lightweight Java Metrics
 
