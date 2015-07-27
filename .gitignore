@@ -4,6 +4,7 @@ target/
 MANIFEST.MF
 META-INF
 src/main/webapp/
+src/main/gwt-unitCache/
 *.java.trace
 *.java._trace
 *.xtendbin
