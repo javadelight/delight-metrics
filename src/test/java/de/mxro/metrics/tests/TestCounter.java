@@ -111,8 +111,8 @@ public class TestCounter {
     Assert.assertEquals(expected, actual);
   }
   
-  private static void assertEquals(final String arg0, final Object arg1, final Object arg2) {
-    Assert.assertEquals(arg0, arg1, arg2);
+  private static void assertEquals(final String message, final Object expected, final Object actual) {
+    Assert.assertEquals(message, expected, actual);
   }
   
   private static void assertEquals(final String message, final long expected, final long actual) {
@@ -171,8 +171,8 @@ public class TestCounter {
     Assert.<T>assertThat(actual, matcher);
   }
   
-  private static <T extends Object> void assertThat(final String arg0, final T arg1, final Matcher<T> arg2) {
-    Assert.<T>assertThat(arg0, arg1, arg2);
+  private static <T extends Object> void assertThat(final String reason, final T actual, final Matcher<T> matcher) {
+    Assert.<T>assertThat(reason, actual, matcher);
   }
   
   private static void assertTrue(final boolean condition) {
