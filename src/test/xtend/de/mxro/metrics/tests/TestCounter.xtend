@@ -11,7 +11,6 @@ class TestCounter {
 	
 	@Test
 	def test() {
-		
 		var m = Metrics.create
 		
 		m.record(Metrics.increment("de.mxro.counter"))
