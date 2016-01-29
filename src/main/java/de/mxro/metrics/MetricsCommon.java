@@ -29,8 +29,8 @@ public class MetricsCommon extends PropertiesCommon {
      * @return
      */
     public static PropertyNode createUnsafe() {
-        return PropertiesCommon.createUnsafe(PropertiesCommon.compositeFactory(new MetricsFactory(),
-                PropertiesCommon.defaultFactory()));
+        return PropertiesCommon.createUnsafe(
+                PropertiesCommon.compositeFactory(new MetricsFactory(), PropertiesCommon.defaultFactory()));
     }
 
     public static Factory<?, ?, ?> createUnsafeFactory() {
@@ -55,6 +55,10 @@ public class MetricsCommon extends PropertiesCommon {
 
     public static PropertyOperation<Long> increment(final String id) {
         return new CounterEvent(1).setId(id);
+    }
+
+    public static PropertyOperation<Long> increment(final String id, final long by) {
+        return new CounterEvent(by).setId(id);
     }
 
     public static PropertyOperation<Long> decrement(final String id) {
