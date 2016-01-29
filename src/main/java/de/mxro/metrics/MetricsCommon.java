@@ -77,4 +77,14 @@ public class MetricsCommon extends PropertiesCommon {
         return new HistrogramEvent(value).setId(id);
     }
 
+    private static PropertyNode instance;
+
+    public static PropertyNode get() {
+        return instance;
+    }
+
+    public static void inject(final PropertyNode propertyNode) {
+        instance = propertyNode;
+    }
+
 }

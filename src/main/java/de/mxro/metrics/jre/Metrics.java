@@ -52,6 +52,7 @@ public class Metrics extends MetricsCommon {
      */
     public static void inject(final PropertyNode node) {
         metrics = node;
+        MetricsCommon.inject(node);
     }
 
     public static PropertyNode get() {
