@@ -22,8 +22,8 @@ import de.mxro.metrics.internal.MetricsFactory;
 public class Metrics extends MetricsCommon {
 
     public static PropertyNode create() {
-        return Properties.create(PropertiesCommon.compositeFactory(new MetricsFactory(),
-                PropertiesCommon.defaultFactory()));
+        return Properties
+                .create(PropertiesCommon.compositeFactory(new MetricsFactory(), PropertiesCommon.defaultFactory()));
     }
 
     public static Factory<?, ?, ?> createMetricsFactory() {
@@ -40,6 +40,18 @@ public class Metrics extends MetricsCommon {
                 return Metrics.create();
             }
         };
+    }
+
+    private static PropertyNode metrics;
+
+    /**
+     * <p>
+     * Sets the default metrics instance which can be accessed via Metrics.get()
+     * 
+     * @param node
+     */
+    public static void injectPropertyNode(final PropertyNode node) {
+
     }
 
 }
