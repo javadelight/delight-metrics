@@ -50,8 +50,12 @@ public class Metrics extends MetricsCommon {
      * 
      * @param node
      */
-    public static void injectPropertyNode(final PropertyNode node) {
+    public static void inject(final PropertyNode node) {
+        metrics = node;
+    }
 
+    public static PropertyNode get() {
+        return metrics;
     }
 
 }
