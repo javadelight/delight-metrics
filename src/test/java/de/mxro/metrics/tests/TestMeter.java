@@ -5,9 +5,6 @@ import de.mxro.metrics.jre.Metrics;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
 import delight.async.properties.PropertyNode;
-import delight.async.properties.PropertyOperation;
-import delight.functional.Success;
-import delight.promise.Promise;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IntegerRange;
@@ -27,19 +24,12 @@ public class TestMeter {
   @Test
   public void test_count() {
     final PropertyNode m = Metrics.create();
-    PropertyOperation<Long> _happened = Metrics.happened("de.mxro.test.meter1");
-    m.<Long>record(_happened);
-    PropertyOperation<Long> _happened_1 = Metrics.happened("de.mxro.test.meter1");
-    m.<Long>record(_happened_1);
-    PropertyOperation<Long> _happened_2 = Metrics.happened("de.mxro.test.meter1");
-    m.<Long>record(_happened_2);
-    Promise<Object> _retrieve = m.retrieve("de.mxro.test.meter1");
-    Object _get = _retrieve.get();
-    String _string = _get.toString();
-    boolean _contains = _string.contains("3");
+    m.<Long>record(Metrics.happened("de.mxro.test.meter1"));
+    m.<Long>record(Metrics.happened("de.mxro.test.meter1"));
+    m.<Long>record(Metrics.happened("de.mxro.test.meter1"));
+    boolean _contains = m.retrieve("de.mxro.test.meter1").get().toString().contains("3");
     TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
-    Promise<Success> _stop = m.stop();
-    _stop.get();
+    m.stop().get();
   }
   
   @Test
@@ -51,24 +41,18 @@ public class TestMeter {
         IntegerRange _upTo_1 = new IntegerRange(1, 10);
         for (final Integer j : _upTo_1) {
           {
-            PropertyOperation<Long> _happened = Metrics.happened("de.mxro.test.meter1");
-            m.<Long>record(_happened);
+            m.<Long>record(Metrics.happened("de.mxro.test.meter1"));
             Thread.sleep(100);
           }
         }
       }
-      Promise<Meter> _retrieve = m.<Meter>retrieve("de.mxro.test.meter1", Meter.class);
-      Meter _get = _retrieve.get();
-      double _fiveMinuteRate = _get.getFiveMinuteRate();
+      double _fiveMinuteRate = m.<Meter>retrieve("de.mxro.test.meter1", Meter.class).get().getFiveMinuteRate();
       boolean _greaterThan = (_fiveMinuteRate > 8.0);
       TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_greaterThan), Boolean.valueOf(true));
-      Promise<Meter> _retrieve_1 = m.<Meter>retrieve("de.mxro.test.meter1", Meter.class);
-      Meter _get_1 = _retrieve_1.get();
-      double _fiveMinuteRate_1 = _get_1.getFiveMinuteRate();
+      double _fiveMinuteRate_1 = m.<Meter>retrieve("de.mxro.test.meter1", Meter.class).get().getFiveMinuteRate();
       boolean _lessThan = (_fiveMinuteRate_1 < 12.0);
       TestMeter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_lessThan), Boolean.valueOf(true));
-      Promise<Success> _stop = m.stop();
-      _stop.get();
+      m.stop().get();
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

@@ -5,9 +5,7 @@ import de.mxro.metrics.jre.Metrics;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
 import delight.async.properties.PropertyNode;
-import delight.async.properties.PropertyOperation;
 import delight.functional.Closure;
-import delight.promise.Promise;
 import java.util.Random;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
@@ -36,22 +34,16 @@ public class TestMultiThreaded {
             IntegerRange _upTo = new IntegerRange(1, 100);
             for (final Integer i : _upTo) {
               {
-                PropertyOperation<Long> _happened = Metrics.happened("de.mxro.test.meter1");
-                m.<Long>record(_happened);
-                PropertyOperation<Long> _happened_1 = Metrics.happened("de.mxro.test.meter1");
-                m.<Long>record(_happened_1);
-                PropertyOperation<Long> _happened_2 = Metrics.happened("de.mxro.test.meter1");
-                m.<Long>record(_happened_2);
-                Random _random = new Random();
-                int _nextInt = _random.nextInt(3);
-                Thread.sleep(_nextInt);
-                Promise<Object> _retrieve = m.retrieve("de.mxro.test.meter1");
+                m.<Long>record(Metrics.happened("de.mxro.test.meter1"));
+                m.<Long>record(Metrics.happened("de.mxro.test.meter1"));
+                m.<Long>record(Metrics.happened("de.mxro.test.meter1"));
+                Thread.sleep(new Random().nextInt(3));
                 final Closure<Object> _function = new Closure<Object>() {
                   @Override
                   public void apply(final Object v) {
                   }
                 };
-                _retrieve.get(_function);
+                m.retrieve("de.mxro.test.meter1").get(_function);
               }
             }
           } catch (Throwable _e) {
@@ -66,22 +58,16 @@ public class TestMultiThreaded {
             IntegerRange _upTo = new IntegerRange(1, 100);
             for (final Integer i : _upTo) {
               {
-                PropertyOperation<Long> _happened = Metrics.happened("de.mxro.test.meter1");
-                m.<Long>record(_happened);
-                PropertyOperation<Long> _happened_1 = Metrics.happened("de.mxro.test.meter1");
-                m.<Long>record(_happened_1);
-                PropertyOperation<Long> _happened_2 = Metrics.happened("de.mxro.test.meter1");
-                m.<Long>record(_happened_2);
-                Random _random = new Random();
-                int _nextInt = _random.nextInt(3);
-                Thread.sleep(_nextInt);
-                Promise<Object> _retrieve = m.retrieve("de.mxro.test.meter1");
+                m.<Long>record(Metrics.happened("de.mxro.test.meter1"));
+                m.<Long>record(Metrics.happened("de.mxro.test.meter1"));
+                m.<Long>record(Metrics.happened("de.mxro.test.meter1"));
+                Thread.sleep(new Random().nextInt(3));
                 final Closure<Object> _function = new Closure<Object>() {
                   @Override
                   public void apply(final Object v) {
                   }
                 };
-                _retrieve.get(_function);
+                m.retrieve("de.mxro.test.meter1").get(_function);
               }
             }
           } catch (Throwable _e) {
@@ -93,9 +79,7 @@ public class TestMultiThreaded {
       thread2.start();
       thread1.join();
       thread2.join();
-      Promise<Meter> _retrieve = m.<Meter>retrieve("de.mxro.test.meter1", Meter.class);
-      Meter _get = _retrieve.get();
-      final long count = _get.getCount();
+      final long count = m.<Meter>retrieve("de.mxro.test.meter1", Meter.class).get().getCount();
       final boolean test = (count == 600);
       TestMultiThreaded.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(test), Boolean.valueOf(true));
     } catch (Throwable _e) {
