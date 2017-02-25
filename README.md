@@ -100,7 +100,7 @@ Should result in.
 
 ### Reporting
 
-Metrics are turned into easily human-readable strings. What you do with these is up to.
+Metrics are turned into easily human-readable strings. What you do with these is up to you.
 
 #### Retrieve Single Metric as String
 
