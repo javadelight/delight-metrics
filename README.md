@@ -98,6 +98,8 @@ Should result in.
 }
 ```
 
+Note: Statistics are by default calculated using so called [Exponentially Decaying Reservoirs](http://dimacs.rutgers.edu/~graham/pubs/papers/fwddecay.pdf). These essentially will provide the values and averages for the last 5 minutes of application runtime.
+
 ### Reporting
 
 Metrics are turned into easily human-readable strings. What you do with these is up to you.

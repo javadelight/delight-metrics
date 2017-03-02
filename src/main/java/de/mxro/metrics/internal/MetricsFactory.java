@@ -3,9 +3,9 @@ package de.mxro.metrics.internal;
 import delight.async.properties.PropertyFactory;
 
 import com.codahale.metrics.Counter;
+import com.codahale.metrics.ExponentiallyDecayingReservoir;
 import com.codahale.metrics.Histogram;
 import com.codahale.metrics.Meter;
-import com.codahale.metrics.UniformReservoir;
 
 public class MetricsFactory implements PropertyFactory {
 
@@ -22,7 +22,7 @@ public class MetricsFactory implements PropertyFactory {
         }
 
         if (type.equals(Histogram.class)) {
-            return (T) new Histogram(new UniformReservoir());
+            return (T) new Histogram(new ExponentiallyDecayingReservoir());
         }
 
         return null;
