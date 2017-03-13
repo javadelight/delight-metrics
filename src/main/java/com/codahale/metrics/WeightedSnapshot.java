@@ -118,7 +118,16 @@ public class WeightedSnapshot extends Snapshot {
      */
     @Override
     public long[] getValues() {
-        return Arrays.copyOf(values, values.length);
+
+        final long[] res = new long[values.length];
+
+        int idx = 0;
+        for (final long l : values) {
+            res[idx] = l;
+            idx++;
+        }
+
+        return res;
     }
 
     /**

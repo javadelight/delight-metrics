@@ -113,7 +113,7 @@ public class ExponentiallyDecayingReservoir implements Reservoir {
                 values.put(priority, sample);
             } else {
                 Double first = values.firstKey();
-                if (first < priority && values.putIfAbsent(priority, sample) == null) {
+                if (first < priority && values.putIfAbsentN(priority, sample) == null) {
                     // ensure we always remove an item
                     while (values.remove(first) == null) {
                         first = values.firstKey();
