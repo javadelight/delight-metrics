@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import com.codahale.metrics.WeightedSnapshot.WeightedSample;
 
@@ -28,7 +27,7 @@ public class ExponentiallyDecayingReservoir implements Reservoir {
     private static final long RESCALE_THRESHOLD = TimeUnit.HOURS.toNanos(1);
 
     private final ConcurrentSkipListMap<Double, WeightedSample> values;
-    private final ReentrantReadWriteLock lock;
+    // private final ReentrantReadWriteLock lock;
     private final double alpha;
     private final int size;
     private final AtomicLong count;
@@ -72,7 +71,7 @@ public class ExponentiallyDecayingReservoir implements Reservoir {
      */
     public ExponentiallyDecayingReservoir(final int size, final double alpha, final Clock clock) {
         this.values = new ConcurrentSkipListMap<Double, WeightedSample>();
-        this.lock = new ReentrantReadWriteLock();
+        // this.lock = new ReentrantReadWriteLock();
         this.alpha = alpha;
         this.size = size;
         this.clock = clock;
@@ -87,7 +86,7 @@ public class ExponentiallyDecayingReservoir implements Reservoir {
     }
 
     @Override
-    public void update(final long value) {
+    public synchronized void update(final long value) {
         update(value, currentTimeInSeconds());
     }
 
@@ -135,7 +134,7 @@ public class ExponentiallyDecayingReservoir implements Reservoir {
     }
 
     @Override
-    public Snapshot getSnapshot() {
+    public synchronized Snapshot getSnapshot() {
         lockForRegularUsage();
         try {
             return new WeightedSnapshot(values.values());
@@ -197,18 +196,18 @@ public class ExponentiallyDecayingReservoir implements Reservoir {
     }
 
     private void unlockForRescale() {
-        lock.writeLock().unlock();
+        // lock.writeLock().unlock();
     }
 
     private void lockForRescale() {
-        lock.writeLock().lock();
+        // lock.writeLock().lock();
     }
 
     private void lockForRegularUsage() {
-        lock.readLock().lock();
+        // lock.readLock().lock();
     }
 
     private void unlockForRegularUsage() {
-        lock.readLock().unlock();
+        // lock.readLock().unlock();
     }
 }

@@ -112,6 +112,11 @@ public class ConcurrentSkipListMap<K, V> extends TreeMap<K, V> implements Clonea
     }
 
     @Override
+    public V putIfAbsent(final K key, final V value) {
+        return put(key, value);
+    }
+
+    @Override
     public Object clone() {
         return new ConcurrentSkipListMap<K, V>(this);
     }
