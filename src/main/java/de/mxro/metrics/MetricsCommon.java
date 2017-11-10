@@ -1,16 +1,18 @@
 package de.mxro.metrics;
 
+import com.codahale.metrics.Snapshot;
+
+import de.mxro.metrics.internal.MetricsFactory;
+import de.mxro.metrics.internal.operations.CounterEvent;
+import de.mxro.metrics.internal.operations.HistrogramEvent;
+import de.mxro.metrics.internal.operations.MarkEvent;
+import de.mxro.metrics.internal.operations.RetrieveHistrogramEvent;
 import delight.async.properties.PropertiesCommon;
 import delight.async.properties.PropertyNode;
 import delight.async.properties.PropertyOperation;
 import delight.factories.Configuration;
 import delight.factories.Dependencies;
 import delight.factories.Factory;
-
-import de.mxro.metrics.internal.MetricsFactory;
-import de.mxro.metrics.internal.operations.CounterEvent;
-import de.mxro.metrics.internal.operations.HistrogramEvent;
-import de.mxro.metrics.internal.operations.MarkEvent;
 
 /**
  * <p>
@@ -66,7 +68,7 @@ public class MetricsCommon extends PropertiesCommon {
     }
 
     /**
-     * Record a value and alter retrieve various statistics for the value, such
+     * Record a value and compute various statistics for the value, such
      * as the mean etc.
      * 
      * @param id
@@ -77,6 +79,10 @@ public class MetricsCommon extends PropertiesCommon {
         return new HistrogramEvent(value).setId(id);
     }
 
+    public static PropertyOperation<Snapshot> retrieveHistogram(String id) {
+    	return new RetrieveHistrogramEvent().setId(id);
+    }
+    
     private static PropertyNode instance;
 
     public static PropertyNode get() {
