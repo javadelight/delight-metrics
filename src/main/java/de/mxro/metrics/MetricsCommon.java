@@ -1,5 +1,6 @@
 package de.mxro.metrics;
 
+import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.Snapshot;
 
 import de.mxro.metrics.internal.MetricsFactory;
@@ -23,74 +24,86 @@ import delight.factories.Factory;
  */
 public class MetricsCommon extends PropertiesCommon {
 
-    /**
-     * <p>
-     * Creates a metric node, which is not thread safe. Only use in
-     * single-threaded applications or environments (such as GWT/JavaScript).
-     * 
-     * @return
-     */
-    public static PropertyNode createUnsafe() {
-        return PropertiesCommon.createUnsafe(
-                PropertiesCommon.compositeFactory(new MetricsFactory(), PropertiesCommon.defaultFactory()));
-    }
+	/**
+	 * <p>
+	 * Creates a metric node, which is not thread safe. Only use in single-threaded
+	 * applications or environments (such as GWT/JavaScript).
+	 * 
+	 * @return
+	 */
+	public static PropertyNode createUnsafe() {
+		return PropertiesCommon.createUnsafe(
+				PropertiesCommon.compositeFactory(new MetricsFactory(), PropertiesCommon.defaultFactory()));
+	}
 
-    public static Factory<?, ?, ?> createUnsafeFactory() {
-        return new Factory<PropertyNode, Configuration, Dependencies>() {
+	public static Factory<?, ?, ?> createUnsafeFactory() {
+		return new Factory<PropertyNode, Configuration, Dependencies>() {
 
-            @Override
-            public boolean canInstantiate(final Configuration conf) {
+			@Override
+			public boolean canInstantiate(final Configuration conf) {
 
-                return conf instanceof MetricsConfiguration;
-            }
+				return conf instanceof MetricsConfiguration;
+			}
 
-            @Override
-            public PropertyNode create(final Configuration conf, final Dependencies dependencies) {
-                return MetricsCommon.createUnsafe();
-            }
-        };
-    }
+			@Override
+			public PropertyNode create(final Configuration conf, final Dependencies dependencies) {
+				return MetricsCommon.createUnsafe();
+			}
+		};
+	}
 
-    public static PropertyOperation<Long> happened(final String id) {
-        return new MarkEvent().setId(id);
-    }
+	public static PropertyOperation<Long> happened(final String id) {
+		return new MarkEvent().setId(id);
+	}
 
-    public static PropertyOperation<Long> increment(final String id) {
-        return new CounterEvent(1).setId(id);
-    }
+	public static PropertyOperation<Long> increment(final String id) {
+		return new CounterEvent(1).setId(id);
+	}
 
-    public static PropertyOperation<Long> increment(final String id, final long by) {
-        return new CounterEvent(by).setId(id);
-    }
+	public static PropertyOperation<Long> increment(final String id, final long by) {
+		return new CounterEvent(by).setId(id);
+	}
 
-    public static PropertyOperation<Long> decrement(final String id) {
-        return new CounterEvent(-1).setId(id);
-    }
+	public static PropertyOperation<Long> decrement(final String id) {
+		return new CounterEvent(-1).setId(id);
+	}
 
-    /**
-     * Record a value and compute various statistics for the value, such
-     * as the mean etc.
-     * 
-     * @param id
-     * @param value
-     * @return
-     */
-    public static PropertyOperation<Long> value(final String id, final long value) {
-        return new HistrogramEvent(value).setId(id);
-    }
+	/**
+	 * Record a value and compute various statistics for the value, such as the mean
+	 * etc.
+	 * 
+	 * @param id
+	 * @param value
+	 * @return
+	 */
+	public static PropertyOperation<Long> value(final String id, final long value) {
+		return new HistrogramEvent(value).setId(id);
+	}
 
-    public static PropertyOperation<Snapshot> retrieveHistogram(String id) {
-    	return new RetrieveHistrogramEvent().setId(id);
-    }
-    
-    private static PropertyNode instance;
+	public static PropertyOperation<Snapshot> retrieveHistogram(String id) {
+		return new RetrieveHistrogramEvent().setId(id);
+	}
 
-    public static PropertyNode get() {
-        return instance;
-    }
+	private static MetricRegistry registry = null;
 
-    public static void inject(final PropertyNode propertyNode) {
-        instance = propertyNode;
-    }
+	public static MetricRegistry getMetricRegistry() {
+
+		if (registry == null) {
+			registry = new MetricRegistry();
+		}
+
+		return registry;
+
+	}
+
+	private static PropertyNode instance;
+
+	public static PropertyNode get() {
+		return instance;
+	}
+
+	public static void inject(final PropertyNode propertyNode) {
+		instance = propertyNode;
+	}
 
 }
