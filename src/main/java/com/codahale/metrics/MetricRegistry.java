@@ -452,7 +452,7 @@ public class MetricRegistry implements MetricSet {
         final TreeMap<String, T> timers = new TreeMap<String, T>();
         for (Map.Entry<String, Metric> entry : metrics.entrySet()) {
             
-        	
+        	// FIXME this only captures exact matches in class. Should support sub-classes.
         	if (klass.equals(entry.getValue().getClass()) && filter.matches(entry.getKey(),
                     entry.getValue())) {
                 timers.put(entry.getKey(), (T) entry.getValue());
