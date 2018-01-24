@@ -3,7 +3,6 @@
 	<groupId>de.mxro.metrics</groupId>
 	<artifactId>metrics</artifactId>
 	<version>0.0.5</version>
-
 	<description>Lightweight Java metrics.</description>
 	<url>https://github.com/javadelight/delight-metrics</url>
 	<properties>
