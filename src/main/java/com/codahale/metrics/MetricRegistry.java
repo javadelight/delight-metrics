@@ -138,7 +138,7 @@ public class MetricRegistry implements MetricSet {
 
             @Override
             public boolean isInstance(Metric metric) {
-                return Counter.class.isInstance(metric);
+                return metric instanceof Counter;
             }
         });
     }
@@ -171,7 +171,7 @@ public class MetricRegistry implements MetricSet {
 
             @Override
             public boolean isInstance(Metric metric) {
-                return Histogram.class.isInstance(metric);
+                return metric instanceof Histogram;
             }
         });
     }
@@ -204,7 +204,7 @@ public class MetricRegistry implements MetricSet {
 
             @Override
             public boolean isInstance(Metric metric) {
-                return Meter.class.isInstance(metric);
+                return metric instanceof Meter;
             }
         });
     }
@@ -237,7 +237,7 @@ public class MetricRegistry implements MetricSet {
 
             @Override
             public boolean isInstance(Metric metric) {
-                return Timer.class.isInstance(metric);
+                return metric instanceof Timer;
             }
         });
     }
@@ -260,7 +260,7 @@ public class MetricRegistry implements MetricSet {
 
             @Override
             public boolean isInstance(Metric metric) {
-                return Gauge.class.isInstance(metric);
+                return metric instanceof Gauge;
             }
         });
     }
@@ -449,7 +449,7 @@ public class MetricRegistry implements MetricSet {
     private <T extends Metric> SortedMap<String, T> getMetrics(Class<T> klass, MetricFilter filter) {
         final TreeMap<String, T> timers = new TreeMap<String, T>();
         for (Map.Entry<String, Metric> entry : metrics.entrySet()) {
-            if (klass.isInstance(entry.getValue()) && filter.matches(entry.getKey(),
+            if (klass.getClass().equals(entry.getValue().getClass()) && filter.matches(entry.getKey(),
                     entry.getValue())) {
                 timers.put(entry.getKey(), (T) entry.getValue());
             }
@@ -533,7 +533,7 @@ public class MetricRegistry implements MetricSet {
 
             @Override
             public boolean isInstance(Metric metric) {
-                return Counter.class.isInstance(metric);
+                return metric instanceof Counter;
             }
         };
 
@@ -545,7 +545,7 @@ public class MetricRegistry implements MetricSet {
 
             @Override
             public boolean isInstance(Metric metric) {
-                return Histogram.class.isInstance(metric);
+                return metric instanceof Histogram;
             }
         };
 
@@ -557,7 +557,7 @@ public class MetricRegistry implements MetricSet {
 
             @Override
             public boolean isInstance(Metric metric) {
-                return Meter.class.isInstance(metric);
+                return metric instanceof Meter;
             }
         };
 
@@ -569,7 +569,7 @@ public class MetricRegistry implements MetricSet {
 
             @Override
             public boolean isInstance(Metric metric) {
-                return Timer.class.isInstance(metric);
+                return metric instanceof Timer;
             }
         };
 
