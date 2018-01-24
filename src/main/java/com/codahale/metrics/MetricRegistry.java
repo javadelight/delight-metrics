@@ -87,6 +87,7 @@ public class MetricRegistry implements MetricSet {
      * @throws IllegalArgumentException if the name is already registered
      */
     public <T extends Metric> T register(String name, T metric) throws IllegalArgumentException {
+    	
         if (metric instanceof MetricSet) {
             registerAll(name, (MetricSet) metric);
         } else {
@@ -375,7 +376,8 @@ public class MetricRegistry implements MetricSet {
      * @return all the histograms in the registry
      */
     public SortedMap<String, Histogram> getHistograms() {
-        return getHistograms(MetricFilter.ALL);
+        
+    	return getHistograms(MetricFilter.ALL);
     }
 
     /**
@@ -449,7 +451,9 @@ public class MetricRegistry implements MetricSet {
     private <T extends Metric> SortedMap<String, T> getMetrics(Class<T> klass, MetricFilter filter) {
         final TreeMap<String, T> timers = new TreeMap<String, T>();
         for (Map.Entry<String, Metric> entry : metrics.entrySet()) {
-            if (klass.getClass().equals(entry.getValue().getClass()) && filter.matches(entry.getKey(),
+            
+        	
+        	if (klass.equals(entry.getValue().getClass()) && filter.matches(entry.getKey(),
                     entry.getValue())) {
                 timers.put(entry.getKey(), (T) entry.getValue());
             }
