@@ -4,7 +4,9 @@ import de.mxro.metrics.jre.Metrics;
 import de.oehme.xtend.junit.Hamcrest;
 import de.oehme.xtend.junit.JUnit;
 import delight.async.properties.PropertyNode;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.Matcher;
@@ -27,6 +29,57 @@ public class TestCounter {
     boolean _contains = m.retrieve("de.mxro.counter").get().toString().contains("1");
     TestCounter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
     m.stop().get();
+  }
+  
+  @Test
+  public void test_multi_threaded() {
+    try {
+      final PropertyNode m = Metrics.create();
+      final Runnable _function = new Runnable() {
+        @Override
+        public void run() {
+          try {
+            IntegerRange _upTo = new IntegerRange(1, 400);
+            for (final Integer i : _upTo) {
+              {
+                m.<Long>record(Metrics.increment("counter"));
+                Thread.sleep(1);
+              }
+            }
+          } catch (Throwable _e) {
+            throw Exceptions.sneakyThrow(_e);
+          }
+        }
+      };
+      final Thread t1 = new Thread(_function);
+      final Runnable _function_1 = new Runnable() {
+        @Override
+        public void run() {
+          try {
+            IntegerRange _upTo = new IntegerRange(1, 400);
+            for (final Integer i : _upTo) {
+              {
+                m.<Long>record(Metrics.decrement("counter"));
+                Thread.sleep(1);
+              }
+            }
+          } catch (Throwable _e) {
+            throw Exceptions.sneakyThrow(_e);
+          }
+        }
+      };
+      final Thread t2 = new Thread(_function_1);
+      t1.start();
+      t2.start();
+      t1.join();
+      t2.join();
+      final String res = m.retrieve("counter").get().toString();
+      boolean _contains = res.contains("0");
+      TestCounter.<Boolean, Boolean>operator_doubleArrow(Boolean.valueOf(_contains), Boolean.valueOf(true));
+      m.stop().get();
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   private static void assertArrayEquals(final Object[] expecteds, final Object[] actuals) {
