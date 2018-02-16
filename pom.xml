@@ -347,12 +347,7 @@
 	</build>
 
 
-	<repositories>
-		<repository>
-			<id>Appjangle Releases</id>
-			<url>http://maven.appjangle.com/appjangle/releases</url>
-		</repository>
-	</repositories>
+	
 
 	<developers>
 		<developer>
@@ -366,15 +361,40 @@
 			</roles>
 			<timezone>+10</timezone>
 			<organization>pureleap</organization>
-			<organizationUrl>http://pureleap.com</organizationUrl>
+			<organizationUrl>https://www.pureleap.com</organizationUrl>
 		</developer>
 	</developers>
 
 	<scm>
-		<connection>scm:git:git@github.com:mxro/lightweight-java-metrics.git</connection>
-		<url>https://github.com/mxro/lightweight-java-metrics</url>
-		<developerConnection>scm:git:git@github.com:mxro/lightweight-java-metrics.git
+		<connection>scm:git:git@github.com:javadelight/delight-metrics.git</connection>
+		<url>https://github.com/javadelight/delight-metrics</url>
+		<developerConnection>scm:git:git@github.com:javadelight/delight-metrics.git
 		</developerConnection>
 	</scm>
+	
+	<distributionManagement>
+		<repository>
+			<id>bintray-javadelight-javadelight</id>
+			<name>javadelight-javadelight</name>
+			<url>https://api.bintray.com/maven/javadelight/javadelight/delight-metrics/;publish=1</url>
+		</repository>
+	</distributionManagement>
+	
+	
+
+	<licenses>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+		</license>
+		<license>
+			<name>GPL</name>
+			<url>https://www.gnu.org/licenses/gpl-3.0.en.html</url>
+		</license>
+	</licenses>
 
 </project>
