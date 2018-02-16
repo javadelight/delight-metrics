@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- Template: Source 
-	+ GWT + in workspace dependencies 27.11.2010 --><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<groupId>de.mxro.metrics</groupId>
-	<artifactId>metrics</artifactId>
-	<version>0.0.5</version>
+	+ GWT + in workspace dependencies 27.11.2010 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<groupId>org.javadelight</groupId>
+	<artifactId>delight-metrics</artifactId>
+	<version>0.0.6</version>
 	<description>Lightweight Java metrics.</description>
 	<url>https://github.com/javadelight/delight-metrics</url>
 	<properties>
@@ -77,6 +79,38 @@
 	<build>
 
 		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.4</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<failOnError>false</failOnError>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
@@ -152,8 +186,8 @@
 						</goals>
 						<configuration>
 							<tasks>
-								<delete file="${basedir}/META-INF/MANIFEST.MF"/>
-								<copy file="target/classes/META-INF/MANIFEST.MF" tofile="${basedir}/META-INF/MANIFEST.MF"/>
+								<delete file="${basedir}/META-INF/MANIFEST.MF" />
+								<copy file="target/classes/META-INF/MANIFEST.MF" tofile="${basedir}/META-INF/MANIFEST.MF" />
 							</tasks>
 						</configuration>
 					</execution>
