@@ -122,7 +122,22 @@ String metrics = m.render().get();
 
 ```
 
+## Dependency
 
+Just add the following dependency to your projects.
+
+```
+<dependency>
+    <groupId>org.javadelight</groupId>
+    <artifactId>delight-metrics</artifactId>
+    <version>[insert latest version]</version>
+</dependency>
+```
+
+This artifact is available on [Maven Central](https://search.maven.org/#search%7Cga%7C1%7Cdelight-metrics) and 
+[BinTray](https://bintray.com/javadelight/javadelight/delight-metrics).
+
+[![Maven Central](https://img.shields.io/maven-central/v/org.javadelight/delight-metrics.svg)](https://search.maven.org/#search%7Cga%7C1%7Cdelight-metrics)
 
 ## Compatibility
 
