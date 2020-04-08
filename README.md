@@ -126,7 +126,7 @@ String metrics = m.render().get();
 
 Just add the following dependency to your projects.
 
-```
+```xml
 <dependency>
     <groupId>org.javadelight</groupId>
     <artifactId>delight-metrics</artifactId>
